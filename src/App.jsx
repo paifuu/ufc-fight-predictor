@@ -1686,7 +1686,7 @@ export default function App(){
 
       {showShare&&fantasyPred&&<ShareCard pred={fantasyPred} f1={fantasyF1} f2={fantasyF2} onClose={()=>setShowShare(false)}/>}
 
-      <style>{`*{box-sizing:border-box}::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:#0a0a0f}::-webkit-scrollbar-thumb{background:#2a1a0a;border-radius:3px}input[type=range]{height:4px}select option{background:#111}@media(min-width:700px){.desktop-only{display:block!important}}`}</style>
+      <style>{`*{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji"}::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:#0a0a0f}::-webkit-scrollbar-thumb{background:#2a1a0a;border-radius:3px}input[type=range]{height:4px}select option{background:#111}@media(min-width:700px){.desktop-only{display:block!important}}`}</style>
     </div>
   );
 }
