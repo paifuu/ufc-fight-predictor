@@ -642,8 +642,6 @@ const UPCOMING_EVENTS = [
         context:"Fiziev fights in front of his home crowd in Azerbaijan looking to rebound after his loss to Ruffy. Torres is a relentless pressure fighter from Mexico with serious finishing ability — exactly the kind of brawler who could nullify Fiziev's flashy kickboxing."},
       {f1:"Shara Magomedov",f2:"Michel Pereira",weightClass:"Middleweight",isMain:false,
         context:"Two of the most spectacular fighters in MMA. Shara's spinning KO power vs Pereira's backflip kicks and wild unorthodox movement. Could be the most entertaining fight of 2026."},
-      {f1:"Umar Nurmagomedov",f2:"David Martinez",weightClass:"Bantamweight",isMain:false,
-        context:"Umar continues his undefeated march toward the BW title. Martinez is a technical kickboxer with reach but Umar's elite Khabib-style wrestling could make this a very long night for the Spaniard."},
     ],
   },
   {
@@ -668,6 +666,8 @@ const UPCOMING_EVENTS = [
     fights:[
       {f1:"Magomed Ankalaev",f2:"Khalil Rountree Jr.",weightClass:"Light Heavyweight",isMain:true,
         context:"The #1 ranked contender Ankalaev — dominant wrestler and GnP specialist — vs the hard-hitting southpaw Rountree. Ankalaev's elite wrestling is the ultimate equalizer against Rountree's massive one-punch KO power."},
+      {f1:"Umar Nurmagomedov",f2:"David Martinez",weightClass:"Bantamweight",isMain:false,
+        context:"Umar continues his undefeated march toward the BW title. Martinez is a technical kickboxer with reach but Umar's elite Khabib-style wrestling could make this a very long night for the Spaniard."},
     ],
   },
 
