@@ -535,7 +535,7 @@ const PAST_EVENTS = [
       {f1:"Ciryl Gane",f2:"Alex Pereira",weightClass:"Heavyweight (Interim Title)",isMain:false,
         actualWinner:"Ciryl Gane",method:"KO",round:3,time:""},
       {f1:"Sean O'Malley",f2:"Aiemann Zahabi",weightClass:"Bantamweight",isMain:false,
-        actualWinner:"Aiemann Zahabi",method:"Decision",round:3,time:""},
+        actualWinner:"Sean O'Malley",method:"Decision",round:3,time:""},
       {f1:"Josh Hokit",f2:"Derrick Lewis",weightClass:"Heavyweight",isMain:false,
         actualWinner:"Josh Hokit",method:"Decision",round:3,time:""},
       {f1:"Mauricio Ruffy",f2:"Michael Chandler",weightClass:"Lightweight",isMain:false,
