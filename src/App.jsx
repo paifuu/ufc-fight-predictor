@@ -497,13 +497,11 @@ const FIGHTER_DB = {
     stats:{slpm:5.6,stracc:48,sapm:4.2,strdef:55,tdavg:0.3,tdacc:24,tddef:58,subavg:0.1,winStreak:3,finishRate:86},
     pastMatchups:{},
   },
-};
-
   "Kevin Holland": {
     name:"Kevin Holland",record:"27-11",rank:"#15 WW",country:"🇺🇸",age:32,
     weightClass:"Welterweight",naturalWeight:170,reach:80,style:"Flashy Striker",
     tendencies:["wild unorthodox combos","trash talk mid-fight","submission scrambles","huge reach advantage"],
-    strengths:["reach (80\")","unorthodox movement","submissions","entertainment factor","power"],
+    strengths:["reach (80\")" ,"unorthodox movement","submissions","entertainment factor","power"],
     weaknesses:["gets hit a lot","wrestling defense","inconsistency","can be outboxed by disciplined fighters"],
     wrestlerResilience:6, reachDisadvantageHandling:9, speedVsHandsHandling:7, yearsInactive:0, recentForm:6,
     styleMatchups:{"Wrestler":-4,"Grappler":-3,"BJJ Specialist":-5,"Sambo / Wrestler":-4,"Counter Striker":3,"Pressure Fighter":2,"Striker":2,"Kickboxer":2,"Power Striker":1,"Brawler":3,"Flashy Striker":1,"Complete Fighter":-2},
@@ -523,6 +521,7 @@ const FIGHTER_DB = {
     stats:{slpm:5.2,stracc:53,sapm:3.6,strdef:60,tdavg:0.6,tdacc:32,tddef:68,subavg:0.3,winStreak:2,finishRate:57},
     pastMatchups:{"Manel Kape":"W"},
   },
+};
 const FIGHTER_NAMES = Object.keys(FIGHTER_DB).sort();
 
 // ─── PAST RESULTS (fights already happened) ──────────────────────────────────
