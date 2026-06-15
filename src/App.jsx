@@ -499,6 +499,18 @@ const FIGHTER_DB = {
   },
 };
 
+  "Kevin Holland": {
+    name:"Kevin Holland",record:"27-11",rank:"#15 WW",country:"🇺🇸",age:32,
+    weightClass:"Welterweight",naturalWeight:170,reach:80,style:"Flashy Striker",
+    tendencies:["wild unorthodox combos","trash talk mid-fight","submission scrambles","huge reach advantage"],
+    strengths:["reach (80\")","unorthodox movement","submissions","entertainment factor","power"],
+    weaknesses:["gets hit a lot","wrestling defense","inconsistency","can be outboxed by disciplined fighters"],
+    wrestlerResilience:6, reachDisadvantageHandling:9, speedVsHandsHandling:7, yearsInactive:0, recentForm:6,
+    styleMatchups:{"Wrestler":-4,"Grappler":-3,"BJJ Specialist":-5,"Sambo / Wrestler":-4,"Counter Striker":3,"Pressure Fighter":2,"Striker":2,"Kickboxer":2,"Power Striker":1,"Brawler":3,"Flashy Striker":1,"Complete Fighter":-2},
+    opponentQuality:84,
+    stats:{slpm:6.1,stracc:44,sapm:5.8,strdef:50,tdavg:0.6,tdacc:28,tddef:58,subavg:0.8,winStreak:1,finishRate:70},
+    pastMatchups:{},
+  },
 const FIGHTER_NAMES = Object.keys(FIGHTER_DB).sort();
 
 // ─── EVENTS ────────────────────────────────────────────────────────────────
@@ -558,23 +570,19 @@ const UPCOMING_EVENTS = [
     ],
   },
   {
-    event:"UFC Fight Night 281: Oklahoma City",
+    event:"UFC Fight Night 281: Holland vs. Smith",
     date:"July 18, 2026",venue:"Paycom Center, Oklahoma City, OK",
     fights:[
-      {f1:"Leon Edwards",f2:"Daniel Rodriguez",weightClass:"Welterweight",isMain:true,
-        context:"Former WW champion Edwards looks to fight his way back to title contention against the tough and durable D-Rod. Edwards' elite counter-striking vs Rodriguez's relentless pressure and body attacks."},
-      {f1:"Renato Moicano",f2:"Manel Kape",weightClass:"Catchweight",isMain:false,
-        context:"Moicano steps in on short notice. His BJJ and grappling could neutralise Kape's explosive KO power — but if Kape keeps it standing, fireworks expected early."},
+      {f1:"Kevin Holland",f2:"Leon Edwards",weightClass:"Welterweight",isMain:true,
+        context:"Kevin Holland's wild unorthodox striking vs the former WW champion Leon Edwards. Holland thrives in chaos and has elite submission skills; Edwards counters with disciplined southpaw boxing and composure."},
     ],
   },
   {
-    event:"UFC Fight Night 282: Abu Dhabi",
+    event:"UFC Fight Night 282: Ankalaev vs. Rountree Jr.",
     date:"July 25, 2026",venue:"Etihad Arena, Abu Dhabi, UAE",
     fights:[
       {f1:"Magomed Ankalaev",f2:"Khalil Rountree Jr.",weightClass:"Light Heavyweight",isMain:true,
-        context:"The #1 ranked contender Ankalaev, dominant wrestler and GnP specialist, collides with the hard-hitting power puncher Rountree. Ankalaev's wrestling could be the ultimate equalizer against Rountree's massive KO power."},
-      {f1:"Rafael Fiziev",f2:"Renato Moicano",weightClass:"Lightweight",isMain:false,
-        context:"The unorthodox kickboxer Fiziev with his spinning arsenal vs Moicano's gritty BJJ and clinch work. Fiziev's style creates awkward angles but Moicano thrives in dirty fighting."},
+        context:"The #1 ranked contender Ankalaev — dominant wrestler and ground-and-pound specialist — vs the hard-hitting power puncher Rountree. Ankalaev's elite wrestling is the ultimate equalizer against Rountree's massive one-punch KO power."},
     ],
   },
   {
@@ -582,7 +590,7 @@ const UPCOMING_EVENTS = [
     date:"August 15, 2026",venue:"Xfinity Mobile Arena, Philadelphia, PA",
     fights:[
       {f1:"Manel Kape",f2:"Kai Kara-France",weightClass:"Flyweight",isMain:true,
-        context:"The rematch — Kape's devastating power vs Kara-France's technical kickboxing. KKF edged the first meeting but Kape has improved dramatically. Both men are one-punch finishers."},
+        context:"Main event TBC — card details still being finalized for Philly."},
     ],
   },
 ];
