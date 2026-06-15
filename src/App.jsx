@@ -1542,15 +1542,16 @@ export default function App(){
   return(
     <div style={{minHeight:"100vh",background:"#0a0a0f",fontFamily:"Georgia,serif",color:"#e8e0d4"}}>
       {/* Header */}
-      <div style={{background:"linear-gradient(135deg,#1a0a00,#0a0a0f 50%,#00001a)",borderBottom:"1px solid #1a1a1a",padding:"14px 22px",display:"flex",alignItems:"center",gap:14}}>
-        <div style={{fontSize:26}}>🥊</div>
-        <div>
-          <div style={{fontSize:17,fontWeight:700,letterSpacing:3,color:"#d4a843",textTransform:"uppercase"}}>UFC Fight Predictor</div>
-          <div style={{fontSize:9,color:"#5a4a3a",letterSpacing:2,textTransform:"uppercase"}}>Style · Size · History · Wrestler Resilience · Opp. Quality · Speed</div>
+      {/* HEADER */}
+      <div style={{background:"linear-gradient(135deg,#1a0a00,#0a0a0f 50%,#00001a)",borderBottom:"1px solid #1a1a1a",padding:"12px 16px",display:"flex",alignItems:"center",gap:10}}>
+        <div style={{fontSize:22}}>🥊</div>
+        <div style={{flex:1,minWidth:0}}>
+          <div style={{fontSize:14,fontWeight:700,letterSpacing:2,color:"#d4a843",textTransform:"uppercase"}}>UFC Fight Predictor</div>
+          <div style={{fontSize:8,color:"#5a4a3a",letterSpacing:1,textTransform:"uppercase",display:"none"}} className="desktop-only">Style · Size · History · Wrestler Resilience · Opp. Quality · Speed</div>
         </div>
-        <div style={{marginLeft:"auto",display:"flex",gap:7}}>
+        <div style={{display:"flex",gap:4,flexShrink:0}}>
           {tabs.map(([m,lbl])=>(
-            <button key={m} onClick={()=>setMode(m)} style={{padding:"6px 14px",borderRadius:5,border:"1px solid",cursor:"pointer",fontSize:10,fontWeight:700,letterSpacing:1,textTransform:"uppercase",
+            <button key={m} onClick={()=>setMode(m)} style={{padding:"7px 10px",borderRadius:5,border:"1px solid",cursor:"pointer",fontSize:10,fontWeight:700,letterSpacing:0,textTransform:"uppercase",whiteSpace:"nowrap",
               borderColor:mode===m?"#d4a843":"#2a2a2a",background:mode===m?"#d4a843":"transparent",color:mode===m?"#0a0a0f":"#5a4a3a"}}>
               {lbl}
             </button>
@@ -1558,58 +1559,56 @@ export default function App(){
         </div>
       </div>
 
-      {/* ACCURACY TAB */}
-      {mode==="accuracy"&&<div style={{height:"calc(100vh - 65px)",overflowY:"auto",width:"100%"}}><ResultsTab/></div>}
+      {/* RESULTS TAB */}
+      {mode==="accuracy"&&<div style={{height:"calc(100vh - 57px)",overflowY:"auto",width:"100%"}}><ResultsTab/></div>}
 
       {/* SCHEDULED TAB */}
       {mode==="scheduled"&&(
-        <div style={{display:"flex",height:"calc(100vh - 65px)"}}>
-          <div style={{width:255,flexShrink:0,borderRight:"1px solid #1a1a1a",overflowY:"auto",padding:"10px 0"}}>
-            {UPCOMING_EVENTS.map((evt,ei)=>(
-              <div key={ei}>
-                <div style={{padding:"5px 12px",fontSize:9,color:"#d4a843",fontWeight:700,letterSpacing:1,textTransform:"uppercase"}}>{evt.event.split(":")[0].split("—")[0].trim()}</div>
-                <div style={{padding:"0 12px 7px",fontSize:9,color:"#3a2a1a"}}>{evt.date}</div>
-                {evt.fights.map((f,fi)=>{
-                  const act=selEvt===ei&&selFight===fi;
-                  return(
-                    <button key={fi} onClick={()=>{setSelEvt(ei);setSelFight(fi);setPred(null);}}
-                      style={{width:"100%",padding:"8px 12px",background:act?"#15100a":"transparent",border:"none",borderLeft:`3px solid ${act?"#d4a843":"transparent"}`,cursor:"pointer",textAlign:"left"}}>
-                      {f.isMain&&<div style={{fontSize:8,color:"#d4a843",letterSpacing:2,textTransform:"uppercase",marginBottom:1}}>★ Main Event</div>}
-                      <div style={{fontSize:11,color:"#e8e0d4",fontWeight:600}}>{f.f1} vs {f.f2}</div>
-                      <div style={{fontSize:9,color:"#4a3a2a",marginTop:1}}>{f.weightClass}</div>
-                    </button>
-                  );
-                })}
-                {ei<UPCOMING_EVENTS.length-1&&<div style={{margin:"6px 12px",borderTop:"1px solid #181818"}}/>}
-              </div>
-            ))}
+        <div style={{height:"calc(100vh - 57px)",overflowY:"auto"}}>
+          {/* Fight selector — horizontal scroll on mobile */}
+          <div style={{overflowX:"auto",borderBottom:"1px solid #1a1a1a",padding:"8px 12px",display:"flex",gap:6,WebkitOverflowScrolling:"touch"}}>
+            {UPCOMING_EVENTS.map((evt,ei)=>
+              evt.fights.map((f,fi)=>{
+                const act=selEvt===ei&&selFight===fi;
+                return(
+                  <button key={ei+"-"+fi} onClick={()=>{setSelEvt(ei);setSelFight(fi);setPred(null);}}
+                    style={{flexShrink:0,padding:"7px 12px",borderRadius:6,border:`1px solid ${act?"#d4a843":"#2a2a2a"}`,
+                      background:act?"#1a1000":"transparent",cursor:"pointer",textAlign:"left",minWidth:140}}>
+                    {f.isMain&&<div style={{fontSize:7,color:"#d4a843",letterSpacing:1,textTransform:"uppercase",marginBottom:1}}>★ MAIN</div>}
+                    <div style={{fontSize:10,color:"#e8e0d4",fontWeight:600,lineHeight:1.3}}>{f.f1}<br/>vs {f.f2}</div>
+                    <div style={{fontSize:8,color:"#4a3a2a",marginTop:2}}>{evt.event.split(":")[0].split("—")[0].trim()}</div>
+                  </button>
+                );
+              })
+            )}
           </div>
-          <div style={{flex:1,overflowY:"auto",padding:"22px 22px"}}>
-            <div style={{marginBottom:14}}>
+          {/* Fight detail */}
+          <div style={{padding:"16px 16px"}}>
+            <div style={{marginBottom:12}}>
               <div style={{fontSize:10,color:"#d4a843",letterSpacing:2,textTransform:"uppercase",marginBottom:2}}>
                 {fightMeta.isMain?"★ Main Event · ":""}{fightMeta.weightClass}
               </div>
               <div style={{fontSize:10,color:"#3a2a1a"}}>{evtMeta.date} · {evtMeta.venue}</div>
             </div>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 40px 1fr",gap:12,alignItems:"start",marginBottom:16}}>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 32px 1fr",gap:8,alignItems:"start",marginBottom:14}}>
               <FighterCard fighter={f1} idx={0}/>
-              <div style={{textAlign:"center",fontSize:20,fontWeight:900,color:"#d4a843",paddingTop:24}}>VS</div>
+              <div style={{textAlign:"center",fontSize:16,fontWeight:900,color:"#d4a843",paddingTop:20}}>VS</div>
               <FighterCard fighter={f2} idx={1}/>
             </div>
-            <div style={{background:"#0d0d13",border:"1px solid #1a1a2a",borderRadius:7,padding:"10px 14px",marginBottom:18,fontSize:11,color:"#6a6a8a",lineHeight:1.6}}>
+            <div style={{background:"#0d0d13",border:"1px solid #1a1a2a",borderRadius:7,padding:"10px 12px",marginBottom:16,fontSize:11,color:"#6a6a8a",lineHeight:1.6}}>
               📋 {fightMeta.context}
             </div>
             {!pred?(
-              <div style={{textAlign:"center",marginBottom:24}}>
-                <button onClick={analyze} style={{padding:"12px 38px",background:"linear-gradient(135deg,#d4a843,#a87820)",border:"none",borderRadius:7,color:"#0a0a0f",fontSize:13,fontWeight:700,letterSpacing:2,textTransform:"uppercase",cursor:"pointer",boxShadow:"0 4px 20px rgba(212,168,67,0.25)"}}>
+              <div style={{textAlign:"center",marginBottom:20}}>
+                <button onClick={analyze} style={{padding:"13px 0",width:"100%",maxWidth:340,background:"linear-gradient(135deg,#d4a843,#a87820)",border:"none",borderRadius:7,color:"#0a0a0f",fontSize:14,fontWeight:700,letterSpacing:2,textTransform:"uppercase",cursor:"pointer",boxShadow:"0 4px 20px rgba(212,168,67,0.25)"}}>
                   ⚡ Analyze & Predict
                 </button>
               </div>
             ):(
               <>
                 <ResultPanel pred={pred} f1={f1} f2={f2}/>
-                <div style={{textAlign:"center",marginTop:12,display:"flex",gap:8,justifyContent:"center"}}>
-                  <button onClick={()=>setPred(null)} style={{padding:"7px 22px",background:"transparent",border:"1px solid #2a2a2a",borderRadius:5,color:"#4a3a2a",fontSize:10,letterSpacing:2,textTransform:"uppercase",cursor:"pointer"}}>↺ Reset</button>
+                <div style={{textAlign:"center",marginTop:12,paddingBottom:20}}>
+                  <button onClick={()=>setPred(null)} style={{padding:"10px 28px",background:"transparent",border:"1px solid #2a2a2a",borderRadius:5,color:"#4a3a2a",fontSize:10,letterSpacing:2,textTransform:"uppercase",cursor:"pointer"}}>↺ Reset</button>
                 </div>
               </>
             )}
@@ -1619,70 +1618,65 @@ export default function App(){
 
       {/* FANTASY TAB */}
       {mode==="fantasy"&&(
-        <div style={{display:"flex",height:"calc(100vh - 65px)"}}>
-          <div style={{width:400,flexShrink:0,borderRight:"1px solid #1a1a1a",overflowY:"auto",padding:14}}>
-            <div style={{fontSize:9,color:"#5a4a3a",letterSpacing:2,textTransform:"uppercase",marginBottom:10}}>⚗️ Build Your Fantasy Matchup</div>
-            <div style={{display:"flex",gap:6,marginBottom:12}}>
-              {[["red","🔴 Fighter 1",true],["blue","🔵 Fighter 2",false]].map(([col,lbl,isF1])=>(
-                <button key={col} onClick={()=>setEditF1(isF1)} style={{flex:1,padding:"7px",borderRadius:5,border:"1px solid",
-                  borderColor:(isF1?editingF1:!editingF1)?(isF1?"#d4a843":"#6a8ad4"):"#2a2a2a",
-                  background:(isF1?editingF1:!editingF1)?(isF1?"#1a1000":"#00001a"):"transparent",
-                  color:(isF1?editingF1:!editingF1)?(isF1?"#d4a843":"#6a8ad4"):"#4a4a4a",cursor:"pointer",fontSize:10,fontWeight:700}}>
-                  {lbl}
-                </button>
-              ))}
-            </div>
-            <div style={{marginBottom:12}}>
-              <div style={{fontSize:9,color:"#3a3a3a",letterSpacing:1,textTransform:"uppercase",marginBottom:4}}>Load a real fighter</div>
-              <select value={editingF1?f1src:f2src} onChange={e=>loadDB(editingF1?1:2,e.target.value)}
-                style={{width:"100%",background:"#0a0a0a",border:"1px solid #2a2a2a",borderRadius:5,padding:"7px 8px",color:"#e8e0d4",fontSize:12}}>
-                <option value="custom">— Custom Fighter —</option>
-                {FIGHTER_NAMES.map(n=><option key={n} value={n}>{n}</option>)}
-              </select>
-            </div>
-            {editingF1
-              ?<FighterEditor fighter={fantasyF1} color="gold" update={updF1} label="🔴 Fighter 1"/>
-              :<FighterEditor fighter={fantasyF2} color="blue" update={updF2} label="🔵 Fighter 2"/>}
+        <div style={{height:"calc(100vh - 57px)",overflowY:"auto",padding:"14px 16px"}}>
+          <div style={{fontSize:9,color:"#5a4a3a",letterSpacing:2,textTransform:"uppercase",marginBottom:10}}>⚗️ Build Your Fantasy Matchup</div>
+          <div style={{display:"flex",gap:6,marginBottom:12}}>
+            {[["red","🔴 Fighter 1",true],["blue","🔵 Fighter 2",false]].map(([col,lbl,isF1])=>(
+              <button key={col} onClick={()=>setEditF1(isF1)} style={{flex:1,padding:"10px",borderRadius:5,border:"1px solid",
+                borderColor:(isF1?editingF1:!editingF1)?(isF1?"#d4a843":"#6a8ad4"):"#2a2a2a",
+                background:(isF1?editingF1:!editingF1)?(isF1?"#1a1000":"#00001a"):"transparent",
+                color:(isF1?editingF1:!editingF1)?(isF1?"#d4a843":"#6a8ad4"):"#4a4a4a",cursor:"pointer",fontSize:11,fontWeight:700}}>
+                {lbl}
+              </button>
+            ))}
           </div>
-          <div style={{flex:1,overflowY:"auto",padding:"22px 22px"}}>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 40px 1fr",gap:12,alignItems:"center",marginBottom:16}}>
+          <div style={{marginBottom:12}}>
+            <div style={{fontSize:9,color:"#3a3a3a",letterSpacing:1,textTransform:"uppercase",marginBottom:4}}>Load a real fighter</div>
+            <select value={editingF1?f1src:f2src} onChange={e=>loadDB(editingF1?1:2,e.target.value)}
+              style={{width:"100%",background:"#0a0a0a",border:"1px solid #2a2a2a",borderRadius:5,padding:"10px 8px",color:"#e8e0d4",fontSize:14}}>
+              <option value="custom">— Custom Fighter —</option>
+              {FIGHTER_NAMES.map(n=><option key={n} value={n}>{n}</option>)}
+            </select>
+          </div>
+          {editingF1
+            ?<FighterEditor fighter={fantasyF1} color="gold" update={updF1} label="🔴 Fighter 1"/>
+            :<FighterEditor fighter={fantasyF2} color="blue" update={updF2} label="🔵 Fighter 2"/>}
+          {/* Preview cards */}
+          <div style={{marginTop:16}}>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 32px 1fr",gap:8,alignItems:"center",marginBottom:14}}>
               {[fantasyF1,fantasyF2].map((fighter,idx)=>(
                 <React.Fragment key={idx}>
-                  {idx===1&&<div style={{textAlign:"center",fontSize:20,fontWeight:900,color:"#d4a843"}}>VS</div>}
+                  {idx===1&&<div style={{textAlign:"center",fontSize:16,fontWeight:900,color:"#d4a843"}}>VS</div>}
                   <div style={{background:idx===0?"linear-gradient(135deg,#1a1000,#110800)":"linear-gradient(135deg,#00001a,#08001a)",
-                    border:`1px solid ${idx===0?"#2a1a0a":"#0a0a2a"}`,borderRadius:10,padding:16}}>
-                    <div style={{fontSize:15,fontWeight:700,color:"#e8e0d4",marginBottom:2}}>{fighter.name||`Fighter ${idx+1}`}</div>
-                    <div style={{fontSize:10,color:idx===0?"#d4a843":"#6a8ad4",marginBottom:8}}>{fighter.style} · {fighter.reach}" · Age {fighter.age} · {fighter.naturalWeight}lbs</div>
-                    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:4}}>
+                    border:`1px solid ${idx===0?"#2a1a0a":"#0a0a2a"}`,borderRadius:10,padding:12}}>
+                    <div style={{fontSize:13,fontWeight:700,color:"#e8e0d4",marginBottom:2}}>{fighter.name||`Fighter ${idx+1}`}</div>
+                    <div style={{fontSize:9,color:idx===0?"#d4a843":"#6a8ad4",marginBottom:6}}>{fighter.style} · {fighter.reach}" · Age {fighter.age}</div>
+                    <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:3}}>
                       {[["SLpM",fighter.stats.slpm],["Fin%",fighter.stats.finishRate+"%"],["TDavg",fighter.stats.tdavg],["Str%",fighter.stats.stracc+"%"],["TDdef",fighter.stats.tddef+"%"],["Sub",fighter.stats.subavg]].map(([k,v])=>(
-                        <div key={k} style={{background:idx===0?"#0d0800":"#080013",borderRadius:4,padding:"4px 6px",textAlign:"center"}}>
-                          <div style={{fontSize:8,color:idx===0?"#3a2a1a":"#1a1a3a",textTransform:"uppercase",letterSpacing:1}}>{k}</div>
-                          <div style={{fontSize:11,fontWeight:700,color:idx===0?"#d4a843":"#6a8ad4"}}>{v}</div>
+                        <div key={k} style={{background:idx===0?"#0d0800":"#080013",borderRadius:4,padding:"3px 5px",textAlign:"center"}}>
+                          <div style={{fontSize:7,color:idx===0?"#3a2a1a":"#1a1a3a",textTransform:"uppercase"}}>{k}</div>
+                          <div style={{fontSize:10,fontWeight:700,color:idx===0?"#d4a843":"#6a8ad4"}}>{v}</div>
                         </div>
                       ))}
-                    </div>
-                    <div style={{marginTop:7,fontSize:10,color:"#3a3a3a"}}>
-                      WR: {fighter.wrestlerResilience}/10 · Opp.Q: {fighter.opponentQuality}/100
                     </div>
                   </div>
                 </React.Fragment>
               ))}
             </div>
             {!fantasyPred?(
-              <div style={{textAlign:"center",marginBottom:24}}>
+              <div style={{textAlign:"center",marginBottom:20}}>
                 <button onClick={analyzeFantasy} disabled={!fantasyF1.name||!fantasyF2.name}
-                  style={{padding:"12px 38px",background:"linear-gradient(135deg,#d4a843,#a87820)",border:"none",borderRadius:7,color:"#0a0a0f",fontSize:13,fontWeight:700,letterSpacing:2,textTransform:"uppercase",cursor:"pointer",
+                  style={{padding:"13px 0",width:"100%",background:"linear-gradient(135deg,#d4a843,#a87820)",border:"none",borderRadius:7,color:"#0a0a0f",fontSize:14,fontWeight:700,letterSpacing:2,textTransform:"uppercase",cursor:"pointer",
                     boxShadow:"0 4px 20px rgba(212,168,67,0.25)",opacity:(!fantasyF1.name||!fantasyF2.name)?0.4:1}}>
                   ⚡ Run Fantasy Prediction
                 </button>
-                <div style={{marginTop:7,fontSize:10,color:"#2a2a2a"}}>Considers style · size · reach · wrestler resilience · opp. quality · speed handling</div>
               </div>
             ):(
               <>
                 <ResultPanel pred={fantasyPred} f1={fantasyF1} f2={fantasyF2}/>
-                <div style={{textAlign:"center",marginTop:12,display:"flex",gap:8,justifyContent:"center"}}>
-                  <button onClick={()=>setFantasyPred(null)} style={{padding:"7px 22px",background:"transparent",border:"1px solid #2a2a2a",borderRadius:5,color:"#4a3a2a",fontSize:10,letterSpacing:2,textTransform:"uppercase",cursor:"pointer"}}>↺ Reset</button>
-                  <button onClick={()=>setShowShare(true)} style={{padding:"7px 22px",background:"#1a1000",border:"1px solid #d4a843",borderRadius:5,color:"#d4a843",fontSize:10,letterSpacing:2,textTransform:"uppercase",cursor:"pointer"}}>📤 Share Card</button>
+                <div style={{textAlign:"center",marginTop:12,display:"flex",gap:8,justifyContent:"center",paddingBottom:20}}>
+                  <button onClick={()=>setFantasyPred(null)} style={{padding:"10px 22px",background:"transparent",border:"1px solid #2a2a2a",borderRadius:5,color:"#4a3a2a",fontSize:10,letterSpacing:2,textTransform:"uppercase",cursor:"pointer"}}>↺ Reset</button>
+                  <button onClick={()=>setShowShare(true)} style={{padding:"10px 22px",background:"#1a1000",border:"1px solid #d4a843",borderRadius:5,color:"#d4a843",fontSize:10,letterSpacing:2,textTransform:"uppercase",cursor:"pointer"}}>📤 Share</button>
                 </div>
               </>
             )}
@@ -1692,7 +1686,7 @@ export default function App(){
 
       {showShare&&fantasyPred&&<ShareCard pred={fantasyPred} f1={fantasyF1} f2={fantasyF2} onClose={()=>setShowShare(false)}/>}
 
-      <style>{`::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#0a0a0f}::-webkit-scrollbar-thumb{background:#2a1a0a;border-radius:3px}input[type=range]{height:4px}select option{background:#111}`}</style>
+      <style>{`*{box-sizing:border-box}::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:#0a0a0f}::-webkit-scrollbar-thumb{background:#2a1a0a;border-radius:3px}input[type=range]{height:4px}select option{background:#111}@media(min-width:700px){.desktop-only{display:block!important}}`}</style>
     </div>
   );
 }
