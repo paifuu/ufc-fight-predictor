@@ -543,7 +543,7 @@ const PAST_EVENTS = [
       {f1:"Bo Nickal",f2:"Kyle Daukaus",weightClass:"Middleweight",isMain:false,
         actualWinner:"Bo Nickal",method:"TKO (Punches)",round:1,time:"4:34"},
       {f1:"Diego Lopes",f2:"Steve Garcia",weightClass:"Featherweight",isMain:false,
-        actualWinner:"Diego Lopes",method:"KO (Punches)",round:2,time:"2:43"},
+        actualWinner:"Diego Lopes",method:"KO (Punches)",round:2,time:"2:42"},
     ],
   },
 ];
