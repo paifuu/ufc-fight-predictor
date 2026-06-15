@@ -527,6 +527,22 @@ const FIGHTER_NAMES = Object.keys(FIGHTER_DB).sort();
 // ─── PAST RESULTS (fights already happened) ──────────────────────────────────
 const PAST_EVENTS = [
   {
+    event:"UFC Fight Night 277: Song vs. Figueiredo",
+    date:"May 30, 2026",venue:"Galaxy Arena, Macau, China",
+    fights:[
+      {f1:"Song Yadong",f2:"Deiveson Figueiredo",weightClass:"Bantamweight",isMain:true,
+        actualWinner:"Song Yadong",method:"Submission (Guillotine Choke)",round:2,time:"4:42"},
+    ],
+  },
+  {
+    event:"UFC Fight Night 278: Muhammad vs. Bonfim",
+    date:"June 6, 2026",venue:"Meta Apex, Las Vegas, NV",
+    fights:[
+      {f1:"Belal Muhammad",f2:"Gabriel Bonfim",weightClass:"Welterweight",isMain:true,
+        actualWinner:"Gabriel Bonfim",method:"Decision (Unanimous)",round:5,time:"5:00"},
+    ],
+  },
+  {
     event:"UFC Freedom 250 — The White House",
     date:"June 14, 2026",venue:"South Lawn, White House, Washington D.C.",
     fights:[
