@@ -1256,8 +1256,7 @@ function ResultsTab(){
     evt.fights.map(f => ({...f, event:evt.event, date:evt.date}))
   );
 
-  const [preds, setPreds] = React.useState(() => {
-    // Auto-predict all past fights using the scoring engine
+  const [preds] = React.useState(() => {
     const results = {};
     allFights.forEach(f => {
       const key = f.f1 + "||" + f.f2;
@@ -1265,7 +1264,7 @@ function ResultsTab(){
       if (a && b) {
         const sc = scoreFight(a, b);
         const pct = sc.winner === a.name ? sc.f1WinPct : sc.f2WinPct;
-        results[key] = { predicted: sc.winner, pct, actual: f.actualWinner };
+        results[key] = { predicted: sc.winner, pct, method: sc.method, round: sc.round, actual: f.actualWinner };
       }
     });
     return results;
@@ -1277,12 +1276,12 @@ function ResultsTab(){
   const acc = resolved.length ? Math.round(correct / resolved.length * 100) : null;
 
   return (
-    <div style={{padding:"20px 24px", maxWidth:700}}>
+    <div style={{width:"100%", padding:"20px 20px", boxSizing:"border-box"}}>
       {/* Accuracy header */}
       {resolved.length > 0 && (
-        <div style={{background:"linear-gradient(135deg,#1a1000,#0d1a00)", border:"1px solid #d4a843", borderRadius:10, padding:16, marginBottom:20, textAlign:"center"}}>
+        <div style={{background:"linear-gradient(135deg,#1a1000,#0d1a00)", border:"1px solid #d4a843", borderRadius:10, padding:"16px 20px", marginBottom:24, textAlign:"center"}}>
           <div style={{fontSize:9, color:"#5a4a3a", letterSpacing:2, textTransform:"uppercase", marginBottom:6}}>AI Prediction Accuracy</div>
-          <div style={{fontSize:48, fontWeight:700, color:"#d4a843", lineHeight:1}}>{acc}%</div>
+          <div style={{fontSize:52, fontWeight:700, color:"#d4a843", lineHeight:1}}>{acc}%</div>
           <div style={{fontSize:11, color:"#5a4a3a", marginTop:4}}>{correct} correct of {resolved.length} fights</div>
           <div style={{marginTop:12, height:6, background:"#1a1a1a", borderRadius:3, overflow:"hidden"}}>
             <div style={{height:"100%", width:`${acc}%`, background:"linear-gradient(90deg,#d4a843,#a87820)", borderRadius:3, transition:"width 1s ease"}}/>
@@ -1295,8 +1294,8 @@ function ResultsTab(){
         const evtFights = evt.fights.filter(f => FIGHTER_DB[f.f1] && FIGHTER_DB[f.f2]);
         if (!evtFights.length) return null;
         return (
-          <div key={evt.event} style={{marginBottom:24}}>
-            <div style={{fontSize:9, color:"#d4a843", letterSpacing:2, textTransform:"uppercase", marginBottom:10, paddingBottom:6, borderBottom:"1px solid #1a1a1a"}}>
+          <div key={evt.event} style={{marginBottom:28}}>
+            <div style={{fontSize:9, color:"#d4a843", letterSpacing:2, textTransform:"uppercase", marginBottom:12, paddingBottom:8, borderBottom:"1px solid #1e1e1e"}}>
               {evt.event} · {evt.date}
             </div>
             {evtFights.map(f => {
@@ -1306,33 +1305,45 @@ function ResultsTab(){
               const isCorrect = v.actual && v.predicted === v.actual;
               const isWrong = v.actual && v.predicted !== v.actual;
               return (
-                <div key={key} style={{background:"#0d0d0d", border:`1px solid ${isCorrect?"#1a3a1a":isWrong?"#3a1a1a":"#1a1a1a"}`,
-                  borderRadius:9, padding:14, marginBottom:10}}>
-                  <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:10}}>
-                    <div style={{flex:1}}>
-                      <div style={{fontSize:12, color:"#e8e0d4", fontWeight:600}}>{f.f1} vs {f.f2}</div>
-                      <div style={{fontSize:10, color:"#5a4a3a", marginTop:2}}>{f.weightClass}{f.isMain?" · ★ Main Event":""}</div>
-                      <div style={{fontSize:10, color:"#d4a843", marginTop:4}}>
-                        AI picked: <strong>{v.predicted}</strong> ({v.pct}% confidence)
-                      </div>
+                <div key={key} style={{
+                  background:"#0d0d0d",
+                  border:`1px solid ${isCorrect?"#1a3a1a":isWrong?"#3a1a1a":"#1a1a1a"}`,
+                  borderRadius:10, padding:"14px 16px", marginBottom:10,
+                  display:"grid", gridTemplateColumns:"1fr auto", gap:12, alignItems:"center"
+                }}>
+                  {/* Left: fight info + AI pick */}
+                  <div>
+                    <div style={{display:"flex", alignItems:"center", gap:8, marginBottom:4}}>
+                      {f.isMain && <span style={{fontSize:8, color:"#d4a843", letterSpacing:2, textTransform:"uppercase", border:"1px solid #3a2a00", padding:"1px 6px", borderRadius:3}}>★ MAIN</span>}
+                      <span style={{fontSize:13, color:"#e8e0d4", fontWeight:700}}>{f.f1} vs {f.f2}</span>
                     </div>
-                    <div style={{textAlign:"right", flexShrink:0}}>
+                    <div style={{fontSize:10, color:"#4a4a4a", marginBottom:8}}>{f.weightClass}</div>
+                    <div style={{display:"flex", gap:16, flexWrap:"wrap"}}>
+                      <div style={{background:"#111", borderRadius:6, padding:"6px 12px"}}>
+                        <div style={{fontSize:8, color:"#5a4a3a", letterSpacing:1, textTransform:"uppercase", marginBottom:3}}>AI Picked</div>
+                        <div style={{fontSize:12, color:"#d4a843", fontWeight:700}}>{v.predicted}</div>
+                        <div style={{fontSize:10, color:"#5a4a3a"}}>{v.method} · {v.round === "Decision" ? "Dec" : `R${v.round}`} · {v.pct}%</div>
+                      </div>
                       {v.actual && (
-                        <>
-                          <div style={{fontSize:10, padding:"4px 10px", borderRadius:4, marginBottom:4,
-                            background:isCorrect?"#0a1a0a":"#1a0a0a",
-                            color:isCorrect?"#5ad45a":"#d45a5a",
-                            border:`1px solid ${isCorrect?"#1a3a1a":"#3a1a1a"}`}}>
-                            {isCorrect ? "✓ Correct" : "✗ Wrong"}
-                          </div>
-                          <div style={{fontSize:10, color:"#5a4a3a"}}>
-                            {v.actual} won<br/>
-                            <span style={{fontSize:9}}>{f.method} R{f.round} {f.time}</span>
-                          </div>
-                        </>
+                        <div style={{background:"#111", borderRadius:6, padding:"6px 12px"}}>
+                          <div style={{fontSize:8, color:"#5a4a3a", letterSpacing:1, textTransform:"uppercase", marginBottom:3}}>Actual Result</div>
+                          <div style={{fontSize:12, color: isCorrect ? "#5ad45a" : "#d45a5a", fontWeight:700}}>{v.actual}</div>
+                          <div style={{fontSize:10, color:"#5a4a3a"}}>{f.method} · R{f.round}{f.time ? ` ${f.time}` : ""}</div>
+                        </div>
                       )}
                     </div>
                   </div>
+                  {/* Right: correct/wrong badge */}
+                  {v.actual && (
+                    <div style={{
+                      fontSize:11, fontWeight:700, padding:"8px 14px", borderRadius:6, textAlign:"center", flexShrink:0,
+                      background: isCorrect ? "#0a1a0a" : "#1a0a0a",
+                      color: isCorrect ? "#5ad45a" : "#d45a5a",
+                      border: `1px solid ${isCorrect ? "#1a3a1a" : "#3a1a1a"}`
+                    }}>
+                      {isCorrect ? "✓" : "✗"}
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -1342,6 +1353,7 @@ function ResultsTab(){
     </div>
   );
 }
+
 
 // ─── MAIN APP ───────────────────────────────────────────────────────────────
 const BLANK={name:"",record:"0-0",rank:"Unranked",country:"🌍",age:28,weightClass:"Welterweight",
@@ -1492,7 +1504,7 @@ export default function App(){
       </div>
 
       {/* ACCURACY TAB */}
-      {mode==="accuracy"&&<ResultsTab/>}
+      {mode==="accuracy"&&<div style={{height:"calc(100vh - 65px)",overflowY:"auto",width:"100%"}}><ResultsTab/></div>}
 
       {/* SCHEDULED TAB */}
       {mode==="scheduled"&&(
