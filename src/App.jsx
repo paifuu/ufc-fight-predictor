@@ -531,7 +531,7 @@ const PAST_EVENTS = [
     date:"June 14, 2026",venue:"South Lawn, White House, Washington D.C.",
     fights:[
       {f1:"Ilia Topuria",f2:"Justin Gaethje",weightClass:"Lightweight (Title Unification)",isMain:true,
-        actualWinner:"Justin Gaethje",method:"Doctor's Stoppage",round:1,time:""},
+        actualWinner:"Ilia Topuria",method:"Doctor's Stoppage",round:4,time:""},
       {f1:"Ciryl Gane",f2:"Alex Pereira",weightClass:"Heavyweight (Interim Title)",isMain:false,
         actualWinner:"Ciryl Gane",method:"KO",round:3,time:""},
       {f1:"Sean O'Malley",f2:"Aiemann Zahabi",weightClass:"Bantamweight",isMain:false,
