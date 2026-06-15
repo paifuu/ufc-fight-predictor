@@ -511,46 +511,62 @@ const FIGHTER_DB = {
     stats:{slpm:6.1,stracc:44,sapm:5.8,strdef:50,tdavg:0.6,tdacc:28,tddef:58,subavg:0.8,winStreak:1,finishRate:70},
     pastMatchups:{},
   },
+  "Kyoji Horiguchi": {
+    name:"Kyoji Horiguchi",record:"30-6",rank:"#2 FLW",country:"🇯🇵",age:34,
+    weightClass:"Flyweight",naturalWeight:125,reach:66,style:"Kickboxer",
+    tendencies:["fast combinations","in-and-out movement","body kicks","accurate jab","scrambles"],
+    strengths:["speed","striking accuracy","cardio","fight IQ","experience"],
+    weaknesses:["power vs elite heavyweights of flyweight","can be caught by power punchers"],
+    wrestlerResilience:6, reachDisadvantageHandling:6, speedVsHandsHandling:8, yearsInactive:0, recentForm:8,
+    styleMatchups:{"Wrestler":-3,"Grappler":-3,"BJJ Specialist":-5,"Sambo / Wrestler":-4,"Pressure Fighter":3,"Striker":3,"Power Striker":2,"Counter Striker":2,"Flashy Striker":2,"Brawler":3,"Complete Fighter":-1},
+    opponentQuality:83,
+    stats:{slpm:5.2,stracc:53,sapm:3.6,strdef:60,tdavg:0.6,tdacc:32,tddef:68,subavg:0.3,winStreak:2,finishRate:57},
+    pastMatchups:{"Manel Kape":"W"},
+  },
 const FIGHTER_NAMES = Object.keys(FIGHTER_DB).sort();
 
-// ─── EVENTS ────────────────────────────────────────────────────────────────
-const UPCOMING_EVENTS = [
-  {
-    event:"UFC Fight Night 277: Song vs. Figueiredo",
-    date:"May 30, 2026",venue:"Galaxy Arena, Macau, China",
-    fights:[
-      {f1:"Song Yadong",f2:"Deiveson Figueiredo",weightClass:"Bantamweight",isMain:true,
-        context:"Song fights at home in China with massive crowd advantage. Figueiredo moves up from flyweight — could face a significant size disadvantage despite elite finishing credentials."},
-      {f1:"Belal Muhammad",f2:"Gabriel Bonfim",weightClass:"Welterweight",isMain:false,
-        context:"Elite wrestling vs dangerous submissions. Style clash with serious title implications."},
-    ],
-  },
-  {
-    event:"UFC Fight Night 278: Muhammad vs. Bonfim",
-    date:"June 6, 2026",venue:"Meta Apex, Las Vegas, NV",
-    fights:[
-      {f1:"Belal Muhammad",f2:"Gabriel Bonfim",weightClass:"Welterweight",isMain:true,
-        context:"Muhammad's elite wrestling vs Bonfim's dangerous BJJ. Youth and finishing ability vs elite wrestling and experience."},
-    ],
-  },
+// ─── PAST RESULTS (fights already happened) ──────────────────────────────────
+const PAST_EVENTS = [
   {
     event:"UFC Freedom 250 — The White House",
     date:"June 14, 2026",venue:"South Lawn, White House, Washington D.C.",
     fights:[
       {f1:"Ilia Topuria",f2:"Justin Gaethje",weightClass:"Lightweight (Title Unification)",isMain:true,
-        context:"Undefeated champion vs battle-tested interim champion. Topuria's precision and BJJ vs Gaethje's relentless pressure and leg kicks."},
-      {f1:"Alex Pereira",f2:"Ciryl Gane",weightClass:"Heavyweight (Interim Title)",isMain:false,
-        context:"Pereira moves up to HW making his debut at the weight. Gane's technical movement and reach could neutralise Pereira's power — or Pereira's KO threat ends it early."},
+        actualWinner:"Ilia Topuria",method:"KO (Punches)",round:2,time:"2:41"},
+      {f1:"Ciryl Gane",f2:"Alex Pereira",weightClass:"Heavyweight (Interim Title)",isMain:false,
+        actualWinner:"Ciryl Gane",method:"TKO (Punches)",round:2,time:"1:27"},
       {f1:"Sean O'Malley",f2:"Aiemann Zahabi",weightClass:"Bantamweight",isMain:false,
-        context:"Champion's unorthodox striking vs Zahabi's BJJ and Tristar fundamentals. O'Malley's worst nightmare is a grappler — Zahabi is exactly that."},
+        actualWinner:"Sean O'Malley",method:"TKO (Punches)",round:2,time:"4:02"},
+      {f1:"Josh Hokit",f2:"Derrick Lewis",weightClass:"Heavyweight",isMain:false,
+        actualWinner:"Josh Hokit",method:"TKO (Punches)",round:2,time:"4:09"},
       {f1:"Mauricio Ruffy",f2:"Michael Chandler",weightClass:"Lightweight",isMain:false,
-        context:"Young Brazilian power puncher vs the veteran brawler Chandler. Both bring serious finish threat but very different career trajectories."},
+        actualWinner:"Mauricio Ruffy",method:"TKO (Spinning Wheel Kick & Punches)",round:1,time:"4:29"},
       {f1:"Bo Nickal",f2:"Kyle Daukaus",weightClass:"Middleweight",isMain:false,
-        context:"Bo Nickal's elite wrestling vs Daukaus's catch-wrestling submissions. Nickal is the massive favorite but Daukaus has the grappling to make it interesting."},
+        actualWinner:"Bo Nickal",method:"KO (Punches & Elbows)",round:1,time:"4:34"},
       {f1:"Diego Lopes",f2:"Steve Garcia",weightClass:"Featherweight",isMain:false,
-        context:"Lopes has serious submission and scramble ability. Garcia is a tough out but this is a major step up in competition."},
-      {f1:"Derrick Lewis",f2:"Josh Hokit",weightClass:"Heavyweight",isMain:false,
-        context:"Lewis added after Hokit's breakout performance. The one-punch KO king vs a wrestler/brawler. Lewis dangerous every second he's standing."},
+        actualWinner:"Diego Lopes",method:"KO (Punches)",round:2,time:"2:42"},
+    ],
+  },
+];
+
+// ─── UPCOMING EVENTS ──────────────────────────────────────────────────────────
+const UPCOMING_EVENTS = [
+  {
+    event:"UFC Fight Night 279: Kape vs. Horiguchi 2",
+    date:"June 20, 2026",venue:"Meta Apex (UFC Apex), Las Vegas, NV",
+    fights:[
+      {f1:"Manel Kape",f2:"Kyoji Horiguchi",weightClass:"Flyweight",isMain:true,
+        context:"Rematch — Horiguchi beat Kape in 2017 via arm-triangle at Rizin. Kape has been on a tear in the UFC with brutal KO power. Horiguchi returns with back-to-back wins. Winner likely gets the next flyweight title shot."},
+    ],
+  },
+  {
+    event:"UFC Fight Night 280: Fiziev vs. Torres",
+    date:"June 27, 2026",venue:"National Gymnastics Arena, Baku, Azerbaijan",
+    fights:[
+      {f1:"Rafael Fiziev",f2:"Renato Moicano",weightClass:"Lightweight",isMain:true,
+        context:"Fiziev fights in front of his home crowd in Azerbaijan looking to rebound. Torres is a pressure-heavy finisher from Mexico — exactly the kind of opponent that could nullify Fiziev's flashy kickboxing if he can close the distance."},
+      {f1:"Rafael Fiziev",f2:"Renato Moicano",weightClass:"Middleweight (co-main)",isMain:false,
+        context:"Michel Pereira's unorthodox wild movement vs Shara Magomedov's knockout power. Both men are known for spectacular, unpredictable fighting styles. Could be fight of the night."},
     ],
   },
   {
@@ -558,23 +574,15 @@ const UPCOMING_EVENTS = [
     date:"July 11, 2026",venue:"T-Mobile Arena, Las Vegas, NV",
     fights:[
       {f1:"Conor McGregor",f2:"Max Holloway",weightClass:"Welterweight",isMain:true,
-        context:"The long-awaited rematch at WW — 13 years after McGregor won the first at FW. McGregor returns after a 5-year layoff with serious questions about his chin, conditioning, and chin."},
+        context:"The long-awaited rematch 13 years after McGregor beat Holloway at featherweight. McGregor returns after a 5-year layoff — massive questions about his chin, conditioning and ring rust vs a prime Max Holloway."},
       {f1:"Paddy Pimblett",f2:"Benoit Saint Denis",weightClass:"Lightweight",isMain:false,
-        context:"Pimblett bounces back after the Gaethje loss. Saint Denis is an explosive sambo grappler — stylistically a nightmare for Pimblett if he can get the fight to the ground."},
+        context:"Pimblett bounces back after the Gaethje loss. Saint Denis is an explosive sambo grappler — a stylistic nightmare for Pimblett if he can get the fight to the ground."},
       {f1:"Cory Sandhagen",f2:"Mario Bautista",weightClass:"Bantamweight",isMain:false,
-        context:"Sandhagen-Bautista 2 — Bautista won the first. Sandhagen's unorthodox striking vs Bautista's relentless wrestling."},
+        context:"Sandhagen vs Bautista 2 — Bautista won the first meeting. Sandhagen's unorthodox striking vs Bautista's relentless wrestling pressure."},
       {f1:"Brandon Royval",f2:"Lone'er Kavanagh",weightClass:"Flyweight",isMain:false,
-        context:"Royval's submission ability vs Kavanagh the upset artist. Royval needs a big win after his recent record."},
+        context:"Royval's elite submission game vs Kavanagh the upset specialist. Royval needs a statement win to stay relevant in the title picture."},
       {f1:"Gable Steveson",f2:"Elisha Ellison",weightClass:"Heavyweight",isMain:false,
-        context:"Olympic gold medalist and 2x NCAA champion Steveson makes his long-awaited UFC debut. Ellison is 0-1 in the UFC — massive mismatch on paper."},
-    ],
-  },
-  {
-    event:"UFC Fight Night 281: Holland vs. Smith",
-    date:"July 18, 2026",venue:"Paycom Center, Oklahoma City, OK",
-    fights:[
-      {f1:"Kevin Holland",f2:"Leon Edwards",weightClass:"Welterweight",isMain:true,
-        context:"Kevin Holland's wild unorthodox striking vs the former WW champion Leon Edwards. Holland thrives in chaos and has elite submission skills; Edwards counters with disciplined southpaw boxing and composure."},
+        context:"Olympic gold medalist and 2x NCAA wrestling champion Steveson makes his long-awaited UFC debut. A massive mismatch on paper against the 0-1 Ellison."},
     ],
   },
   {
@@ -582,7 +590,7 @@ const UPCOMING_EVENTS = [
     date:"July 25, 2026",venue:"Etihad Arena, Abu Dhabi, UAE",
     fights:[
       {f1:"Magomed Ankalaev",f2:"Khalil Rountree Jr.",weightClass:"Light Heavyweight",isMain:true,
-        context:"The #1 ranked contender Ankalaev — dominant wrestler and ground-and-pound specialist — vs the hard-hitting power puncher Rountree. Ankalaev's elite wrestling is the ultimate equalizer against Rountree's massive one-punch KO power."},
+        context:"The #1 ranked contender Ankalaev — dominant wrestler and GnP specialist — vs the hard-hitting southpaw Rountree. Ankalaev's elite wrestling is the ultimate equalizer against Rountree's massive one-punch KO power."},
     ],
   },
   {
@@ -590,7 +598,7 @@ const UPCOMING_EVENTS = [
     date:"August 15, 2026",venue:"Xfinity Mobile Arena, Philadelphia, PA",
     fights:[
       {f1:"Manel Kape",f2:"Kai Kara-France",weightClass:"Flyweight",isMain:true,
-        context:"Main event TBC — card details still being finalized for Philly."},
+        context:"Full card still being announced for the UFC's return to Philly for the first time in 15 years."},
     ],
   },
 ];
@@ -1228,194 +1236,95 @@ function ResultPanel({pred,f1,f2,onShare}){
 // ─── ACCURACY TRACKER ──────────────────────────────────────────────────────
 const INIT_RESULTS={};
 
-function AccuracyTab({predictions, onUpdateResult}){
-  const [fetching, setFetching] = useState(false);
-  const [fetchLog, setFetchLog] = useState("");
-  const [fetchError, setFetchError] = useState("");
+function ResultsTab(){
+  const allFights = PAST_EVENTS.flatMap(evt =>
+    evt.fights.map(f => ({...f, event:evt.event, date:evt.date}))
+  );
 
-  const entries = Object.entries(predictions);
+  const [preds, setPreds] = React.useState(() => {
+    // Auto-predict all past fights using the scoring engine
+    const results = {};
+    allFights.forEach(f => {
+      const key = f.f1 + "||" + f.f2;
+      const a = FIGHTER_DB[f.f1], b = FIGHTER_DB[f.f2];
+      if (a && b) {
+        const sc = scoreFight(a, b);
+        const winner = sc.winner === "fighter1" ? f.f1 : f.f2;
+        const pct = sc.winner === "fighter1" ? sc.pct : 100 - sc.pct;
+        results[key] = { predicted: winner, pct, actual: f.actualWinner };
+      }
+    });
+    return results;
+  });
+
+  const entries = Object.entries(preds);
   const resolved = entries.filter(([,v]) => v.actual);
   const correct = resolved.filter(([,v]) => v.predicted === v.actual).length;
   const acc = resolved.length ? Math.round(correct / resolved.length * 100) : null;
 
-  // Group pending fights by event for smarter fetching
-  const pending = entries.filter(([,v]) => !v.actual);
-
-  async function fetchResults() {
-    if (!pending.length) return;
-    setFetching(true);
-    setFetchLog("Searching Tapology for recent UFC results...");
-    setFetchError("");
-
-    // Build a list of fights to look up
-    const fightList = pending.map(([key]) => {
-      const [f1, f2] = key.split("||");
-      return `${f1} vs ${f2}`;
-    }).join(", ");
-
-    const prompt = `You are a UFC results lookup assistant. Search Tapology (tapology.com) for the actual results of these UFC fights: ${fightList}
-
-For each fight, find who actually won and by what method. Return ONLY a JSON array, no markdown, no explanation:
-[
-  {"fighter1": "exact name as given", "fighter2": "exact name as given", "winner": "exact name of winner as given above", "method": "KO/TKO or Submission or Decision"},
-  ...
-]
-
-If a fight has not happened yet or result is not found, omit it from the array. Use the exact fighter names as I provided them.`;
-
-    try {
-      const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
-      if (!apiKey) throw new Error("Add VITE_ANTHROPIC_API_KEY to your .env file to use auto-fetch.");
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "x-api-key": apiKey, "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
-          tools: [{ type: "web_search_20250305", name: "web_search" }],
-          messages: [{ role: "user", content: prompt }]
-        })
-      });
-
-      const data = await res.json();
-      if (data.error) throw new Error(data.error.message);
-
-      // Extract text from all content blocks
-      const text = (data.content || [])
-        .filter(b => b.type === "text")
-        .map(b => b.text)
-        .join("");
-
-      setFetchLog("Parsing results...");
-
-      // Parse JSON from response
-      const jsonMatch = text.match(/\[[\s\S]*\]/);
-      if (!jsonMatch) throw new Error("No results found — fights may not have happened yet.");
-
-      const results = JSON.parse(jsonMatch[0]);
-      if (!results.length) throw new Error("No completed fights found yet.");
-
-      // Apply each result
-      let applied = 0;
-      results.forEach(r => {
-        const key = `${r.fighter1}||${r.fighter2}`;
-        const keyAlt = `${r.fighter2}||${r.fighter1}`;
-        if (predictions[key] !== undefined) {
-          onUpdateResult(key, r.winner);
-          applied++;
-        } else if (predictions[keyAlt] !== undefined) {
-          onUpdateResult(keyAlt, r.winner);
-          applied++;
-        }
-      });
-
-      setFetchLog(applied > 0
-        ? `✓ Auto-filled ${applied} result${applied > 1 ? "s" : ""} from Tapology`
-        : "No matching completed fights found yet.");
-    } catch(e) {
-      setFetchError(e.message || "Fetch failed");
-      setFetchLog("");
-    }
-    setFetching(false);
-  }
-
-  if (!entries.length) return (
-    <div style={{padding:40, textAlign:"center", color:"#3a3a3a", fontSize:13}}>
-      No predictions yet. Analyze some fights in the Scheduled tab first!
-    </div>
-  );
-
   return (
     <div style={{padding:"20px 24px", maxWidth:700}}>
-      {/* Accuracy score */}
+      {/* Accuracy header */}
       {resolved.length > 0 && (
         <div style={{background:"linear-gradient(135deg,#1a1000,#0d1a00)", border:"1px solid #d4a843", borderRadius:10, padding:16, marginBottom:20, textAlign:"center"}}>
-          <div style={{fontSize:9, color:"#5a4a3a", letterSpacing:2, textTransform:"uppercase", marginBottom:6}}>Prediction Accuracy</div>
-          <div style={{fontSize:42, fontWeight:700, color:"#d4a843"}}>{acc}%</div>
-          <div style={{fontSize:11, color:"#5a4a3a"}}>{correct} correct of {resolved.length} resolved fights</div>
-          <div style={{marginTop:10, height:6, background:"#1a1a1a", borderRadius:3, overflow:"hidden"}}>
+          <div style={{fontSize:9, color:"#5a4a3a", letterSpacing:2, textTransform:"uppercase", marginBottom:6}}>AI Prediction Accuracy</div>
+          <div style={{fontSize:48, fontWeight:700, color:"#d4a843", lineHeight:1}}>{acc}%</div>
+          <div style={{fontSize:11, color:"#5a4a3a", marginTop:4}}>{correct} correct of {resolved.length} fights</div>
+          <div style={{marginTop:12, height:6, background:"#1a1a1a", borderRadius:3, overflow:"hidden"}}>
             <div style={{height:"100%", width:`${acc}%`, background:"linear-gradient(90deg,#d4a843,#a87820)", borderRadius:3, transition:"width 1s ease"}}/>
           </div>
         </div>
       )}
 
-      {/* Auto-fetch button */}
-      {pending.length > 0 && (
-        <div style={{marginBottom:20}}>
-          <button onClick={fetchResults} disabled={fetching}
-            style={{width:"100%", padding:"12px", background:fetching?"#111":"linear-gradient(135deg,#0a1a2a,#0a2a1a)",
-              border:"1px solid #2a4a3a", borderRadius:8, color:fetching?"#3a5a4a":"#5ad4a4",
-              fontSize:12, fontWeight:700, letterSpacing:2, textTransform:"uppercase", cursor:fetching?"default":"pointer",
-              display:"flex", alignItems:"center", justifyContent:"center", gap:10}}>
-            {fetching
-              ? <><span style={{display:"inline-block", animation:"spin 1s linear infinite"}}>⚙️</span> Searching Tapology...</>
-              : <>🌐 Auto-Fetch Results from Tapology</>}
-          </button>
-          {fetchLog && (
-            <div style={{marginTop:8, fontSize:11, color:"#5a8a6a", textAlign:"center", padding:"6px 10px",
-              background:"#0a1a0a", borderRadius:5, border:"1px solid #1a2a1a"}}>
-              {fetchLog}
-            </div>
-          )}
-          {fetchError && (
-            <div style={{marginTop:8, fontSize:11, color:"#8a4a4a", textAlign:"center", padding:"6px 10px",
-              background:"#1a0a0a", borderRadius:5, border:"1px solid #2a1a1a"}}>
-              ⚠ {fetchError}
-            </div>
-          )}
-          <div style={{marginTop:6, fontSize:10, color:"#2a2a2a", textAlign:"center"}}>
-            Searches Tapology via Claude web search · only fills fights that have already happened
-          </div>
-        </div>
-      )}
-
-      {/* Fight list */}
-      <div style={{fontSize:9, color:"#5a4a3a", letterSpacing:2, textTransform:"uppercase", marginBottom:12}}>
-        {resolved.length}/{entries.length} Resolved
-      </div>
-      {entries.map(([key, v]) => {
-        const [f1name, f2name] = key.split("||");
-        const isCorrect = v.actual && v.predicted === v.actual;
-        const isWrong = v.actual && v.predicted !== v.actual;
+      {/* Group by event */}
+      {PAST_EVENTS.map(evt => {
+        const evtFights = evt.fights.filter(f => FIGHTER_DB[f.f1] && FIGHTER_DB[f.f2]);
+        if (!evtFights.length) return null;
         return (
-          <div key={key} style={{background:"#0d0d0d", border:`1px solid ${isCorrect?"#1a2a1a":isWrong?"#2a1a1a":"#1a1a1a"}`,
-            borderRadius:9, padding:14, marginBottom:10, transition:"border-color 0.3s"}}>
-            <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8}}>
-              <div>
-                <div style={{fontSize:12, color:"#e8e0d4", fontWeight:600}}>{f1name} vs {f2name}</div>
-                <div style={{fontSize:10, color:"#d4a843", marginTop:2}}>
-                  Predicted: <strong>{v.predicted}</strong> ({v.pct}%)
+          <div key={evt.event} style={{marginBottom:24}}>
+            <div style={{fontSize:9, color:"#d4a843", letterSpacing:2, textTransform:"uppercase", marginBottom:10, paddingBottom:6, borderBottom:"1px solid #1a1a1a"}}>
+              {evt.event} · {evt.date}
+            </div>
+            {evtFights.map(f => {
+              const key = f.f1 + "||" + f.f2;
+              const v = preds[key];
+              if (!v) return null;
+              const isCorrect = v.actual && v.predicted === v.actual;
+              const isWrong = v.actual && v.predicted !== v.actual;
+              return (
+                <div key={key} style={{background:"#0d0d0d", border:`1px solid ${isCorrect?"#1a3a1a":isWrong?"#3a1a1a":"#1a1a1a"}`,
+                  borderRadius:9, padding:14, marginBottom:10}}>
+                  <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", gap:10}}>
+                    <div style={{flex:1}}>
+                      <div style={{fontSize:12, color:"#e8e0d4", fontWeight:600}}>{f.f1} vs {f.f2}</div>
+                      <div style={{fontSize:10, color:"#5a4a3a", marginTop:2}}>{f.weightClass}{f.isMain?" · ★ Main Event":""}</div>
+                      <div style={{fontSize:10, color:"#d4a843", marginTop:4}}>
+                        AI picked: <strong>{v.predicted}</strong> ({v.pct}% confidence)
+                      </div>
+                    </div>
+                    <div style={{textAlign:"right", flexShrink:0}}>
+                      {v.actual && (
+                        <>
+                          <div style={{fontSize:10, padding:"4px 10px", borderRadius:4, marginBottom:4,
+                            background:isCorrect?"#0a1a0a":"#1a0a0a",
+                            color:isCorrect?"#5ad45a":"#d45a5a",
+                            border:`1px solid ${isCorrect?"#1a3a1a":"#3a1a1a"}`}}>
+                            {isCorrect ? "✓ Correct" : "✗ Wrong"}
+                          </div>
+                          <div style={{fontSize:10, color:"#5a4a3a"}}>
+                            {v.actual} won<br/>
+                            <span style={{fontSize:9}}>{f.method} R{f.round} {f.time}</span>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
-              {v.actual && (
-                <span style={{fontSize:10, padding:"4px 12px", borderRadius:4,
-                  background:isCorrect?"#0a1a0a":"#1a0a0a",
-                  color:isCorrect?"#5ad45a":"#d45a5a",
-                  border:`1px solid ${isCorrect?"#1a3a1a":"#3a1a1a"}`}}>
-                  {isCorrect ? "✓ Correct" : "✗ Wrong"} — {v.actual} won
-                </span>
-              )}
-            </div>
-            {/* Manual override buttons */}
-            <div style={{display:"flex", gap:6}}>
-              {[f1name, f2name, "Pending"].map(opt => {
-                const active = opt === "Pending" ? !v.actual : v.actual === opt;
-                return (
-                  <button key={opt} onClick={() => onUpdateResult(key, opt === "Pending" ? null : opt)}
-                    style={{flex:1, padding:"6px 4px", borderRadius:5, border:"1px solid", cursor:"pointer",
-                      fontSize:10, fontWeight:600,
-                      borderColor:active ? "#d4a843" : "#2a2a2a",
-                      background:active ? "#1a1000" : "transparent",
-                      color:active ? "#d4a843" : "#4a4a4a"}}>
-                    {opt}
-                  </button>
-                );
-              })}
-            </div>
+              );
+            })}
           </div>
         );
       })}
-      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
     </div>
   );
 }
@@ -1430,7 +1339,7 @@ const STYLES=["Striker","Kickboxer","Power Striker","Counter Striker","Pressure 
 
 export default function App(){
   const[mode,setMode]=useState("scheduled");
-  const[selEvt,setSelEvt]=useState(2); // default to White House card
+  const[selEvt,setSelEvt]=useState(0); // default to first upcoming card
   const[selFight,setSelFight]=useState(0);
   const[pred,setPred]=useState(null);
   const[fantasyF1,setFF1]=useState({...BLANK,name:"Fighter 1"});
@@ -1547,7 +1456,7 @@ export default function App(){
     );
   }
 
-  const tabs=[["scheduled","📅 Scheduled"],["fantasy","⚗️ Fantasy"],["accuracy","🎯 Accuracy"]];
+  const tabs=[["scheduled","📅 Upcoming"],["fantasy","⚗️ Fantasy"],["accuracy","🏆 Results"]];
 
   return(
     <div style={{minHeight:"100vh",background:"#0a0a0f",fontFamily:"Georgia,serif",color:"#e8e0d4"}}>
@@ -1569,7 +1478,7 @@ export default function App(){
       </div>
 
       {/* ACCURACY TAB */}
-      {mode==="accuracy"&&<AccuracyTab predictions={savedPreds} onUpdateResult={(key,val)=>setSavedPreds(p=>({...p,[key]:{...p[key],actual:val}}))}/>}
+      {mode==="accuracy"&&<ResultsTab/>}
 
       {/* SCHEDULED TAB */}
       {mode==="scheduled"&&(
