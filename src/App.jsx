@@ -1248,9 +1248,8 @@ function ResultsTab(){
       const a = FIGHTER_DB[f.f1], b = FIGHTER_DB[f.f2];
       if (a && b) {
         const sc = scoreFight(a, b);
-        const winner = sc.winner === "fighter1" ? f.f1 : f.f2;
-        const pct = sc.winner === "fighter1" ? sc.pct : 100 - sc.pct;
-        results[key] = { predicted: winner, pct, actual: f.actualWinner };
+        const pct = sc.winner === a.name ? sc.f1WinPct : sc.f2WinPct;
+        results[key] = { predicted: sc.winner, pct, actual: f.actualWinner };
       }
     });
     return results;
