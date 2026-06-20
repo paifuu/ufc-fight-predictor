@@ -1464,7 +1464,29 @@ const BLANK={name:"",record:"0-0",rank:"Unranked",country:"🌍",age:28,weightCl
   pastMatchups:{}};
 const STYLES=["Striker","Kickboxer","Power Striker","Counter Striker","Pressure Boxer","Pressure Fighter","Brawler","Wrestler","Grappler","BJJ Specialist","BJJ / Submission Hunter","Sambo / Wrestler","Complete Fighter","Flashy Striker","Counter Striker / Grappler","Wrestler / Grappler"];
 
-// Custom photos hosted in public/fighters/
+const FIGHTER_PHOTOS = {
+  "David Martinez":       "/fighters/davidmartinez.png",
+  "Umar Nurmagomedov":    "/fighters/umar.png",
+  "Khalil Rountree Jr.":  "/fighters/rountree.png",
+  "Magomed Ankalaev":     "/fighters/ankalaev.png",
+  "Elisha Ellison":       "/fighters/elishaellison.png",
+  "Benoit Saint Denis":   "/fighters/benoit.png",
+  "Michel Pereira":       "/fighters/michelpereira.png",
+  "Max Holloway":         "/fighters/maxholloway.png",
+  "Paddy Pimblett":       "/fighters/paddy.png",
+  "Conor McGregor":       "/fighters/mcgregor.png",
+  "Shara Magomedov":      "/fighters/shara.png",
+  "Rafael Fiziev":        "/fighters/fiziev.png",
+  "Manuel Torres":        "/fighters/manueltorres.png",
+  "Kyoji Horiguchi":      "/fighters/horiguchi.png",
+  "Manel Kape":           "/fighters/kape.png",
+  "Gable Steveson":       "/fighters/gable.png",
+  "Lone'er Kavanagh":     "/fighters/kavanagh.png",
+  "Brandon Royval":       "/fighters/royval.png",
+  "Mario Bautista":       "/fighters/bautista.png",
+  "Cory Sandhagen":       "/fighters/sandhagen.png",
+};
+
 // Wikipedia page title overrides for fighters whose name doesn't exactly match their Wikipedia article
 const WIKI_TITLES = {
   "Conor McGregor":       "Conor McGregor",
@@ -1537,6 +1559,7 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
     }
 
     async function getImgPair(name) {
+      if (FIGHTER_PHOTOS[name]) return { primary: FIGHTER_PHOTOS[name], fallback: null };
       const wiki = await getWikiImg(name);
       return { primary: wiki, fallback: null };
     }
