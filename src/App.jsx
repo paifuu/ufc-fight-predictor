@@ -1716,6 +1716,14 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
 
 export default function App(){
   const[mode,setMode]=useState("scheduled");
+  const[menuOpen,setMenuOpen]=useState(false);
+  const[isMobile,setIsMobile]=useState(()=>window.innerWidth<768);
+  useEffect(()=>{
+    const mq=window.matchMedia("(max-width:767px)");
+    const h=e=>setIsMobile(e.matches);
+    mq.addEventListener("change",h);
+    return()=>mq.removeEventListener("change",h);
+  },[]);
   const[selEvt,setSelEvt]=useState(0); // default to first upcoming card
   const[selFight,setSelFight]=useState(0);
   const[pred,setPred]=useState(null);
@@ -1837,22 +1845,41 @@ export default function App(){
 
   return(
     <div style={{minHeight:"100vh",background:"#0a0a0f",fontFamily:"Georgia,serif",color:"#e8e0d4"}}>
-      {/* Header */}
       {/* HEADER */}
-      <div style={{background:"linear-gradient(135deg,#1a0a00,#0a0a0f 50%,#00001a)",borderBottom:"1px solid #1a1a1a",padding:"12px 16px",display:"flex",alignItems:"center",gap:10}}>
+      <div style={{background:"linear-gradient(135deg,#1a0a00,#0a0a0f 50%,#00001a)",borderBottom:"1px solid #1a1a1a",padding:"12px 16px",display:"flex",alignItems:"center",gap:10,position:"relative"}}>
         <div style={{fontSize:22}}>🥊</div>
         <div style={{flex:1,minWidth:0}}>
           <div style={{fontSize:14,fontWeight:700,letterSpacing:2,color:"#d4a843",textTransform:"uppercase"}}>UFC Fight Predictor</div>
-          <div style={{fontSize:8,color:"#5a4a3a",letterSpacing:1,textTransform:"uppercase",display:"none"}} className="desktop-only">Style · Size · History · Wrestler Resilience · Opp. Quality · Speed</div>
         </div>
-        <div style={{display:"flex",gap:4,flexShrink:0}}>
-          {tabs.map(([m,lbl])=>(
-            <button key={m} onClick={()=>setMode(m)} style={{padding:"7px 10px",borderRadius:5,border:"1px solid",cursor:"pointer",fontSize:10,fontWeight:700,letterSpacing:0,textTransform:"uppercase",whiteSpace:"nowrap",
-              borderColor:mode===m?"#d4a843":"#2a2a2a",background:mode===m?"#d4a843":"transparent",color:mode===m?"#0a0a0f":"#5a4a3a"}}>
-              {lbl}
-            </button>
-          ))}
-        </div>
+        {/* Desktop nav */}
+        {!isMobile&&(
+          <div style={{display:"flex",gap:4,flexShrink:0}}>
+            {tabs.map(([m,lbl])=>(
+              <button key={m} onClick={()=>setMode(m)} style={{padding:"7px 10px",borderRadius:5,border:"1px solid",cursor:"pointer",fontSize:10,fontWeight:700,letterSpacing:0,textTransform:"uppercase",whiteSpace:"nowrap",
+                borderColor:mode===m?"#d4a843":"#2a2a2a",background:mode===m?"#d4a843":"transparent",color:mode===m?"#0a0a0f":"#5a4a3a"}}>
+                {lbl}
+              </button>
+            ))}
+          </div>
+        )}
+        {/* Mobile hamburger */}
+        {isMobile&&(
+          <button onClick={()=>setMenuOpen(o=>!o)} style={{background:"transparent",border:"1px solid #2a2a2a",borderRadius:5,padding:"7px 10px",cursor:"pointer",display:"flex",flexDirection:"column",gap:4,flexShrink:0}}>
+            <span style={{display:"block",width:18,height:2,background:"#d4a843",borderRadius:1}}/>
+            <span style={{display:"block",width:18,height:2,background:"#d4a843",borderRadius:1}}/>
+            <span style={{display:"block",width:18,height:2,background:"#d4a843",borderRadius:1}}/>
+          </button>
+        )}
+        {/* Mobile dropdown menu */}
+        {isMobile&&menuOpen&&(
+          <div style={{position:"absolute",top:"100%",right:0,zIndex:100,background:"#12121a",border:"1px solid #2a2a2a",borderRadius:5,overflow:"hidden",minWidth:160}}>
+            {tabs.map(([m,lbl])=>(
+              <button key={m} onClick={()=>{setMode(m);setMenuOpen(false);}} style={{display:"block",width:"100%",padding:"12px 16px",background:mode===m?"#d4a843":"transparent",color:mode===m?"#0a0a0f":"#e8e0d4",border:"none",borderBottom:"1px solid #1a1a1a",cursor:"pointer",fontSize:11,fontWeight:700,letterSpacing:1,textTransform:"uppercase",textAlign:"left"}}>
+                {lbl}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* RESULTS TAB */}
