@@ -1628,7 +1628,7 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
         <div style={{width:"50%",position:"relative",overflow:"hidden",background:"#fff"}}>
           {imgs[0]?.primary
             ? <img src={imgs[0].primary} alt={f1.name}
-                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top center",mixBlendMode:"multiply"}}
+                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"contain",objectPosition:"bottom center",mixBlendMode:"multiply"}}
                 onError={e=>{ e.target.style.display='none'; }}/>
             : <div style={{position:"absolute",inset:0,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingBottom:8}}>
                 <Silhouette color={GOLD}/>
