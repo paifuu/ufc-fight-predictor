@@ -629,6 +629,19 @@ def fetch_ufcstats_roster():
             wins   = int(wins_m.group(1))   if wins_m   else 0
             losses = int(losses_m.group(1)) if losses_m else 0
 
+            # Finish rate: (KO/TKO wins + Sub wins) / total wins * 100
+            ko_m  = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>\s*KO/TKO\b', html, re.IGNORECASE)
+            sub_m = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>\s*Sub\.?', html, re.IGNORECASE)
+            # Fallback: count finish methods in the fight history table
+            if not ko_m and not sub_m:
+                ko_count  = len(re.findall(r'KO/TKO', html, re.IGNORECASE))
+                sub_count = len(re.findall(r'\bSub(?:mission)?\b', html, re.IGNORECASE))
+            else:
+                ko_count  = int(ko_m.group(1))  if ko_m  else 0
+                sub_count = int(sub_m.group(1)) if sub_m else 0
+            finish_rate = round((ko_count + sub_count) / wins * 100) if wins > 0 else 50
+            finish_rate = max(0, min(100, finish_rate))
+
             reach_m = re.search(r'Reach:</i>\s*([^<"]+)"', html)
             wt_m    = re.search(r'Weight:</i>\s*(\d+)', html)
             reach_in = 70
@@ -640,14 +653,15 @@ def fetch_ufcstats_roster():
             existing = db.get(name)
             if existing:
                 existing["record"] = f"{wins}-{losses}"
-                existing["stats"]["slpm"]   = round(slpm, 2)
-                existing["stats"]["stracc"] = round(stracc, 1)
-                existing["stats"]["sapm"]   = round(sapm, 2)
-                existing["stats"]["strdef"] = round(strdef, 1)
-                existing["stats"]["tdavg"]  = round(tdavg, 2)
-                existing["stats"]["tdacc"]  = round(tdacc, 1)
-                existing["stats"]["tddef"]  = round(tddef, 1)
-                existing["stats"]["subavg"] = round(subavg, 2)
+                existing["stats"]["slpm"]       = round(slpm, 2)
+                existing["stats"]["stracc"]     = round(stracc, 1)
+                existing["stats"]["sapm"]       = round(sapm, 2)
+                existing["stats"]["strdef"]     = round(strdef, 1)
+                existing["stats"]["tdavg"]      = round(tdavg, 2)
+                existing["stats"]["tdacc"]      = round(tdacc, 1)
+                existing["stats"]["tddef"]      = round(tddef, 1)
+                existing["stats"]["subavg"]     = round(subavg, 2)
+                existing["stats"]["finishRate"] = finish_rate
                 updated += 1
             else:
                 db[name] = {
@@ -672,9 +686,9 @@ def fetch_ufcstats_roster():
                         "tdavg":  round(tdavg, 2),
                         "tdacc":  round(tdacc, 1),
                         "tddef":  round(tddef, 1),
-                        "subavg": round(subavg, 2),
-                        "winStreak": 0,
-                        "finishRate": 50,
+                        "subavg":     round(subavg, 2),
+                        "winStreak":  0,
+                        "finishRate": finish_rate,
                     }
                 }
                 added += 1
