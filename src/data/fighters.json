@@ -4677,16 +4677,16 @@
     "reach": 76,
     "style": "BJJ",
     "stats": {
-      "slpm": 3.5,
-      "stracc": 48,
-      "sapm": 2.0,
-      "strdef": 67,
-      "tdavg": 4.2,
-      "tdacc": 61,
-      "tddef": 76,
-      "subavg": 1.8,
+      "slpm": 4.8,
+      "stracc": 52,
+      "sapm": 1.4,
+      "strdef": 71,
+      "tdavg": 5.1,
+      "tdacc": 64,
+      "tddef": 78,
+      "subavg": 2.2,
       "winStreak": 4,
-      "finishRate": 86
+      "finishRate": 91
     }
   }
 }
