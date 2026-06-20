@@ -1191,24 +1191,92 @@ export default function App(){
     const norm=s=>s.toLowerCase().replace(/[^a-z]/g,"");
     const nq=norm(q);
     const matches=FIGHTER_NAMES.filter(n=>norm(n).includes(nq)).slice(0,8);
-    setResults(matches.map(n=>({id:n,displayName:n,weightClass:FIGHTER_DB[n]?.weightClass})));
+    return matches.map(n=>({id:n,displayName:n,weightClass:FIGHTER_DB[n]?.weightClass,isLocal:true}));
   }
 
-  function selectFighter(name,setFighter,setResults,setQ){
+  async function combinedSearch(q,setResults){
+    if(!q||q.length<2){setResults([]);return;}
+    const local=localSearch(q,setResults);
+    setResults(local);
+    try{
+      const r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/mma/ufc/athletes?limit=10&search=${encodeURIComponent(q)}`);
+      const d=await r.json();
+      const espnItems=(d.items||d.athletes||[]).slice(0,8);
+      const localNames=new Set(local.map(f=>f.displayName.toLowerCase()));
+      const espnNew=espnItems
+        .filter(a=>{
+          const name=(a.displayName||a.fullName||"").toLowerCase();
+          return name&&!localNames.has(name);
+        })
+        .map(a=>({id:a.id,displayName:a.displayName||a.fullName,weightClass:a.weightClass?.displayName||a.weightClass,isLocal:false,espnData:a}));
+      setResults([...local,...espnNew]);
+    }catch(e){}
+  }
+
+  async function selectFighter(item,setFighter,setResults,setQ){
     setResults([]);
-    setQ(name);
-    const f=FIGHTER_DB[name];
-    if(f) setFighter(f);
+    setQ(item.displayName);
     setSrchPred(null);
+    if(item.isLocal){
+      setFighter(FIGHTER_DB[item.displayName]);
+      return;
+    }
+    // ESPN fighter — fetch their stats
+    try{
+      const r=await fetch(`https://site.web.api.espn.com/apis/common/v3/sports/mma/ufc/athletes/${item.id}/stats`);
+      const d=await r.json();
+      const cats=d.splits?.categories||[];
+      function getStat(cat,stat){
+        const c=cats.find(c=>c.name===cat||c.displayName===cat);
+        if(!c)return null;
+        const s=c.stats?.find(s=>s.name===stat||s.displayName===stat);
+        return s?parseFloat(s.value):null;
+      }
+      const slpm  =getStat("Striking","strikesLandedPerMinute")??getStat("striking","SLpM")??3.5;
+      const stracc=getStat("Striking","strikingAccuracy")??getStat("striking","strAcc")??45;
+      const sapm  =getStat("Striking","strikesAbsorbedPerMinute")??getStat("striking","SApM")??3.0;
+      const strdef=getStat("Striking","strikingDefense")??getStat("striking","strDef")??55;
+      const tdavg =getStat("Grappling","takedownAverage")??getStat("grappling","TDAvg")??0.8;
+      const tdacc =getStat("Grappling","takedownAccuracy")??getStat("grappling","TDAcc")??40;
+      const tddef =getStat("Grappling","takedownDefense")??getStat("grappling","TDDef")??60;
+      const subavg=getStat("Grappling","submissionAverage")??getStat("grappling","subAvg")??0.3;
+      const bio=item.espnData||{};
+      const rec=bio.record;
+      setFighter({
+        name:item.displayName,
+        record:rec?`${rec.wins||0}-${rec.losses||0}`:"?-?",
+        rank:"NR",country:"🌍",
+        age:bio.age?parseInt(bio.age):28,
+        weightClass:item.weightClass||"Unknown",
+        naturalWeight:155,reach:70,style:"Mixed",
+        wrestlerResilience:5,reachDisadvantageHandling:5,speedVsHandsHandling:5,
+        tendencies:[],
+        stats:{
+          slpm,stracc:stracc>1?stracc:Math.round(stracc*100),
+          sapm,strdef:strdef>1?strdef:Math.round(strdef*100),
+          tdavg,tdacc:tdacc>1?tdacc:Math.round(tdacc*100),
+          tddef:tddef>1?tddef:Math.round(tddef*100),
+          subavg,winStreak:0,finishRate:50
+        }
+      });
+    }catch(e){
+      // stats fetch failed, set minimal fighter so predict button still appears
+      setFighter({
+        name:item.displayName,record:"?-?",rank:"NR",country:"🌍",
+        age:28,weightClass:item.weightClass||"Unknown",naturalWeight:155,reach:70,style:"Mixed",
+        wrestlerResilience:5,reachDisadvantageHandling:5,speedVsHandsHandling:5,tendencies:[],
+        stats:{slpm:3.5,stracc:45,sapm:3.0,strdef:55,tdavg:0.8,tdacc:40,tddef:60,subavg:0.3,winStreak:0,finishRate:50}
+      });
+    }
   }
 
   useEffect(()=>{
-    const t=setTimeout(()=>localSearch(srchQ1,setSrchRes1),100);
+    const t=setTimeout(()=>combinedSearch(srchQ1,setSrchRes1),300);
     return()=>clearTimeout(t);
   },[srchQ1]);
 
   useEffect(()=>{
-    const t=setTimeout(()=>localSearch(srchQ2,setSrchRes2),100);
+    const t=setTimeout(()=>combinedSearch(srchQ2,setSrchRes2),300);
     return()=>clearTimeout(t);
   },[srchQ2]);
 
@@ -1436,13 +1504,13 @@ export default function App(){
               label="🔴 Fighter 1" query={srchQ1} setQuery={setSrchQ1}
               results={srchRes1} loading={false}
               selected={srchF1} setFighter={setSrchF1} setResults={setSrchRes1}
-              onSelect={a=>a?selectFighter(a.displayName,setSrchF1,setSrchRes1,setSrchQ1):setSrchPred(null)}
+              onSelect={a=>a?selectFighter(a,setSrchF1,setSrchRes1,setSrchQ1):setSrchPred(null)}
               accent="#d4a843" bg="linear-gradient(135deg,#1a1000,#110800)" bdr="#2a1a0a"/>
             <FighterSearchBox
               label="🔵 Fighter 2" query={srchQ2} setQuery={setSrchQ2}
               results={srchRes2} loading={false}
               selected={srchF2} setFighter={setSrchF2} setResults={setSrchRes2}
-              onSelect={a=>a?selectFighter(a.displayName,setSrchF2,setSrchRes2,setSrchQ2):setSrchPred(null)}
+              onSelect={a=>a?selectFighter(a,setSrchF2,setSrchRes2,setSrchQ2):setSrchPred(null)}
               accent="#6a8ad4" bg="linear-gradient(135deg,#00001a,#08001a)" bdr="#0a0a2a"/>
           </div>
           {srchF1&&srchF2&&!srchPred&&(
