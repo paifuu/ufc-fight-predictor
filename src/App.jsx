@@ -1464,6 +1464,19 @@ const BLANK={name:"",record:"0-0",rank:"Unranked",country:"🌍",age:28,weightCl
   pastMatchups:{}};
 const STYLES=["Striker","Kickboxer","Power Striker","Counter Striker","Pressure Boxer","Pressure Fighter","Brawler","Wrestler","Grappler","BJJ Specialist","BJJ / Submission Hunter","Sambo / Wrestler","Complete Fighter","Flashy Striker","Counter Striker / Grappler","Wrestler / Grappler"];
 
+// Fighter photos dropped into public/fighters/<slug>.jpg override Wikipedia
+const FIGHTER_PHOTOS = {
+  "Manuel Torres":        "/fighters/manuel-torres.jpg",
+  "Shara Magomedov":      "/fighters/shara-magomedov.jpg",
+  "Michel Pereira":       "/fighters/michel-pereira.jpg",
+  "Benoit Saint Denis":   "/fighters/benoit-saint-denis.jpg",
+  "Mario Bautista":       "/fighters/mario-bautista.jpg",
+  "Brandon Royval":       "/fighters/brandon-royval.jpg",
+  "Lone'er Kavanagh":     "/fighters/loner-kavanagh.jpg",
+  "Elisha Ellison":       "/fighters/elisha-ellison.jpg",
+  "David Martinez":       "/fighters/david-martinez.jpg",
+};
+
 // ─── UFC-STYLE MATCHUP CARD ──────────────────────────────────────────────────
 function UFCMatchupCard({ f1, f2, fightMeta }) {
   const [imgs, setImgs] = useState([null, null]);
@@ -1472,6 +1485,8 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
   useEffect(() => {
     let cancelled = false;
     async function getImg(name) {
+      // Use custom photo if available
+      if (FIGHTER_PHOTOS[name]) return FIGHTER_PHOTOS[name];
       try {
         const r = await fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(name)}&prop=pageimages&format=json&pithumbsize=600&origin=*`);
         const d = await r.json();
@@ -1516,8 +1531,11 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
     );
   }
 
-  const imgStyle = { height:"100%", maxWidth:"100%", objectFit:"cover", objectPosition:"top center",
-    borderRadius:8, filter:"drop-shadow(0 6px 20px rgba(0,0,0,0.85))" };
+  // Fixed photo box — identical for every fighter regardless of source image dimensions
+  const PHOTO_W = 130, PHOTO_H = 180;
+  const photoBox = { width:PHOTO_W, height:PHOTO_H, flexShrink:0,
+    borderRadius:8, overflow:"hidden", filter:"drop-shadow(0 6px 20px rgba(0,0,0,0.85))" };
+  const imgStyle = { width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center" };
 
   return (
     <div style={{background:"#0d0d14",border:"1px solid #1e1e26",borderRadius:14,overflow:"hidden",marginBottom:14}}>
@@ -1539,10 +1557,10 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
         {/* LEFT fighter */}
         <div style={{width:"50%",display:"flex",flexDirection:"column",alignItems:"flex-start",
           padding:"16px 12px 16px 16px",zIndex:2}}>
-          <div style={{height:170,display:"flex",alignItems:"flex-end",justifyContent:"flex-start",marginBottom:10,width:"100%"}}>
+          <div style={{marginBottom:10}}>
             {imgs[0]
-              ? <img src={imgs[0]} alt={f1.name} style={imgStyle}/>
-              : <div style={{height:"100%",width:100,display:"flex",alignItems:"flex-end",justifyContent:"center"}}>
+              ? <div style={photoBox}><img src={imgs[0]} alt={f1.name} style={imgStyle}/></div>
+              : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"transparent"}}>
                   <Silhouette color={GOLD}/>
                 </div>
             }
@@ -1565,10 +1583,10 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
         {/* RIGHT fighter */}
         <div style={{width:"50%",display:"flex",flexDirection:"column",alignItems:"flex-end",
           padding:"16px 16px 16px 12px",zIndex:2}}>
-          <div style={{height:170,display:"flex",alignItems:"flex-end",justifyContent:"flex-end",marginBottom:10,width:"100%"}}>
+          <div style={{marginBottom:10}}>
             {imgs[1]
-              ? <img src={imgs[1]} alt={f2.name} style={{...imgStyle,transform:"scaleX(-1)"}}/>
-              : <div style={{height:"100%",width:100,display:"flex",alignItems:"flex-end",justifyContent:"center"}}>
+              ? <div style={{...photoBox,transform:"scaleX(-1)"}}><img src={imgs[1]} alt={f2.name} style={imgStyle}/></div>
+              : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"transparent"}}>
                   <Silhouette color={BLUE}/>
                 </div>
             }
