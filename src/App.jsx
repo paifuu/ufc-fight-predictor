@@ -1088,27 +1088,24 @@ function FighterSearchBox({label,query,setQuery,results,loading,selected,setFigh
   return(
     <div style={{flex:1,minWidth:0}}>
       <div style={{fontSize:9,color:accent,letterSpacing:2,textTransform:"uppercase",marginBottom:6}}>{label}</div>
-      <div style={{position:"relative"}}>
-        <input value={query} onChange={e=>{setQuery(e.target.value);setFighter(null);onSelect();}}
-          placeholder="Search any UFC fighter..."
-          style={{width:"100%",boxSizing:"border-box",background:"#0a0a0a",border:`1px solid ${selected?"#d4a843":"#2a2a2a"}`,
-            borderRadius:6,padding:"10px 12px",color:"#e8e0d4",fontSize:13,outline:"none"}}/>
-        {loading&&<div style={{position:"absolute",right:10,top:"50%",transform:"translateY(-50%)",fontSize:10,color:"#5a5a5a"}}>...</div>}
-        {results.length>0&&(
-          <div style={{position:"absolute",top:"100%",left:0,right:0,zIndex:50,background:"#12121a",border:"1px solid #2a2a2a",borderRadius:6,overflow:"hidden",marginTop:2}}>
-            {results.map(a=>(
-              <button key={a.id} onClick={()=>onSelect(a)}
-                style={{display:"block",width:"100%",padding:"9px 12px",background:"transparent",border:"none",
-                  borderBottom:"1px solid #1a1a1a",color:"#e8e0d4",fontSize:12,textAlign:"left",cursor:"pointer"}}
-                onMouseEnter={e=>e.currentTarget.style.background="#1a1a2a"}
-                onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
-                <span style={{fontWeight:700}}>{a.displayName||a.fullName}</span>
-                {a.weightClass&&<span style={{fontSize:10,color:"#5a5a7a",marginLeft:8}}>{a.weightClass.displayName||a.weightClass}</span>}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
+      <input value={query} onChange={e=>{setQuery(e.target.value);setFighter(null);onSelect();}}
+        placeholder="Search any UFC fighter..."
+        style={{width:"100%",boxSizing:"border-box",background:"#0a0a0a",border:`1px solid ${selected?"#d4a843":"#2a2a2a"}`,
+          borderRadius:6,padding:"10px 12px",color:"#e8e0d4",fontSize:13,outline:"none"}}/>
+      {results.length>0&&(
+        <div style={{background:"#12121a",border:"1px solid #2a2a2a",borderRadius:6,overflow:"hidden",marginTop:2}}>
+          {results.map(a=>(
+            <button key={a.id} onClick={()=>onSelect(a)}
+              style={{display:"block",width:"100%",padding:"9px 12px",background:"transparent",border:"none",
+                borderBottom:"1px solid #1a1a1a",color:"#e8e0d4",fontSize:12,textAlign:"left",cursor:"pointer"}}
+              onMouseEnter={e=>e.currentTarget.style.background="#1a1a2a"}
+              onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+              <span style={{fontWeight:700}}>{a.displayName}</span>
+              {a.weightClass&&<span style={{fontSize:10,color:"#5a5a7a",marginLeft:8}}>{a.weightClass}</span>}
+            </button>
+          ))}
+        </div>
+      )}
       {selected&&(
         <div style={{marginTop:8,background:bg,border:`1px solid ${bdr}`,borderRadius:8,padding:10}}>
           <div style={{fontSize:13,fontWeight:700,color:"#e8e0d4"}}>{selected.name}</div>
