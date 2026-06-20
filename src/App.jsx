@@ -1237,7 +1237,7 @@ function ShareCard({pred,f1,f2,onClose}){
 }
 
 // Result panel with animated reveal
-function ResultPanel({pred,f1,f2,onShare}){
+function ResultPanel({pred,f1,f2,onShare,odds}){
   const[phase,setPhase]=useState(0);
   useEffect(()=>{
     setPhase(0);
@@ -1283,6 +1283,36 @@ function ResultPanel({pred,f1,f2,onShare}){
           <div style={{width:phase>=2?`${100-pred.f1WinPct}%`:"50%",background:"linear-gradient(90deg,#4a5aaa,#6a8ad4)",transition:"width 1s cubic-bezier(0.34,1.56,0.64,1)"}}/>
         </div>
       </div>
+
+      {/* Market odds comparison */}
+      {odds&&(
+        <div style={{background:"#0d0d0d",border:"1px solid #2a2a1a",borderRadius:10,padding:16,marginBottom:16,
+          opacity:phase>=2?1:0,transition:"opacity 0.5s ease"}}>
+          <div style={{fontSize:9,color:"#5a4a3a",letterSpacing:2,textTransform:"uppercase",marginBottom:12}}>📊 Market Odds vs AI</div>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:10}}>
+            <div style={{textAlign:"center"}}>
+              <div style={{fontSize:18,fontWeight:700,color:"#d4a843"}}>{odds.f1Pct}%</div>
+              <div style={{fontSize:8,color:"#5a4a3a",letterSpacing:1,textTransform:"uppercase",marginTop:2}}>Market</div>
+              <div style={{fontSize:10,color:"#888",marginTop:1}}>{odds.f1Odds>0?"+":""}{odds.f1Odds}</div>
+            </div>
+            <div style={{textAlign:"center",fontSize:8,color:"#3a3a3a"}}>
+              <div style={{color:pred.f1WinPct>odds.f1Pct?"#4a8a4a":pred.f1WinPct<odds.f1Pct?"#8a4a4a":"#5a5a5a",fontSize:11,fontWeight:700}}>
+                {pred.f1WinPct>odds.f1Pct?"AI favors "+f1.name:pred.f1WinPct<odds.f1Pct?"AI favors "+f2.name:"AI agrees"}
+              </div>
+              <div style={{fontSize:8,color:"#3a3a3a",marginTop:3}}>vs betting line</div>
+            </div>
+            <div style={{textAlign:"center"}}>
+              <div style={{fontSize:18,fontWeight:700,color:"#6a8ad4"}}>{odds.f2Pct}%</div>
+              <div style={{fontSize:8,color:"#3a3a5a",letterSpacing:1,textTransform:"uppercase",marginTop:2}}>Market</div>
+              <div style={{fontSize:10,color:"#888",marginTop:1}}>{odds.f2Odds>0?"+":""}{odds.f2Odds}</div>
+            </div>
+          </div>
+          <div style={{height:8,background:"#1a1a1a",borderRadius:4,overflow:"hidden",display:"flex"}}>
+            <div style={{width:`${odds.f1Pct}%`,background:"rgba(212,168,67,0.4)",transition:"width 1s ease"}}/>
+            <div style={{width:`${odds.f2Pct}%`,background:"rgba(106,138,212,0.4)",transition:"width 1s ease"}}/>
+          </div>
+        </div>
+      )}
 
       {/* Advanced modifiers */}
       <div style={{background:"#0d0d0d",border:"1px solid #1a1a1a",borderRadius:10,padding:16,marginBottom:16,
@@ -1735,11 +1765,54 @@ export default function App(){
   const[editingF1,setEditF1]=useState(true);
   const[showShare,setShowShare]=useState(false);
   const[savedPreds,setSavedPreds]=useState({});
+  const[oddsData,setOddsData]=useState([]); // [{f1,f2,f1Pct,f2Pct,f1Odds,f2Odds}]
+
+  useEffect(()=>{
+    const key=import.meta.env.VITE_ODDS_API_KEY;
+    if(!key) return;
+    fetch(`https://api.the-odds-api.com/v4/sports/mma_mixed_martial_arts/odds/?apiKey=${key}&regions=us&markets=h2h&oddsFormat=american`)
+      .then(r=>r.json())
+      .then(data=>{
+        if(!Array.isArray(data)) return;
+        const parsed=data.map(event=>{
+          const book=event.bookmakers?.[0];
+          if(!book) return null;
+          const market=book.markets?.find(m=>m.key==="h2h");
+          if(!market) return null;
+          const [a,b]=market.outcomes;
+          if(!a||!b) return null;
+          function toProb(american){
+            return american<0
+              ? Math.round((-american)/(-american+100)*100)
+              : Math.round(100/(american+100)*100);
+          }
+          const aP=toProb(a.price), bP=toProb(b.price);
+          const total=aP+bP;
+          return {f1:a.name,f2:b.name,f1Odds:a.price,f2Odds:b.price,
+                  f1Pct:Math.round(aP/total*100),f2Pct:Math.round(bP/total*100)};
+        }).filter(Boolean);
+        setOddsData(parsed);
+      })
+      .catch(()=>{});
+  },[]);
 
   const evtMeta=UPCOMING_EVENTS[selEvt];
   const fightMeta=evtMeta.fights[selFight];
   const f1=FIGHTER_DB[fightMeta.f1];
   const f2=FIGHTER_DB[fightMeta.f2];
+
+  function findOdds(name1,name2){
+    const norm=s=>s.toLowerCase().replace(/[^a-z]/g,"");
+    return oddsData.find(o=>{
+      const of1=norm(o.f1),of2=norm(o.f2),n1=norm(name1),n2=norm(name2);
+      return (of1.includes(n1.slice(0,5))||n1.includes(of1.slice(0,5)))&&
+             (of2.includes(n2.slice(0,5))||n2.includes(of2.slice(0,5)));
+    })||oddsData.find(o=>{
+      const of1=norm(o.f1),of2=norm(o.f2),n1=norm(name1),n2=norm(name2);
+      return (of1.includes(n2.slice(0,5))||n2.includes(of1.slice(0,5)))&&
+             (of2.includes(n1.slice(0,5))||n1.includes(of2.slice(0,5)));
+    });
+  }
 
   function analyze(){
     const r=scoreFight(f1,f2);
@@ -1922,7 +1995,7 @@ export default function App(){
               </div>
             ):(
               <>
-                <ResultPanel pred={pred} f1={f1} f2={f2}/>
+                <ResultPanel pred={pred} f1={f1} f2={f2} odds={findOdds(f1.name,f2.name)}/>
                 <div style={{textAlign:"center",marginTop:12,paddingBottom:20}}>
                   <button onClick={()=>setPred(null)} style={{padding:"10px 28px",background:"transparent",border:"1px solid #2a2a2a",borderRadius:5,color:"#4a3a2a",fontSize:10,letterSpacing:2,textTransform:"uppercase",cursor:"pointer"}}>↺ Reset</button>
                 </div>
