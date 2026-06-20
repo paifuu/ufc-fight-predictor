@@ -157,9 +157,9 @@ function scoreFight(fighter1, fighter2) {
 
   // 5. EXPERIENCE & OPPONENT QUALITY (light factor — recent form & style matter far more)
   // Moreno lost to Kavanagh, Figueiredo lost to rookies — experience alone doesn't win fights
-  const rawExp = (fighter1.opponentQuality-fighter2.opponentQuality)*0.25
+  const rawExp = ((fighter1.opponentQuality??65)-(fighter2.opponentQuality??65))*0.25
                + (s1.winStreak-s2.winStreak)*1.2
-               + (parseInt(fighter1.record)-parseInt(fighter2.record))*0.08;
+               + (parseInt(fighter1.record)||0-(parseInt(fighter2.record)||0))*0.08;
   const experience = 50+Math.max(-18,Math.min(18,rawExp));  // hard cap ±18 so it can't dominate
 
   // 5b. RING RUST — penalises inactivity heavily; compounds with years out
@@ -189,7 +189,7 @@ function scoreFight(fighter1, fighter2) {
 
   // 7. SIZE — nonlinear; each weight class matters more than the last
   const nwd = (fighter1.naturalWeight??0)-(fighter2.naturalWeight??0);
-  const rd = fighter1.reach-fighter2.reach;
+  const rd = (fighter1.reach??70)-(fighter2.reach??70);
   const weightBonus = Math.sign(nwd)*Math.pow(Math.abs(nwd)/15,1.5)*6;
   const reachBonus = rd*0.4
     + ((fighter1.reachDisadvantageHandling??5)-(fighter2.reachDisadvantageHandling??5))*0.5;
@@ -295,7 +295,7 @@ function scoreFight(fighter1, fighter2) {
       {label:"Recent Form",        value:Math.round(recentFormNet),                                            icon:"📈"},
       {label:"Ring Rust",          value:Math.round(-ringRustNet),                                             icon:"⏳"},
       {label:"Past Matchups",      value:pastMod,                                                              icon:"📜"},
-      {label:"Opp. Quality Edge",  value:Math.round((fighter1.opponentQuality-fighter2.opponentQuality)*0.8),  icon:"🏆"},
+      {label:"Opp. Quality Edge",  value:Math.round(((fighter1.opponentQuality??65)-(fighter2.opponentQuality??65))*0.8),  icon:"🏆"},
     ],
   };
 }
