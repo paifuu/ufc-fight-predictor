@@ -512,29 +512,36 @@ def fetch_ufcstats_roster():
     # Step 1: collect all fighter detail page URLs from the A-Z list
     fighter_urls = {}  # name -> url
     print("Collecting fighter list from ufcstats.com...")
+    debug_done = False
     for char in "abcdefghijklmnopqrstuvwxyz":
         try:
             html = fetch_html(f"http://www.ufcstats.com/statistics/fighters?char={char}&page=all")
-            # Find all fighter detail links and names
-            # Pattern: <a href="http://www.ufcstats.com/fighter-details/...">Name</a>
-            links = re.findall(
-                r'href="(http://www\.ufcstats\.com/fighter-details/[a-f0-9]+)"[^>]*>\s*([^<]+?)\s*</a>',
+
+            # Debug: print a snippet on first letter to diagnose HTML structure
+            if not debug_done:
+                snippet = html[:2000].replace('\n', ' ')
+                print(f"  [DEBUG] First 2000 chars of char=a page: {snippet}")
+                debug_done = True
+
+            # Try multiple patterns to find fighter links
+            # Pattern 1: href with fighter-details (any hex-like ID)
+            all_links = re.findall(
+                r'href="(http://www\.ufcstats\.com/fighter-details/[^"]+)"[^>]*>\s*([^<\s][^<]*?)\s*</a>',
                 html
             )
-            # Group consecutive links into first+last name pairs (each fighter has 2 links)
+            # Group pairs with same URL into first+last name
             i = 0
-            while i < len(links) - 1:
-                url1, name1 = links[i]
-                url2, name2 = links[i+1]
+            while i < len(all_links) - 1:
+                url1, name1 = all_links[i]
+                url2, name2 = all_links[i+1]
                 if url1 == url2:
-                    # same URL = first and last name of same fighter
                     full = f"{name1.strip()} {name2.strip()}".strip()
-                    if full:
+                    if full and len(full) > 2:
                         fighter_urls[full] = url1
                     i += 2
                 else:
                     i += 1
-            print(f"  char={char}: {len([u for u in fighter_urls])} total so far")
+            print(f"  char={char}: {len(fighter_urls)} total so far")
         except Exception as e:
             print(f"  [WARN] Failed on char={char}: {e}")
         time.sleep(0.5)
