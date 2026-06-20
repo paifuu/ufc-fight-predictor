@@ -1188,93 +1188,30 @@ export default function App(){
   const[srchF1,setSrchF1]=useState(null);
   const[srchF2,setSrchF2]=useState(null);
   const[srchPred,setSrchPred]=useState(null);
-  const[srchLoading1,setSrchLoading1]=useState(false);
-  const[srchLoading2,setSrchLoading2]=useState(false);
 
-  async function espnSearch(q,setResults,setLoading){
+  function localSearch(q,setResults){
     if(!q||q.length<2){setResults([]);return;}
-    setLoading(true);
-    try{
-      const r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/mma/ufc/athletes?limit=8&search=${encodeURIComponent(q)}`);
-      const d=await r.json();
-      setResults((d.items||d.athletes||[]).slice(0,6));
-    }catch(e){setResults([]);}
-    setLoading(false);
+    const norm=s=>s.toLowerCase().replace(/[^a-z]/g,"");
+    const nq=norm(q);
+    const matches=FIGHTER_NAMES.filter(n=>norm(n).includes(nq)).slice(0,8);
+    setResults(matches.map(n=>({id:n,displayName:n,weightClass:FIGHTER_DB[n]?.weightClass})));
   }
 
-  async function espnLoadFighter(athlete,setFighter,setResults,setQ){
+  function selectFighter(name,setFighter,setResults,setQ){
     setResults([]);
-    setQ(athlete.displayName||athlete.fullName||"");
-    try{
-      const r=await fetch(`https://site.web.api.espn.com/apis/common/v3/sports/mma/ufc/athletes/${athlete.id}/stats`);
-      const d=await r.json();
-      const cats=d.splits?.categories||[];
-      function getStat(catName,statName){
-        const cat=cats.find(c=>c.name===catName||c.displayName===catName);
-        if(!cat)return null;
-        const s=cat.stats?.find(s=>s.name===statName||s.displayName===statName);
-        return s?parseFloat(s.value):null;
-      }
-      // ESPN stat keys: strikesLandedPerMinute, strikingAccuracy, strikesAbsorbedPerMinute,
-      //                 strikingDefense, takedownAverage, takedownAccuracy, takedownDefense, submissionAverage
-      const slpm  = getStat("striking","strikesLandedPerMinute") ?? getStat("striking","SLpM") ?? 3.5;
-      const stracc= getStat("striking","strikingAccuracy") ?? getStat("striking","strAcc") ?? 45;
-      const sapm  = getStat("striking","strikesAbsorbedPerMinute") ?? getStat("striking","SApM") ?? 3.0;
-      const strdef= getStat("striking","strikingDefense") ?? getStat("striking","strDef") ?? 55;
-      const tdavg = getStat("grappling","takedownAverage") ?? getStat("grappling","TDAvg") ?? 1.0;
-      const tdacc = getStat("grappling","takedownAccuracy") ?? getStat("grappling","TDAcc") ?? 40;
-      const tddef = getStat("grappling","takedownDefense") ?? getStat("grappling","TDDef") ?? 60;
-      const subavg= getStat("grappling","submissionAverage") ?? getStat("grappling","subAvg") ?? 0.5;
-
-      // Check local DB first for richer data
-      const localName=athlete.displayName||athlete.fullName||"";
-      const local=FIGHTER_DB[localName]||Object.values(FIGHTER_DB).find(f=>f.name===localName);
-      const bio=athlete.athlete||athlete;
-
-      const fighter={
-        name: localName,
-        record: local?.record || (bio.record ? `${bio.record.wins}-${bio.record.losses}` : "?-?"),
-        rank: local?.rank || bio.rank || "NR",
-        country: local?.country || "🌍",
-        age: local?.age || (bio.age ? parseInt(bio.age) : 28),
-        weightClass: local?.weightClass || bio.weightClass?.displayName || "Unknown",
-        naturalWeight: local?.naturalWeight || 155,
-        reach: local?.reach || bio.reach || 70,
-        style: local?.style || "Mixed",
-        wrestlerResilience: local?.wrestlerResilience || 5,
-        reachDisadvantageHandling: local?.reachDisadvantageHandling || 5,
-        speedVsHandsHandling: local?.speedVsHandsHandling || 5,
-        tendencies: local?.tendencies || [],
-        stats:{
-          slpm: local?.stats?.slpm ?? slpm,
-          stracc: local?.stats?.stracc ?? (stracc>1?stracc:stracc*100),
-          sapm: local?.stats?.sapm ?? sapm,
-          strdef: local?.stats?.strdef ?? (strdef>1?strdef:strdef*100),
-          tdavg: local?.stats?.tdavg ?? tdavg,
-          tdacc: local?.stats?.tdacc ?? (tdacc>1?tdacc:tdacc*100),
-          tddef: local?.stats?.tddef ?? (tddef>1?tddef:tddef*100),
-          subavg: local?.stats?.subavg ?? subavg,
-          winStreak: local?.stats?.winStreak ?? 0,
-          finishRate: local?.stats?.finishRate ?? 50,
-        }
-      };
-      setFighter(fighter);
-      setSrchPred(null);
-    }catch(e){
-      console.error("[ESPN]",e);
-      // Fallback: use local DB only
-      const local=FIGHTER_DB[athlete.displayName||""];
-      if(local)setFighter(local);
-    }
+    setQ(name);
+    const f=FIGHTER_DB[name];
+    if(f) setFighter(f);
+    setSrchPred(null);
   }
 
   useEffect(()=>{
-    const t=setTimeout(()=>espnSearch(srchQ1,setSrchRes1,setSrchLoading1),300);
+    const t=setTimeout(()=>localSearch(srchQ1,setSrchRes1),100);
     return()=>clearTimeout(t);
   },[srchQ1]);
 
   useEffect(()=>{
-    const t=setTimeout(()=>espnSearch(srchQ2,setSrchRes2,setSrchLoading2),300);
+    const t=setTimeout(()=>localSearch(srchQ2,setSrchRes2),100);
     return()=>clearTimeout(t);
   },[srchQ2]);
 
@@ -1500,15 +1437,15 @@ export default function App(){
           <div style={{display:"flex",gap:12,marginBottom:16,flexWrap:"wrap"}}>
             <FighterSearchBox
               label="🔴 Fighter 1" query={srchQ1} setQuery={setSrchQ1}
-              results={srchRes1} loading={srchLoading1}
+              results={srchRes1} loading={false}
               selected={srchF1} setFighter={setSrchF1} setResults={setSrchRes1}
-              onSelect={a=>a?espnLoadFighter(a,setSrchF1,setSrchRes1,setSrchQ1):setSrchPred(null)}
+              onSelect={a=>a?selectFighter(a.displayName,setSrchF1,setSrchRes1,setSrchQ1):setSrchPred(null)}
               accent="#d4a843" bg="linear-gradient(135deg,#1a1000,#110800)" bdr="#2a1a0a"/>
             <FighterSearchBox
               label="🔵 Fighter 2" query={srchQ2} setQuery={setSrchQ2}
-              results={srchRes2} loading={srchLoading2}
+              results={srchRes2} loading={false}
               selected={srchF2} setFighter={setSrchF2} setResults={setSrchRes2}
-              onSelect={a=>a?espnLoadFighter(a,setSrchF2,setSrchRes2,setSrchQ2):setSrchPred(null)}
+              onSelect={a=>a?selectFighter(a.displayName,setSrchF2,setSrchRes2,setSrchQ2):setSrchPred(null)}
               accent="#6a8ad4" bg="linear-gradient(135deg,#00001a,#08001a)" bdr="#0a0a2a"/>
           </div>
           {srchF1&&srchF2&&!srchPred&&(
