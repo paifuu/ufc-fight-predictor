@@ -1791,9 +1791,10 @@ export default function App(){
           return {f1:a.name,f2:b.name,f1Odds:a.price,f2Odds:b.price,
                   f1Pct:Math.round(aP/total*100),f2Pct:Math.round(bP/total*100)};
         }).filter(Boolean);
+        console.log("[OddsAPI] fights available:", parsed.map(o=>`${o.f1} vs ${o.f2}`));
         setOddsData(parsed);
       })
-      .catch(()=>{});
+      .catch(e=>console.error("[OddsAPI] error:",e));
   },[]);
 
   const evtMeta=UPCOMING_EVENTS[selEvt];
