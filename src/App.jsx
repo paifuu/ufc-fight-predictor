@@ -1137,6 +1137,147 @@ export default function App(){
       .catch(e=>console.error("[OddsAPI] error:",e));
   },[]);
 
+  // ── Fighter Search state ────────────────────────────────────────────────
+  const[srchQ1,setSrchQ1]=useState("");
+  const[srchQ2,setSrchQ2]=useState("");
+  const[srchRes1,setSrchRes1]=useState([]);
+  const[srchRes2,setSrchRes2]=useState([]);
+  const[srchF1,setSrchF1]=useState(null);
+  const[srchF2,setSrchF2]=useState(null);
+  const[srchPred,setSrchPred]=useState(null);
+  const[srchLoading1,setSrchLoading1]=useState(false);
+  const[srchLoading2,setSrchLoading2]=useState(false);
+
+  async function espnSearch(q,setResults,setLoading){
+    if(!q||q.length<2){setResults([]);return;}
+    setLoading(true);
+    try{
+      const r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/mma/ufc/athletes?limit=8&search=${encodeURIComponent(q)}`);
+      const d=await r.json();
+      setResults((d.items||d.athletes||[]).slice(0,6));
+    }catch(e){setResults([]);}
+    setLoading(false);
+  }
+
+  async function espnLoadFighter(athlete,setFighter,setResults,setQ){
+    setResults([]);
+    setQ(athlete.displayName||athlete.fullName||"");
+    try{
+      const r=await fetch(`https://site.web.api.espn.com/apis/common/v3/sports/mma/ufc/athletes/${athlete.id}/stats`);
+      const d=await r.json();
+      const cats=d.splits?.categories||[];
+      function getStat(catName,statName){
+        const cat=cats.find(c=>c.name===catName||c.displayName===catName);
+        if(!cat)return null;
+        const s=cat.stats?.find(s=>s.name===statName||s.displayName===statName);
+        return s?parseFloat(s.value):null;
+      }
+      // ESPN stat keys: strikesLandedPerMinute, strikingAccuracy, strikesAbsorbedPerMinute,
+      //                 strikingDefense, takedownAverage, takedownAccuracy, takedownDefense, submissionAverage
+      const slpm  = getStat("striking","strikesLandedPerMinute") ?? getStat("striking","SLpM") ?? 3.5;
+      const stracc= getStat("striking","strikingAccuracy") ?? getStat("striking","strAcc") ?? 45;
+      const sapm  = getStat("striking","strikesAbsorbedPerMinute") ?? getStat("striking","SApM") ?? 3.0;
+      const strdef= getStat("striking","strikingDefense") ?? getStat("striking","strDef") ?? 55;
+      const tdavg = getStat("grappling","takedownAverage") ?? getStat("grappling","TDAvg") ?? 1.0;
+      const tdacc = getStat("grappling","takedownAccuracy") ?? getStat("grappling","TDAcc") ?? 40;
+      const tddef = getStat("grappling","takedownDefense") ?? getStat("grappling","TDDef") ?? 60;
+      const subavg= getStat("grappling","submissionAverage") ?? getStat("grappling","subAvg") ?? 0.5;
+
+      // Check local DB first for richer data
+      const localName=athlete.displayName||athlete.fullName||"";
+      const local=FIGHTER_DB[localName]||Object.values(FIGHTER_DB).find(f=>f.name===localName);
+      const bio=athlete.athlete||athlete;
+
+      const fighter={
+        name: localName,
+        record: local?.record || (bio.record ? `${bio.record.wins}-${bio.record.losses}` : "?-?"),
+        rank: local?.rank || bio.rank || "NR",
+        country: local?.country || "🌍",
+        age: local?.age || (bio.age ? parseInt(bio.age) : 28),
+        weightClass: local?.weightClass || bio.weightClass?.displayName || "Unknown",
+        naturalWeight: local?.naturalWeight || 155,
+        reach: local?.reach || bio.reach || 70,
+        style: local?.style || "Mixed",
+        wrestlerResilience: local?.wrestlerResilience || 5,
+        reachDisadvantageHandling: local?.reachDisadvantageHandling || 5,
+        speedVsHandsHandling: local?.speedVsHandsHandling || 5,
+        tendencies: local?.tendencies || [],
+        stats:{
+          slpm: local?.stats?.slpm ?? slpm,
+          stracc: local?.stats?.stracc ?? (stracc>1?stracc:stracc*100),
+          sapm: local?.stats?.sapm ?? sapm,
+          strdef: local?.stats?.strdef ?? (strdef>1?strdef:strdef*100),
+          tdavg: local?.stats?.tdavg ?? tdavg,
+          tdacc: local?.stats?.tdacc ?? (tdacc>1?tdacc:tdacc*100),
+          tddef: local?.stats?.tddef ?? (tddef>1?tddef:tddef*100),
+          subavg: local?.stats?.subavg ?? subavg,
+          winStreak: local?.stats?.winStreak ?? 0,
+          finishRate: local?.stats?.finishRate ?? 50,
+        }
+      };
+      setFighter(fighter);
+      setSrchPred(null);
+    }catch(e){
+      console.error("[ESPN]",e);
+      // Fallback: use local DB only
+      const local=FIGHTER_DB[athlete.displayName||""];
+      if(local)setFighter(local);
+    }
+  }
+
+  useEffect(()=>{
+    const t=setTimeout(()=>espnSearch(srchQ1,setSrchRes1,setSrchLoading1),300);
+    return()=>clearTimeout(t);
+  },[srchQ1]);
+
+  useEffect(()=>{
+    const t=setTimeout(()=>espnSearch(srchQ2,setSrchRes2,setSrchLoading2),300);
+    return()=>clearTimeout(t);
+  },[srchQ2]);
+
+  function FighterSearchBox({label,query,setQuery,results,loading,selected,setFighter,setResults,accent,bg,bdr}){
+    return(
+      <div style={{flex:1,minWidth:0}}>
+        <div style={{fontSize:9,color:accent,letterSpacing:2,textTransform:"uppercase",marginBottom:6}}>{label}</div>
+        <div style={{position:"relative"}}>
+          <input value={query} onChange={e=>{setQuery(e.target.value);setFighter(null);setSrchPred(null);}}
+            placeholder="Search any UFC fighter..."
+            style={{width:"100%",boxSizing:"border-box",background:"#0a0a0a",border:`1px solid ${selected?"#d4a843":"#2a2a2a"}`,
+              borderRadius:6,padding:"10px 12px",color:"#e8e0d4",fontSize:13,outline:"none"}}/>
+          {loading&&<div style={{position:"absolute",right:10,top:"50%",transform:"translateY(-50%)",fontSize:10,color:"#5a5a5a"}}>...</div>}
+          {results.length>0&&(
+            <div style={{position:"absolute",top:"100%",left:0,right:0,zIndex:50,background:"#12121a",border:"1px solid #2a2a2a",borderRadius:6,overflow:"hidden",marginTop:2}}>
+              {results.map(a=>(
+                <button key={a.id} onClick={()=>espnLoadFighter(a,setFighter,setResults,setQuery)}
+                  style={{display:"block",width:"100%",padding:"9px 12px",background:"transparent",border:"none",
+                    borderBottom:"1px solid #1a1a1a",color:"#e8e0d4",fontSize:12,textAlign:"left",cursor:"pointer"}}
+                  onMouseEnter={e=>e.currentTarget.style.background="#1a1a2a"}
+                  onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                  <span style={{fontWeight:700}}>{a.displayName||a.fullName}</span>
+                  {a.weightClass&&<span style={{fontSize:10,color:"#5a5a7a",marginLeft:8}}>{a.weightClass.displayName||a.weightClass}</span>}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+        {selected&&(
+          <div style={{marginTop:8,background:bg,border:`1px solid ${bdr}`,borderRadius:8,padding:10}}>
+            <div style={{fontSize:13,fontWeight:700,color:"#e8e0d4"}}>{selected.name}</div>
+            <div style={{fontSize:10,color:accent,marginBottom:6}}>{selected.record} · {selected.rank} · {selected.weightClass}</div>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:3}}>
+              {[["SLpM",selected.stats.slpm],["Str%",selected.stats.stracc+"%"],["TDavg",selected.stats.tdavg],["Fin%",selected.stats.finishRate+"%"]].map(([k,v])=>(
+                <div key={k} style={{background:"#0a0a0a",borderRadius:4,padding:"4px",textAlign:"center"}}>
+                  <div style={{fontSize:7,color:"#3a3a4a",textTransform:"uppercase"}}>{k}</div>
+                  <div style={{fontSize:11,fontWeight:700,color:accent}}>{v}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   const evtMeta=UPCOMING_EVENTS[selEvt];
   const fightMeta=evtMeta.fights[selFight];
   const f1=FIGHTER_DB[fightMeta.f1];
@@ -1261,7 +1402,7 @@ export default function App(){
     );
   }
 
-  const tabs=[["scheduled","📅 Upcoming"],["fantasy","⚗️ Fantasy"],["accuracy","🏆 Results"]];
+  const tabs=[["scheduled","📅 Upcoming"],["search","🔍 Search"],["fantasy","⚗️ Fantasy"],["accuracy","🏆 Results"]];
 
   return(
     <div style={{minHeight:"100vh",background:"#0a0a0f",fontFamily:"Georgia,serif",color:"#e8e0d4"}}>
@@ -1349,6 +1490,52 @@ export default function App(){
               </>
             )}
           </div>
+        </div>
+      )}
+
+      {/* SEARCH TAB */}
+      {mode==="search"&&(
+        <div style={{height:"calc(100vh - 57px)",overflowY:"auto",padding:"16px 16px"}}>
+          <div style={{fontSize:9,color:"#5a4a3a",letterSpacing:2,textTransform:"uppercase",marginBottom:12}}>🔍 Search Any Fighter Matchup</div>
+          <div style={{display:"flex",gap:12,marginBottom:16,flexWrap:"wrap"}}>
+            <FighterSearchBox
+              label="🔴 Fighter 1" query={srchQ1} setQuery={setSrchQ1}
+              results={srchRes1} loading={srchLoading1}
+              selected={srchF1} setFighter={setSrchF1} setResults={setSrchRes1}
+              accent="#d4a843" bg="linear-gradient(135deg,#1a1000,#110800)" bdr="#2a1a0a"/>
+            <FighterSearchBox
+              label="🔵 Fighter 2" query={srchQ2} setQuery={setSrchQ2}
+              results={srchRes2} loading={srchLoading2}
+              selected={srchF2} setFighter={setSrchF2} setResults={setSrchRes2}
+              accent="#6a8ad4" bg="linear-gradient(135deg,#00001a,#08001a)" bdr="#0a0a2a"/>
+          </div>
+          {srchF1&&srchF2&&!srchPred&&(
+            <div style={{textAlign:"center",marginBottom:16}}>
+              <button onClick={()=>setSrchPred(scoreFight(srchF1,srchF2))}
+                style={{padding:"13px 0",width:"100%",maxWidth:340,background:"linear-gradient(135deg,#d4a843,#a87820)",
+                  border:"none",borderRadius:7,color:"#0a0a0f",fontSize:14,fontWeight:700,letterSpacing:2,
+                  textTransform:"uppercase",cursor:"pointer",boxShadow:"0 4px 20px rgba(212,168,67,0.25)"}}>
+                ⚡ Predict This Fight
+              </button>
+            </div>
+          )}
+          {srchPred&&srchF1&&srchF2&&(
+            <>
+              <ResultPanel pred={srchPred} f1={srchF1} f2={srchF2}/>
+              <div style={{textAlign:"center",marginTop:12,paddingBottom:20}}>
+                <button onClick={()=>setSrchPred(null)}
+                  style={{padding:"10px 28px",background:"transparent",border:"1px solid #2a2a2a",
+                    borderRadius:5,color:"#4a3a2a",fontSize:10,letterSpacing:2,textTransform:"uppercase",cursor:"pointer"}}>
+                  ↺ New Search
+                </button>
+              </div>
+            </>
+          )}
+          {!srchF1&&!srchF2&&(
+            <div style={{textAlign:"center",padding:"40px 20px",color:"#3a3a4a",fontSize:12}}>
+              Search any two UFC fighters above to simulate a matchup
+            </div>
+          )}
         </div>
       )}
 
