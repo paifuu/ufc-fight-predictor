@@ -1477,39 +1477,39 @@ const FIGHTER_PHOTOS = {
   "David Martinez":       "/fighters/davidmartinez.png",
 };
 
-// Tapology fighter IDs — used to build photo CDN URLs (loads in user's browser, no CORS needed)
-const TAPOLOGY_IDS = {
-  "Manuel Torres":        199049,
-  "Shara Magomedov":      179803,
-  "Michel Pereira":       87007,
-  "Benoit Saint Denis":   164700,
-  "Mario Bautista":       127516,
-  "Brandon Royval":       109823,
-  "Lone'er Kavanagh":     222536,
-  "Elisha Ellison":       235120,
-  "David Martinez":       197820,
-  "Manel Kape":           113100,
-  "Kyoji Horiguchi":      26949,
-  "Rafael Fiziev":        127390,
-  "Magomed Ankalaev":     119014,
-  "Khalil Rountree Jr.":  78303,
-  "Umar Nurmagomedov":    164283,
-  "Conor McGregor":       14022,
-  "Max Holloway":         22854,
-  "Paddy Pimblett":       90629,
-  "Cory Sandhagen":       104430,
-  "Shara Magomedov":      179803,
-  "Mario Bautista":       127516,
-  "Benoit Saint Denis":   164700,
+// Wikipedia page title overrides for fighters whose name doesn't exactly match their Wikipedia article
+const WIKI_TITLES = {
+  "Conor McGregor":       "Conor McGregor",
+  "Max Holloway":         "Max Holloway",
+  "Ilia Topuria":         "Ilia Topuria",
+  "Justin Gaethje":       "Justin Gaethje",
+  "Alex Pereira":         "Alex Pereira (fighter)",
+  "Ciryl Gane":           "Ciryl Gane",
+  "Sean O'Malley":        "Sean O'Malley (fighter)",
+  "Manel Kape":           "Manel Kape",
+  "Kyoji Horiguchi":      "Kyoji Horiguchi",
+  "Rafael Fiziev":        "Rafael Fiziev",
+  "Magomed Ankalaev":     "Magomed Ankalaev",
+  "Khalil Rountree Jr.":  "Khalil Rountree Jr.",
+  "Umar Nurmagomedov":    "Umar Nurmagomedov",
+  "Paddy Pimblett":       "Paddy Pimblett",
+  "Cory Sandhagen":       "Cory Sandhagen",
+  "Shara Magomedov":      "Shara Magomedov",
+  "Michel Pereira":       "Michel Pereira (fighter)",
+  "Benoit Saint Denis":   "Benoît Saint Denis",
+  "Mario Bautista":       "Mario Bautista (fighter)",
+  "Brandon Royval":       "Brandon Royval",
+  "Mauricio Ruffy":       "Mauricio Ruffy",
+  "Michael Chandler":     "Michael Chandler (fighter)",
+  "Derrick Lewis":        "Derrick Lewis (fighter)",
+  "Bo Nickal":            "Bo Nickal",
+  "Diego Lopes":          "Diego Lopes (MMA fighter)",
+  "Belal Muhammad":       "Belal Muhammad",
+  "Song Yadong":          "Song Yadong",
+  "Deiveson Figueiredo":  "Deiveson Figueiredo",
+  "Gable Steveson":       "Gable Steveson",
+  "David Martinez":       "David Martínez (MMA fighter)",
 };
-
-function tapologyPhotoUrl(name) {
-  const id = TAPOLOGY_IDS[name];
-  if (!id) return null;
-  const padded = String(id).padStart(9, '0');
-  const [a, b, c] = [padded.slice(0,3), padded.slice(3,6), padded.slice(6,9)];
-  return `https://photos.tapology.com/fighter_photos/${a}/${b}/${c}/medium/${id}.jpg`;
-}
 
 // ─── UFC-STYLE MATCHUP CARD ──────────────────────────────────────────────────
 function UFCMatchupCard({ f1, f2, fightMeta }) {
@@ -1528,20 +1528,19 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
 
     async function getWikiImg(name) {
       try {
-        // 1. Exact name
+        // 1. Known title override
+        const known = WIKI_TITLES[name];
+        if (known) {
+          const img = await wikiPhotoByTitle(known);
+          if (img) return img;
+        }
+        // 2. Exact name
         const direct = await wikiPhotoByTitle(name);
         if (direct) return direct;
-        // 2. Search Wikipedia for "Name MMA fighter"
+        // 3. Search Wikipedia for "Name MMA fighter"
         const sr = await fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(name+' MMA fighter')}&srlimit=3&format=json&origin=*`);
         const sd = await sr.json();
         for (const result of (sd.query?.search || [])) {
-          const img = await wikiPhotoByTitle(result.title);
-          if (img) return img;
-        }
-        // 3. Try "Name UFC"
-        const sr2 = await fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(name+' UFC')}&srlimit=2&format=json&origin=*`);
-        const sd2 = await sr2.json();
-        for (const result of (sd2.query?.search || [])) {
           const img = await wikiPhotoByTitle(result.title);
           if (img) return img;
         }
@@ -1551,9 +1550,8 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
 
     async function getImgPair(name) {
       if (FIGHTER_PHOTOS[name]) return { primary: FIGHTER_PHOTOS[name], fallback: null };
-      const tapology = tapologyPhotoUrl(name);
       const wiki = await getWikiImg(name);
-      return { primary: tapology || wiki, fallback: tapology ? wiki : null };
+      return { primary: wiki, fallback: null };
     }
 
     Promise.all([getImgPair(f1.name), getImgPair(f2.name)]).then(r => { if (!cancelled) setImgs(r); });
@@ -1623,7 +1621,7 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
           <div style={{marginBottom:10}}>
             {imgs[0]?.primary
               ? <div style={photoBox}><img src={imgs[0].primary} alt={f1.name} style={imgStyle}
-                  onError={e=>{if(imgs[0].fallback&&e.target.src!==imgs[0].fallback)e.target.src=imgs[0].fallback;else e.target.style.display='none';}}/></div>
+                  onError={e=>{ e.target.style.display='none'; }}/></div>
               : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"transparent"}}>
                   <Silhouette color={GOLD}/>
                 </div>
@@ -1650,7 +1648,7 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
           <div style={{marginBottom:10}}>
             {imgs[1]?.primary
               ? <div style={{...photoBox,transform:"scaleX(-1)"}}><img src={imgs[1].primary} alt={f2.name} style={imgStyle}
-                  onError={e=>{if(imgs[1].fallback&&e.target.src!==imgs[1].fallback)e.target.src=imgs[1].fallback;else e.target.style.display='none';}}/></div>
+                  onError={e=>{ e.target.style.display='none'; }}/></div>
               : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"transparent"}}>
                   <Silhouette color={BLUE}/>
                 </div>
