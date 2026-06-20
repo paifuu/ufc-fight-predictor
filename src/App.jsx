@@ -522,7 +522,7 @@ const FIGHTER_DB = {
     pastMatchups:{"Manel Kape":"W"},
   },
   "Umar Nurmagomedov": {
-    name:"Umar Nurmagomedov",record:"18-0",rank:"#2 BW",country:"\u{1F1F7}\u{1F1FA}",age:28,
+    name:"Umar Nurmagomedov",record:"20-1",rank:"#2 BW",country:"\u{1F1F7}\u{1F1FA}",age:28,
     weightClass:"Bantamweight",naturalWeight:135,reach:67,style:"Sambo / Wrestler",
     tendencies:["body lock takedowns","suffocating top control","ground and pound","improving striking","submission threats"],
     strengths:["elite wrestling","top control","pedigree","undefeated","finishing ability"],
