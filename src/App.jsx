@@ -584,6 +584,52 @@ const FIGHTER_DB = {
 };
 const FIGHTER_NAMES = Object.keys(FIGHTER_DB).sort();
 
+// Height / stance / nationality not in the scoring DB — kept separate so scoring logic stays clean
+const FIGHTER_EXTRAS = {
+  "Ilia Topuria":          { height:'5\'10"', stance:"Orthodox",  nationality:"Georgia" },
+  "Justin Gaethje":        { height:'5\'11"', stance:"Orthodox",  nationality:"USA" },
+  "Alex Pereira":          { height:'6\'4"',  stance:"Orthodox",  nationality:"Brazil" },
+  "Ciryl Gane":            { height:'6\'6"',  stance:"Orthodox",  nationality:"France" },
+  "Sean O'Malley":         { height:'5\'11"', stance:"Southpaw",  nationality:"USA" },
+  "Aiemann Zahabi":        { height:'5\'7"',  stance:"Orthodox",  nationality:"Canada" },
+  "Mauricio Ruffy":        { height:'5\'10"', stance:"Southpaw",  nationality:"Brazil" },
+  "Michael Chandler":      { height:'5\'8"',  stance:"Orthodox",  nationality:"USA" },
+  "Bo Nickal":             { height:'6\'1"',  stance:"Orthodox",  nationality:"USA" },
+  "Diego Lopes":           { height:'5\'10"', stance:"Orthodox",  nationality:"Brazil" },
+  "Conor McGregor":        { height:'5\'9"',  stance:"Southpaw",  nationality:"Ireland" },
+  "Max Holloway":          { height:'5\'11"', stance:"Orthodox",  nationality:"USA" },
+  "Paddy Pimblett":        { height:'5\'10"', stance:"Orthodox",  nationality:"England" },
+  "Benoit Saint Denis":    { height:'5\'10"', stance:"Orthodox",  nationality:"France" },
+  "Cory Sandhagen":        { height:'6\'0"',  stance:"Southpaw",  nationality:"USA" },
+  "Mario Bautista":        { height:'5\'8"',  stance:"Orthodox",  nationality:"USA" },
+  "Gable Steveson":        { height:'5\'10"', stance:"Orthodox",  nationality:"USA" },
+  "Elisha Ellison":        { height:'6\'3"',  stance:"Orthodox",  nationality:"USA" },
+  "Brandon Royval":        { height:'5\'6"',  stance:"Orthodox",  nationality:"USA" },
+  "Lone\'er Kavanagh":     { height:'5\'5"',  stance:"Orthodox",  nationality:"Denmark" },
+  "Manel Kape":            { height:'5\'5"',  stance:"Southpaw",  nationality:"Angola" },
+  "Kyoji Horiguchi":       { height:'5\'4"',  stance:"Orthodox",  nationality:"Japan" },
+  "Kai Kara-France":       { height:'5\'7"',  stance:"Orthodox",  nationality:"New Zealand" },
+  "Rafael Fiziev":         { height:'5\'10"', stance:"Orthodox",  nationality:"Kazakhstan" },
+  "Renato Moicano":        { height:'5\'11"', stance:"Orthodox",  nationality:"Brazil" },
+  "Magomed Ankalaev":      { height:'6\'3"',  stance:"Orthodox",  nationality:"Russia" },
+  "Khalil Rountree Jr.":   { height:'6\'2"',  stance:"Southpaw",  nationality:"USA" },
+  "Kevin Holland":         { height:'6\'3"',  stance:"Southpaw",  nationality:"USA" },
+  "Umar Nurmagomedov":     { height:'5\'9"',  stance:"Orthodox",  nationality:"Russia" },
+  "David Martinez":        { height:'5\'8"',  stance:"Orthodox",  nationality:"Spain" },
+  "Shara Magomedov":       { height:'6\'1"',  stance:"Orthodox",  nationality:"Russia" },
+  "Manuel Torres":         { height:'5\'9"',  stance:"Orthodox",  nationality:"Mexico" },
+  "Michel Pereira":        { height:'6\'0"',  stance:"Southpaw",  nationality:"Brazil" },
+  "Leon Edwards":          { height:'6\'0"',  stance:"Southpaw",  nationality:"England" },
+  "Daniel Rodriguez":      { height:'5\'9"',  stance:"Orthodox",  nationality:"USA" },
+  "Jon Jones":             { height:'6\'4"',  stance:"Orthodox",  nationality:"USA" },
+  "Islam Makhachev":       { height:'5\'10"', stance:"Orthodox",  nationality:"Russia" },
+  "Charles Oliveira":      { height:'5\'10"', stance:"Orthodox",  nationality:"Brazil" },
+  "Dricus Du Plessis":     { height:'6\'0"',  stance:"Orthodox",  nationality:"South Africa" },
+  "Belal Muhammad":        { height:'5\'11"', stance:"Southpaw",  nationality:"USA" },
+  "Song Yadong":           { height:'5\'7"',  stance:"Orthodox",  nationality:"China" },
+  "Deiveson Figueiredo":   { height:'5\'5"',  stance:"Orthodox",  nationality:"Brazil" },
+};
+
 // ─── PAST RESULTS (fights already happened) ──────────────────────────────────
 const PAST_EVENTS = [
   {
@@ -1418,6 +1464,144 @@ const BLANK={name:"",record:"0-0",rank:"Unranked",country:"🌍",age:28,weightCl
   pastMatchups:{}};
 const STYLES=["Striker","Kickboxer","Power Striker","Counter Striker","Pressure Boxer","Pressure Fighter","Brawler","Wrestler","Grappler","BJJ Specialist","BJJ / Submission Hunter","Sambo / Wrestler","Complete Fighter","Flashy Striker","Counter Striker / Grappler","Wrestler / Grappler"];
 
+// ─── UFC-STYLE MATCHUP CARD ──────────────────────────────────────────────────
+function UFCMatchupCard({ f1, f2, fightMeta }) {
+  const [imgs, setImgs] = useState([null, null]);
+  const GOLD = "#d4a843", BLUE = "#6a8ad4";
+
+  useEffect(() => {
+    let cancelled = false;
+    async function getImg(name) {
+      try {
+        const r = await fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(name)}&prop=pageimages&format=json&pithumbsize=600&origin=*`);
+        const d = await r.json();
+        return Object.values(d.query.pages)[0]?.thumbnail?.source || null;
+      } catch { return null; }
+    }
+    Promise.all([getImg(f1.name), getImg(f2.name)]).then(r => { if (!cancelled) setImgs(r); });
+    return () => { cancelled = true; };
+  }, [f1.name, f2.name]);
+
+  const e1 = FIGHTER_EXTRAS[f1.name] || {};
+  const e2 = FIGHTER_EXTRAS[f2.name] || {};
+
+  const rows = [
+    { label:"HEIGHT",      v1:e1.height||"--",           v2:e2.height||"--" },
+    { label:"WEIGHT",      v1:`${f1.naturalWeight} lbs`,  v2:`${f2.naturalWeight} lbs`,  n1:f1.naturalWeight,   n2:f2.naturalWeight },
+    { label:"AGE",         v1:f1.age,                     v2:f2.age,                     n1:f2.age,             n2:f1.age },
+    { label:"REACH",       v1:`${f1.reach}"`,             v2:`${f2.reach}"`,             n1:f1.reach,           n2:f2.reach },
+    { label:"STANCE",      v1:e1.stance||"--",            v2:e2.stance||"--" },
+    { label:"SIG STR LpM", v1:f1.stats.slpm,              v2:f2.stats.slpm,              n1:f1.stats.slpm,      n2:f2.stats.slpm },
+    { label:"SIG STR ACC", v1:`${f1.stats.stracc}%`,      v2:`${f2.stats.stracc}%`,      n1:f1.stats.stracc,    n2:f2.stats.stracc },
+    { label:"TD AVG",      v1:f1.stats.tdavg,             v2:f2.stats.tdavg,             n1:f1.stats.tdavg,     n2:f2.stats.tdavg },
+    { label:"TD ACC",      v1:`${f1.stats.tdacc}%`,       v2:`${f2.stats.tdacc}%`,       n1:f1.stats.tdacc,     n2:f2.stats.tdacc },
+    { label:"SUB AVG",     v1:f1.stats.subavg,            v2:f2.stats.subavg,            n1:f1.stats.subavg,    n2:f2.stats.subavg },
+  ];
+
+  function Silhouette({ color }) {
+    return (
+      <svg viewBox="0 0 100 200" style={{height:"90%",opacity:0.18}} fill={color}>
+        <ellipse cx="50" cy="22" rx="14" ry="16"/>
+        <rect x="44" y="36" width="12" height="10"/>
+        <path d="M28 46 L72 46 L68 110 L32 110 Z"/>
+        <path d="M28 50 L8 90 L14 94 L35 58 Z"/>
+        <path d="M72 50 L92 90 L86 94 L65 58 Z"/>
+        <ellipse cx="11" cy="96" rx="8" ry="6"/>
+        <ellipse cx="89" cy="96" rx="8" ry="6"/>
+        <path d="M32 110 L24 180 L38 180 L44 120 Z"/>
+        <path d="M68 110 L76 180 L62 180 L56 120 Z"/>
+        <ellipse cx="30" cy="180" rx="11" ry="6"/>
+        <ellipse cx="70" cy="180" rx="11" ry="6"/>
+      </svg>
+    );
+  }
+
+  const imgStyle = { height:"100%", maxWidth:"100%", objectFit:"cover", objectPosition:"top center",
+    borderRadius:8, filter:"drop-shadow(0 6px 20px rgba(0,0,0,0.85))" };
+
+  return (
+    <div style={{background:"#0d0d14",border:"1px solid #1e1e26",borderRadius:14,overflow:"hidden",marginBottom:14}}>
+
+      {/* Top bar */}
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center",gap:8,padding:"10px 16px",
+        borderBottom:"1px solid #1a1a22",background:"#0a0a10"}}>
+        <span style={{fontSize:9,color:"#5a5a6a",letterSpacing:2,textTransform:"uppercase"}}>UFC</span>
+        <div style={{width:4,height:4,borderRadius:"50%",background:GOLD}}/>
+        <span style={{fontSize:9,color:GOLD,letterSpacing:2,textTransform:"uppercase"}}>{fightMeta.weightClass}</span>
+        {fightMeta.isMain&&<span style={{fontSize:8,padding:"2px 8px",borderRadius:3,
+          background:"#1a1000",border:"1px solid #2a1a00",color:GOLD,letterSpacing:1,textTransform:"uppercase"}}>Main Event</span>}
+      </div>
+
+      {/* Fighter photos + info */}
+      <div style={{display:"flex",alignItems:"flex-end",position:"relative",minHeight:220,overflow:"hidden"}}>
+        <div style={{position:"absolute",left:"50%",top:0,width:1,height:"100%",background:"#1a1a22"}}/>
+
+        {/* LEFT fighter */}
+        <div style={{width:"50%",display:"flex",flexDirection:"column",alignItems:"flex-start",
+          padding:"16px 12px 16px 16px",zIndex:2}}>
+          <div style={{height:170,display:"flex",alignItems:"flex-end",justifyContent:"flex-start",marginBottom:10,width:"100%"}}>
+            {imgs[0]
+              ? <img src={imgs[0]} alt={f1.name} style={imgStyle}/>
+              : <div style={{height:"100%",width:100,display:"flex",alignItems:"flex-end",justifyContent:"center"}}>
+                  <Silhouette color={GOLD}/>
+                </div>
+            }
+          </div>
+          <div style={{fontSize:9,color:"#454555",letterSpacing:1,textTransform:"uppercase",marginBottom:3}}>
+            {f1.country} {e1.nationality||""}
+          </div>
+          <div style={{fontSize:16,fontWeight:700,color:"#e8e0d4",lineHeight:1.15,marginBottom:2}}>{f1.name}</div>
+          <div style={{fontSize:11,color:"#55556a",marginBottom:2}}>{f1.record}</div>
+          <div style={{fontSize:8,color:GOLD,letterSpacing:1,textTransform:"uppercase"}}>{f1.rank}</div>
+        </div>
+
+        {/* VS circle */}
+        <div style={{position:"absolute",left:"50%",top:"44%",transform:"translate(-50%,-50%)",zIndex:10}}>
+          <div style={{width:38,height:38,borderRadius:"50%",background:"#0a0a10",border:`2px solid ${GOLD}`,
+            display:"flex",alignItems:"center",justifyContent:"center",
+            fontSize:10,fontWeight:700,color:GOLD,letterSpacing:1}}>VS</div>
+        </div>
+
+        {/* RIGHT fighter */}
+        <div style={{width:"50%",display:"flex",flexDirection:"column",alignItems:"flex-end",
+          padding:"16px 16px 16px 12px",zIndex:2}}>
+          <div style={{height:170,display:"flex",alignItems:"flex-end",justifyContent:"flex-end",marginBottom:10,width:"100%"}}>
+            {imgs[1]
+              ? <img src={imgs[1]} alt={f2.name} style={{...imgStyle,transform:"scaleX(-1)"}}/>
+              : <div style={{height:"100%",width:100,display:"flex",alignItems:"flex-end",justifyContent:"center"}}>
+                  <Silhouette color={BLUE}/>
+                </div>
+            }
+          </div>
+          <div style={{fontSize:9,color:"#454555",letterSpacing:1,textTransform:"uppercase",marginBottom:3,textAlign:"right"}}>
+            {f2.country} {e2.nationality||""}
+          </div>
+          <div style={{fontSize:16,fontWeight:700,color:"#e8e0d4",lineHeight:1.15,marginBottom:2,textAlign:"right"}}>{f2.name}</div>
+          <div style={{fontSize:11,color:"#55556a",marginBottom:2,textAlign:"right"}}>{f2.record}</div>
+          <div style={{fontSize:8,color:BLUE,letterSpacing:1,textTransform:"uppercase",textAlign:"right"}}>{f2.rank}</div>
+        </div>
+      </div>
+
+      {/* Stats comparison */}
+      <div style={{borderTop:"1px solid #1a1a22"}}>
+        {rows.map(({label,v1,v2,n1,n2})=>{
+          const has = n1!=null && n2!=null && n1!==n2;
+          const f1w = has && n1>n2, f2w = has && n2>n1;
+          return(
+            <div key={label} style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",
+              padding:"9px 20px",borderBottom:"1px solid #0f0f18"}}>
+              <span style={{fontSize:13,fontWeight:f1w?700:400,color:f1w?"#e8e0d4":"#555566"}}>{v1}</span>
+              <span style={{fontSize:8,color:"#282838",letterSpacing:2,textTransform:"uppercase",
+                padding:"0 10px",whiteSpace:"nowrap"}}>{label}</span>
+              <span style={{fontSize:13,fontWeight:f2w?700:400,color:f2w?"#e8e0d4":"#555566",textAlign:"right"}}>{v2}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export default function App(){
   const[mode,setMode]=useState("scheduled");
   const[selEvt,setSelEvt]=useState(0); // default to first upcoming card
@@ -1584,17 +1768,10 @@ export default function App(){
           </div>
           {/* Fight detail */}
           <div style={{padding:"16px 16px"}}>
-            <div style={{marginBottom:12}}>
-              <div style={{fontSize:10,color:"#d4a843",letterSpacing:2,textTransform:"uppercase",marginBottom:2}}>
-                {fightMeta.isMain?"★ Main Event · ":""}{fightMeta.weightClass}
-              </div>
-              <div style={{fontSize:10,color:"#3a2a1a"}}>{evtMeta.date} · {evtMeta.venue}</div>
+            <div style={{marginBottom:10,fontSize:9,color:"#3a2a1a",letterSpacing:1,textTransform:"uppercase"}}>
+              {evtMeta.date} · {evtMeta.venue}
             </div>
-            <div style={{display:"grid",gridTemplateColumns:"1fr 32px 1fr",gap:8,alignItems:"start",marginBottom:14}}>
-              <FighterCard fighter={f1} idx={0}/>
-              <div style={{textAlign:"center",fontSize:16,fontWeight:900,color:"#d4a843",paddingTop:20}}>VS</div>
-              <FighterCard fighter={f2} idx={1}/>
-            </div>
+            <UFCMatchupCard f1={f1} f2={f2} fightMeta={fightMeta}/>
             <div style={{background:"#0d0d13",border:"1px solid #1a1a2a",borderRadius:7,padding:"10px 12px",marginBottom:16,fontSize:11,color:"#6a6a8a",lineHeight:1.6}}>
               📋 {fightMeta.context}
             </div>
