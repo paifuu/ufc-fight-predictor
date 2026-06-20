@@ -592,6 +592,35 @@ def fetch_ufcstats_roster():
 
     print(f"Found {len(fighter_urls)} fighters on ufcstats.com")
 
+    # Helper: map weight (lbs) to UFC weight class name
+    def weight_to_class(wt, name_hint=""):
+        # Detect women's fighters by common women's weights
+        # ufcstats uses same weights for men/women so we check both
+        # Women's divisions: 105,115,125,135,145
+        # Men's divisions: 125,135,145,155,170,185,205,265
+        wt = int(wt)
+        # Strawweight only exists for women
+        if wt <= 116:   return "Women's Strawweight"
+        if wt <= 126:   return "Flyweight"       # could be W Flyweight, no good signal
+        if wt <= 136:   return "Bantamweight"    # could be W Bantamweight
+        if wt <= 146:   return "Featherweight"   # could be W Featherweight
+        if wt <= 156:   return "Lightweight"
+        if wt <= 171:   return "Welterweight"
+        if wt <= 186:   return "Middleweight"
+        if wt <= 206:   return "Light Heavyweight"
+        return "Heavyweight"
+
+    # Helper: derive fighting style from stats
+    def derive_style(slpm, tdavg, subavg, stracc):
+        if subavg >= 1.5:                          return "BJJ"
+        if tdavg >= 3.0 and subavg >= 0.8:         return "Wrestler/BJJ"
+        if tdavg >= 2.5:                           return "Wrestler"
+        if slpm >= 5.5 and tdavg < 1.0:            return "Striker"
+        if slpm >= 4.5 and stracc >= 50:           return "Kickboxer"
+        if slpm >= 4.0 and tdavg < 1.5:            return "Boxer"
+        if tdavg >= 1.5 and subavg >= 0.5:         return "Grappler"
+        return "Mixed"
+
     # Step 2: for each fighter in our DB, scrape their career stats from ufcstats
     added = updated = 0
     for name, url in fighter_urls.items():
@@ -615,44 +644,77 @@ def fetch_ufcstats_roster():
                     except: pass
                 return default
 
-            slpm   = get_stat("SLpM:")    or 3.5
+            slpm   = get_stat("SLpM:")     or 3.5
             stracc = pct_stat("Str. Acc.:", 45.0)
-            sapm   = get_stat("SApM:")    or 3.0
+            sapm   = get_stat("SApM:")     or 3.0
             strdef = pct_stat("Str. Def.:", 55.0)
             tdavg  = get_stat("TD Avg.:")  or 1.0
             tdacc  = pct_stat("TD Acc.:",  40.0)
             tddef  = pct_stat("TD Def.:",  60.0)
             subavg = get_stat("Sub. Avg.:") or 0.3
 
-            wins_m   = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>Wins',   html)
-            losses_m = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>Losses', html)
-            wins   = int(wins_m.group(1))   if wins_m   else 0
-            losses = int(losses_m.group(1)) if losses_m else 0
-
-            # Finish rate: (KO/TKO wins + Sub wins) / total wins * 100
-            ko_m  = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>\s*KO/TKO\b', html, re.IGNORECASE)
-            sub_m = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>\s*Sub\.?', html, re.IGNORECASE)
-            # Fallback: count finish methods in the fight history table
-            if not ko_m and not sub_m:
-                ko_count  = len(re.findall(r'KO/TKO', html, re.IGNORECASE))
-                sub_count = len(re.findall(r'\bSub(?:mission)?\b', html, re.IGNORECASE))
+            # Record: "Record: W-L-D" at top of page
+            rec_m = re.search(r'Record:\s*(\d+)-(\d+)', html, re.IGNORECASE)
+            if rec_m:
+                wins, losses = int(rec_m.group(1)), int(rec_m.group(2))
             else:
-                ko_count  = int(ko_m.group(1))  if ko_m  else 0
-                sub_count = int(sub_m.group(1)) if sub_m else 0
+                # Fallback: span-based
+                wins_m   = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>Wins',   html)
+                losses_m = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>Losses', html)
+                wins   = int(wins_m.group(1))   if wins_m   else 0
+                losses = int(losses_m.group(1)) if losses_m else 0
+
+            # Finish rate: count KO/TKO and Sub wins from the win breakdown section
+            ko_m  = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>[^<]*KO/TKO', html, re.IGNORECASE)
+            sub_m = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>[^<]*Sub(?:mission)?', html, re.IGNORECASE)
+            ko_count  = int(ko_m.group(1))  if ko_m  else 0
+            sub_count = int(sub_m.group(1)) if sub_m else 0
+            # If span approach found nothing, fall back to counting in fight table rows
+            if ko_count == 0 and sub_count == 0 and wins > 0:
+                ko_count  = len(re.findall(r'\bKO/TKO\b', html))
+                sub_count = len(re.findall(r'\bSub(?:mission)?\b', html, re.IGNORECASE))
+                # These counts include headers/labels so cap at wins
+                ko_count  = min(ko_count,  wins)
+                sub_count = min(sub_count, wins - ko_count)
             finish_rate = round((ko_count + sub_count) / wins * 100) if wins > 0 else 50
             finish_rate = max(0, min(100, finish_rate))
 
-            reach_m = re.search(r'Reach:</i>\s*([^<"]+)"', html)
-            wt_m    = re.search(r'Weight:</i>\s*(\d+)', html)
-            reach_in = 70
-            if reach_m:
-                rm = re.search(r'(\d+)', reach_m.group(1))
-                if rm: reach_in = int(rm.group(1))
+            # Reach: e.g. <i ...>Reach:</i>  74"
+            reach_m = re.search(r'Reach:</i>\s*([\d.]+)"', html, re.IGNORECASE)
+            reach_in = int(float(reach_m.group(1))) if reach_m else 70
+
+            # Weight: e.g. <i ...>Weight:</i>  185 lbs.
+            wt_m = re.search(r'Weight:</i>\s*(\d+)\s*lbs', html, re.IGNORECASE)
             nat_wt = int(wt_m.group(1)) if wt_m else 155
+
+            # Weight class derived from weight
+            wt_class = weight_to_class(nat_wt)
+
+            # Age from DOB: e.g. <i ...>DOB:</i>  Jul 19, 1987
+            age = 28
+            dob_m = re.search(r'DOB:</i>\s*([A-Za-z]+\.?\s+\d{1,2},\s*(\d{4}))', html, re.IGNORECASE)
+            if dob_m:
+                try:
+                    import datetime
+                    birth_year = int(dob_m.group(2))
+                    age = datetime.date.today().year - birth_year
+                except Exception:
+                    pass
+
+            # Style auto-derived from stats
+            style = derive_style(slpm, tdavg, subavg, stracc)
 
             existing = db.get(name)
             if existing:
                 existing["record"] = f"{wins}-{losses}"
+                existing["age"]    = age
+                existing["reach"]  = reach_in
+                existing["naturalWeight"] = nat_wt
+                # Only overwrite weightClass/style if they're still defaults
+                if existing.get("weightClass") in ("Unknown", None):
+                    existing["weightClass"] = wt_class
+                if existing.get("style") in ("Mixed", None):
+                    existing["style"] = style
                 existing["stats"]["slpm"]       = round(slpm, 2)
                 existing["stats"]["stracc"]     = round(stracc, 1)
                 existing["stats"]["sapm"]       = round(sapm, 2)
@@ -669,23 +731,23 @@ def fetch_ufcstats_roster():
                     "record": f"{wins}-{losses}",
                     "rank": "NR",
                     "country": "🌍",
-                    "age": 28,
-                    "weightClass": "Unknown",
+                    "age": age,
+                    "weightClass": wt_class,
                     "naturalWeight": nat_wt,
                     "reach": reach_in,
-                    "style": "Mixed",
+                    "style": style,
                     "wrestlerResilience": 5,
                     "reachDisadvantageHandling": 5,
                     "speedVsHandsHandling": 5,
                     "tendencies": [],
                     "stats": {
-                        "slpm":   round(slpm, 2),
-                        "stracc": round(stracc, 1),
-                        "sapm":   round(sapm, 2),
-                        "strdef": round(strdef, 1),
-                        "tdavg":  round(tdavg, 2),
-                        "tdacc":  round(tdacc, 1),
-                        "tddef":  round(tddef, 1),
+                        "slpm":       round(slpm, 2),
+                        "stracc":     round(stracc, 1),
+                        "sapm":       round(sapm, 2),
+                        "strdef":     round(strdef, 1),
+                        "tdavg":      round(tdavg, 2),
+                        "tdacc":      round(tdacc, 1),
+                        "tddef":      round(tddef, 1),
                         "subavg":     round(subavg, 2),
                         "winStreak":  0,
                         "finishRate": finish_rate,
