@@ -1593,7 +1593,7 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
   }
 
   // Fixed photo box — identical for every fighter regardless of source image dimensions
-  const PHOTO_W = 130, PHOTO_H = 180;
+  const PHOTO_W = 160, PHOTO_H = 210;
   const photoBox = { width:PHOTO_W, height:PHOTO_H, flexShrink:0,
     borderRadius:8, overflow:"hidden", filter:"drop-shadow(0 6px 20px rgba(0,0,0,0.85))" };
   const imgStyle = { width:"100%", height:"100%", objectFit:"cover", objectPosition:"top center" };
@@ -1612,21 +1612,41 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
       </div>
 
       {/* Fighter photos + info */}
-      <div style={{display:"flex",alignItems:"flex-end",position:"relative",minHeight:220,overflow:"hidden"}}>
-        <div style={{position:"absolute",left:"50%",top:0,width:1,height:"100%",background:"#1a1a22"}}/>
+      {/* Photos meeting at center */}
+      <div style={{display:"flex",position:"relative",overflow:"hidden"}}>
+        {/* Left photo — right edge flush to center */}
+        <div style={{width:"50%",display:"flex",justifyContent:"flex-end"}}>
+          {imgs[0]?.primary
+            ? <div style={photoBox}><img src={imgs[0].primary} alt={f1.name} style={imgStyle}
+                onError={e=>{ e.target.style.display='none'; }}/></div>
+            : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center"}}>
+                <Silhouette color={GOLD}/>
+              </div>
+          }
+        </div>
 
-        {/* LEFT fighter */}
-        <div style={{width:"50%",display:"flex",flexDirection:"column",alignItems:"flex-start",
-          padding:"16px 12px 16px 16px",zIndex:2}}>
-          <div style={{marginBottom:10}}>
-            {imgs[0]?.primary
-              ? <div style={photoBox}><img src={imgs[0].primary} alt={f1.name} style={imgStyle}
-                  onError={e=>{ e.target.style.display='none'; }}/></div>
-              : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"transparent"}}>
-                  <Silhouette color={GOLD}/>
-                </div>
-            }
-          </div>
+        {/* Right photo — left edge flush to center */}
+        <div style={{width:"50%",display:"flex",justifyContent:"flex-start"}}>
+          {imgs[1]?.primary
+            ? <div style={{...photoBox,transform:"scaleX(-1)"}}><img src={imgs[1].primary} alt={f2.name} style={imgStyle}
+                onError={e=>{ e.target.style.display='none'; }}/></div>
+            : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center"}}>
+                <Silhouette color={BLUE}/>
+              </div>
+          }
+        </div>
+
+        {/* VS badge floating over center seam */}
+        <div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:10}}>
+          <div style={{width:38,height:38,borderRadius:"50%",background:"#0a0a10",border:`2px solid ${GOLD}`,
+            display:"flex",alignItems:"center",justifyContent:"center",
+            fontSize:10,fontWeight:700,color:GOLD,letterSpacing:1}}>VS</div>
+        </div>
+      </div>
+
+      {/* Fighter info row below photos */}
+      <div style={{display:"flex",padding:"10px 16px 14px"}}>
+        <div style={{width:"50%"}}>
           <div style={{fontSize:9,color:"#454555",letterSpacing:1,textTransform:"uppercase",marginBottom:3}}>
             {f1.country} {e1.nationality||""}
           </div>
@@ -1634,32 +1654,13 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
           <div style={{fontSize:11,color:"#55556a",marginBottom:2}}>{f1.record}</div>
           <div style={{fontSize:8,color:GOLD,letterSpacing:1,textTransform:"uppercase"}}>{f1.rank}</div>
         </div>
-
-        {/* VS circle */}
-        <div style={{position:"absolute",left:"50%",top:"44%",transform:"translate(-50%,-50%)",zIndex:10}}>
-          <div style={{width:38,height:38,borderRadius:"50%",background:"#0a0a10",border:`2px solid ${GOLD}`,
-            display:"flex",alignItems:"center",justifyContent:"center",
-            fontSize:10,fontWeight:700,color:GOLD,letterSpacing:1}}>VS</div>
-        </div>
-
-        {/* RIGHT fighter */}
-        <div style={{width:"50%",display:"flex",flexDirection:"column",alignItems:"flex-end",
-          padding:"16px 16px 16px 12px",zIndex:2}}>
-          <div style={{marginBottom:10}}>
-            {imgs[1]?.primary
-              ? <div style={{...photoBox,transform:"scaleX(-1)"}}><img src={imgs[1].primary} alt={f2.name} style={imgStyle}
-                  onError={e=>{ e.target.style.display='none'; }}/></div>
-              : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"transparent"}}>
-                  <Silhouette color={BLUE}/>
-                </div>
-            }
-          </div>
-          <div style={{fontSize:9,color:"#454555",letterSpacing:1,textTransform:"uppercase",marginBottom:3,textAlign:"right"}}>
+        <div style={{width:"50%",textAlign:"right"}}>
+          <div style={{fontSize:9,color:"#454555",letterSpacing:1,textTransform:"uppercase",marginBottom:3}}>
             {f2.country} {e2.nationality||""}
           </div>
-          <div style={{fontSize:16,fontWeight:700,color:"#e8e0d4",lineHeight:1.15,marginBottom:2,textAlign:"right"}}>{f2.name}</div>
-          <div style={{fontSize:11,color:"#55556a",marginBottom:2,textAlign:"right"}}>{f2.record}</div>
-          <div style={{fontSize:8,color:BLUE,letterSpacing:1,textTransform:"uppercase",textAlign:"right"}}>{f2.rank}</div>
+          <div style={{fontSize:16,fontWeight:700,color:"#e8e0d4",lineHeight:1.15,marginBottom:2}}>{f2.name}</div>
+          <div style={{fontSize:11,color:"#55556a",marginBottom:2}}>{f2.record}</div>
+          <div style={{fontSize:8,color:BLUE,letterSpacing:1,textTransform:"uppercase"}}>{f2.rank}</div>
         </div>
       </div>
 
