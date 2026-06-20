@@ -280,7 +280,7 @@ const FIGHTER_DB = {
     pastMatchups:{},
   },
   "Lone'er Kavanagh": {
-    name:"Lone'er Kavanagh",record:"10-1",rank:"#7 FLW",country:"🇩🇰",age:27,
+    name:"Lone'er Kavanagh",record:"10-1",rank:"#7 FLW",country:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",age:27,
     weightClass:"Flyweight",naturalWeight:125,reach:67,style:"Striker",
     tendencies:["explosive hands","power punching","pressures opponents","upset specialist"],
     strengths:["power (for FLW)","chin","aggression","surprised Moreno"],
@@ -605,7 +605,7 @@ const FIGHTER_EXTRAS = {
   "Gable Steveson":        { height:'5\'10"', stance:"Orthodox",  nationality:"USA" },
   "Elisha Ellison":        { height:'6\'3"',  stance:"Orthodox",  nationality:"USA" },
   "Brandon Royval":        { height:'5\'6"',  stance:"Orthodox",  nationality:"USA" },
-  "Lone\'er Kavanagh":     { height:'5\'5"',  stance:"Orthodox",  nationality:"Denmark" },
+  "Lone\'er Kavanagh":     { height:'5\'5"',  stance:"Orthodox",  nationality:"England" },
   "Manel Kape":            { height:'5\'5"',  stance:"Southpaw",  nationality:"Angola" },
   "Kyoji Horiguchi":       { height:'5\'4"',  stance:"Orthodox",  nationality:"Japan" },
   "Kai Kara-France":       { height:'5\'7"',  stance:"Orthodox",  nationality:"New Zealand" },
@@ -1654,7 +1654,7 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
         <div style={{width:"50%",position:"relative",overflow:"hidden",background:"#0d0d14"}}>
           {imgs[1]?.primary
             ? <img src={imgs[1].primary} alt={f2.name}
-                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"center 15%",transform:"scaleX(-1)",mixBlendMode:"screen"}}
+                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"center 15%",mixBlendMode:"screen"}}
                 onError={e=>{ e.target.style.display='none'; }}/>
             : <div style={{position:"absolute",inset:0,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingBottom:8}}>
                 <Silhouette color={BLUE}/>
