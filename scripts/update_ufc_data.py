@@ -592,6 +592,99 @@ def fetch_ufcstats_roster():
 
     print(f"Found {len(fighter_urls)} fighters on ufcstats.com")
 
+    # Step 2: for each fighter in our DB, scrape their career stats from ufcstats
+    added = updated = 0
+    for name, url in fighter_urls.items():
+        try:
+            html = fetch_html(url)
+
+            def get_stat(label, _html=html):
+                m = re.search(
+                    r'<i[^>]*>\s*' + re.escape(label) + r'\s*</i>\s*([\d.]+)',
+                    _html, re.IGNORECASE
+                )
+                if m:
+                    try: return float(m.group(1))
+                    except: pass
+                return None
+
+            def pct_stat(label, default, _html=html):
+                m = re.search(r'<i[^>]*>\s*' + re.escape(label) + r'\s*</i>\s*([\d.]+)\s*%?', _html, re.IGNORECASE)
+                if m:
+                    try: return float(m.group(1))
+                    except: pass
+                return default
+
+            slpm   = get_stat("SLpM:")    or 3.5
+            stracc = pct_stat("Str. Acc.:", 45.0)
+            sapm   = get_stat("SApM:")    or 3.0
+            strdef = pct_stat("Str. Def.:", 55.0)
+            tdavg  = get_stat("TD Avg.:")  or 1.0
+            tdacc  = pct_stat("TD Acc.:",  40.0)
+            tddef  = pct_stat("TD Def.:",  60.0)
+            subavg = get_stat("Sub. Avg.:") or 0.3
+
+            wins_m   = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>Wins',   html)
+            losses_m = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>Losses', html)
+            wins   = int(wins_m.group(1))   if wins_m   else 0
+            losses = int(losses_m.group(1)) if losses_m else 0
+
+            reach_m = re.search(r'Reach:</i>\s*([^<"]+)"', html)
+            wt_m    = re.search(r'Weight:</i>\s*(\d+)', html)
+            reach_in = 70
+            if reach_m:
+                rm = re.search(r'(\d+)', reach_m.group(1))
+                if rm: reach_in = int(rm.group(1))
+            nat_wt = int(wt_m.group(1)) if wt_m else 155
+
+            existing = db.get(name)
+            if existing:
+                existing["record"] = f"{wins}-{losses}"
+                existing["stats"]["slpm"]   = round(slpm, 2)
+                existing["stats"]["stracc"] = round(stracc, 1)
+                existing["stats"]["sapm"]   = round(sapm, 2)
+                existing["stats"]["strdef"] = round(strdef, 1)
+                existing["stats"]["tdavg"]  = round(tdavg, 2)
+                existing["stats"]["tdacc"]  = round(tdacc, 1)
+                existing["stats"]["tddef"]  = round(tddef, 1)
+                existing["stats"]["subavg"] = round(subavg, 2)
+                updated += 1
+            else:
+                db[name] = {
+                    "name": name,
+                    "record": f"{wins}-{losses}",
+                    "rank": "NR",
+                    "country": "🌍",
+                    "age": 28,
+                    "weightClass": "Unknown",
+                    "naturalWeight": nat_wt,
+                    "reach": reach_in,
+                    "style": "Mixed",
+                    "wrestlerResilience": 5,
+                    "reachDisadvantageHandling": 5,
+                    "speedVsHandsHandling": 5,
+                    "tendencies": [],
+                    "stats": {
+                        "slpm":   round(slpm, 2),
+                        "stracc": round(stracc, 1),
+                        "sapm":   round(sapm, 2),
+                        "strdef": round(strdef, 1),
+                        "tdavg":  round(tdavg, 2),
+                        "tdacc":  round(tdacc, 1),
+                        "tddef":  round(tddef, 1),
+                        "subavg": round(subavg, 2),
+                        "winStreak": 0,
+                        "finishRate": 50,
+                    }
+                }
+                added += 1
+        except Exception as e:
+            print(f"  [WARN] {name}: {e}", flush=True)
+        time.sleep(0.4)
+
+    fighters_path.write_text(json.dumps(db, indent=2))
+    print(f"UFC Stats scrape complete: {added} added, {updated} updated. Total: {len(db)} fighters.")
+
 
 def fetch_espn_roster():
     """
