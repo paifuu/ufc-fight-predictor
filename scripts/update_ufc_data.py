@@ -491,6 +491,143 @@ def download_fighter_images(fighters=None, force=False):
         print(f"Failed fighters: {', '.join(failed)}")
 
 
+def fetch_espn_roster():
+    """
+    Fetch all active UFC fighters from ESPN and merge into fighters.json.
+    ESPN athlete list: /apis/site/v2/sports/mma/ufc/athletes?limit=500
+    ESPN athlete stats: /apis/common/v3/sports/mma/ufc/athletes/{id}/stats
+    """
+    fighters_path = DATA_DIR / "fighters.json"
+    db = json.loads(fighters_path.read_text()) if fighters_path.exists() else {}
+
+    # Fetch full roster
+    url = "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/athletes?limit=500&active=true"
+    print(f"Fetching roster from ESPN...")
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+            "Accept": "application/json",
+        })
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.loads(resp.read())
+    except Exception as e:
+        print(f"[FAIL] Could not fetch roster: {e}")
+        return
+
+    athletes = data.get("items") or data.get("athletes") or []
+    print(f"Found {len(athletes)} athletes on ESPN roster")
+
+    added = 0
+    updated = 0
+
+    for athlete in athletes:
+        aid = str(athlete.get("id", ""))
+        name = athlete.get("displayName") or athlete.get("fullName") or ""
+        if not name or not aid:
+            continue
+
+        # Fetch stats for this athlete
+        stats_url = f"https://site.web.api.espn.com/apis/common/v3/sports/mma/ufc/athletes/{aid}/stats"
+        try:
+            req2 = urllib.request.Request(stats_url, headers={
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+                "Accept": "application/json",
+            })
+            with urllib.request.urlopen(req2, timeout=10) as resp2:
+                sdata = json.loads(resp2.read())
+        except Exception:
+            sdata = {}
+
+        cats = (sdata.get("splits") or {}).get("categories") or []
+
+        def get_stat(cat_name, stat_name):
+            for c in cats:
+                if c.get("name","").lower() == cat_name.lower() or c.get("displayName","").lower() == cat_name.lower():
+                    for s in c.get("stats", []):
+                        if s.get("name","").lower() == stat_name.lower() or s.get("displayName","").lower() == stat_name.lower():
+                            try: return float(s["value"])
+                            except: pass
+            return None
+
+        slpm   = get_stat("striking","strikesLandedPerMinute") or get_stat("Striking","SLpM") or 3.5
+        stracc = get_stat("striking","strikingAccuracy") or get_stat("Striking","strAcc") or 45.0
+        sapm   = get_stat("striking","strikesAbsorbedPerMinute") or get_stat("Striking","SApM") or 3.0
+        strdef = get_stat("striking","strikingDefense") or get_stat("Striking","strDef") or 55.0
+        tdavg  = get_stat("grappling","takedownAverage") or get_stat("Grappling","TDAvg") or 1.0
+        tdacc  = get_stat("grappling","takedownAccuracy") or get_stat("Grappling","TDAcc") or 40.0
+        tddef  = get_stat("grappling","takedownDefense") or get_stat("Grappling","TDDef") or 60.0
+        subavg = get_stat("grappling","submissionAverage") or get_stat("Grappling","subAvg") or 0.3
+
+        # Normalize percentages ESPN sometimes returns as 0-1
+        if stracc <= 1: stracc *= 100
+        if strdef <= 1: strdef *= 100
+        if tdacc  <= 1: tdacc  *= 100
+        if tddef  <= 1: tddef  *= 100
+
+        rec = athlete.get("record") or {}
+        wins   = int(rec.get("wins", 0))
+        losses = int(rec.get("losses", 0))
+        record_str = f"{wins}-{losses}"
+
+        wc = (athlete.get("weightClass") or {})
+        wc_name = wc.get("displayName") or wc.get("name") or "Unknown"
+        nat_wt  = wc.get("weightLimit") or 155
+
+        age = athlete.get("age")
+        try: age = int(age)
+        except: age = 28
+
+        reach = athlete.get("reach") or 70
+
+        existing = db.get(name)
+        if existing:
+            # Only update record and stats, preserve curated fields
+            existing["record"] = record_str
+            existing["stats"]["slpm"]   = round(slpm, 2)
+            existing["stats"]["stracc"] = round(stracc, 1)
+            existing["stats"]["sapm"]   = round(sapm, 2)
+            existing["stats"]["strdef"] = round(strdef, 1)
+            existing["stats"]["tdavg"]  = round(tdavg, 2)
+            existing["stats"]["tdacc"]  = round(tdacc, 1)
+            existing["stats"]["tddef"]  = round(tddef, 1)
+            existing["stats"]["subavg"] = round(subavg, 2)
+            updated += 1
+        else:
+            db[name] = {
+                "name": name,
+                "record": record_str,
+                "rank": "NR",
+                "country": "🌍",
+                "age": age,
+                "weightClass": wc_name,
+                "naturalWeight": nat_wt,
+                "reach": int(reach) if reach else 70,
+                "style": "Mixed",
+                "wrestlerResilience": 5,
+                "reachDisadvantageHandling": 5,
+                "speedVsHandsHandling": 5,
+                "tendencies": [],
+                "stats": {
+                    "slpm":   round(slpm, 2),
+                    "stracc": round(stracc, 1),
+                    "sapm":   round(sapm, 2),
+                    "strdef": round(strdef, 1),
+                    "tdavg":  round(tdavg, 2),
+                    "tdacc":  round(tdacc, 1),
+                    "tddef":  round(tddef, 1),
+                    "subavg": round(subavg, 2),
+                    "winStreak": 0,
+                    "finishRate": 50,
+                }
+            }
+            added += 1
+
+        time.sleep(0.3)
+
+    fighters_path.write_text(json.dumps(db, indent=2))
+    print(f"Roster update complete: {added} added, {updated} updated. Total: {len(db)} fighters.")
+
+
 # ─── MAIN ────────────────────────────────────────────────────────────────────
 
 def main():
@@ -500,13 +637,18 @@ def main():
     parser.add_argument("--resolve", action="store_true", help="Resolve past fight results")
     parser.add_argument("--images",  action="store_true", help="Download fighter images from UFC CDN")
     parser.add_argument("--force-images", action="store_true", help="Re-download all images even if they exist")
+    parser.add_argument("--roster",  action="store_true", help="Fetch full UFC roster from ESPN")
     parser.add_argument("--all",     action="store_true", help="Run all updates")
     parser.add_argument("--fighter", type=str, help="Download image for a specific fighter only")
     args = parser.parse_args()
 
-    if not any([args.records, args.events, args.resolve, args.images, args.force_images, args.all, args.fighter]):
+    if not any([args.records, args.events, args.resolve, args.images, args.force_images, args.all, args.fighter, args.roster]):
         parser.print_help()
         sys.exit(0)
+
+    if args.roster:
+        print("\n=== Fetching full UFC roster from ESPN ===")
+        fetch_espn_roster()
 
     if args.all or args.records:
         print("\n=== Updating fighter records ===")

@@ -12,6 +12,7 @@ on:
         type: choice
         options:
           - all
+          - roster
           - records
           - events
           - resolve
@@ -39,7 +40,7 @@ jobs:
         run: |
           MODE="${{ github.event.inputs.mode || 'all' }}"
           if [ "$MODE" = "all" ]; then
-            python scripts/update_ufc_data.py --all
+            python scripts/update_ufc_data.py --roster --records --events --resolve
           else
             python scripts/update_ufc_data.py --$MODE
           fi
