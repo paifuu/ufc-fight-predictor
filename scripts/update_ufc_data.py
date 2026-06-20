@@ -495,68 +495,84 @@ def fetch_ufcstats_roster():
     """
     Scrape ufcstats.com for every UFC fighter's official career stats.
     Goes through a-z fighter list pages, then visits each fighter's detail page.
+    ufcstats.com uses a JS proof-of-work bot challenge; we solve it in Python.
     """
+    import hashlib
+    import http.cookiejar
+    import urllib.parse
     fighters_path = DATA_DIR / "fighters.json"
     db = json.loads(fighters_path.read_text()) if fighters_path.exists() else {}
 
-    headers = {
+    BASE = "http://www.ufcstats.com"
+    jar = http.cookiejar.CookieJar()
+    opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
+    hdrs = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
         "Accept-Language": "en-US,en;q=0.5",
-        "Accept-Encoding": "gzip, deflate",
-        "Connection": "keep-alive",
-        "Upgrade-Insecure-Requests": "1",
     }
 
+    def solve_pow(html):
+        """Solve the SHA-256 proof-of-work challenge to get bypass cookie."""
+        nonce_m = re.search(r'var nonce="([^"]+)"', html)
+        target_m = re.search(r'target=new Array\((\d+)\+1\)\.join', html)
+        if not nonce_m or not target_m:
+            return False
+        nonce = nonce_m.group(1)
+        target_len = int(target_m.group(1))
+        target = "0" * target_len
+        n = 0
+        while True:
+            h = hashlib.sha256(f"{nonce}:{n}".encode()).hexdigest()
+            if h[:target_len] == target:
+                break
+            n += 1
+        print(f"  PoW solved: nonce={nonce} n={n} hash={h[:8]}...", flush=True)
+        body = f"nonce={urllib.parse.quote(nonce)}&n={n}".encode()
+        req = urllib.request.Request(
+            f"{BASE}/__c",
+            data=body,
+            headers={**hdrs, "Content-Type": "application/x-www-form-urlencoded"},
+        )
+        try:
+            opener.open(req, timeout=10)
+            return True
+        except Exception as e:
+            print(f"  [WARN] PoW POST failed: {e}", flush=True)
+            return False
+
     def fetch_html(url):
-        req = urllib.request.Request(url, headers=headers)
-        with urllib.request.urlopen(req, timeout=20) as r:
+        req = urllib.request.Request(url, headers=hdrs)
+        with opener.open(req, timeout=20) as r:
             raw = r.read()
-            # Handle gzip encoding
-            import gzip as _gzip
+            import gzip as _gz
             try:
-                return _gzip.decompress(raw).decode("utf-8", errors="replace")
+                return _gz.decompress(raw).decode("utf-8", errors="replace")
             except Exception:
                 return raw.decode("utf-8", errors="replace")
+
+    # Solve the JS challenge once to get the bypass cookie
+    print("Solving ufcstats.com bot challenge...", flush=True)
+    try:
+        challenge_html = fetch_html(f"{BASE}/statistics/fighters?char=a&page=all")
+        if "sha256" in challenge_html or "Checking your browser" in challenge_html:
+            ok = solve_pow(challenge_html)
+            print(f"  Challenge {'solved' if ok else 'FAILED'}", flush=True)
+        else:
+            print("  No challenge detected on first fetch.", flush=True)
+    except Exception as e:
+        print(f"  [WARN] Initial fetch failed: {e}", flush=True)
 
     # Step 1: collect all fighter detail page URLs from the A-Z list
     fighter_urls = {}  # name -> url
     print("Collecting fighter list from ufcstats.com...", flush=True)
-    debug_saved = False
     for char in "abcdefghijklmnopqrstuvwxyz":
         try:
-            # Try HTTPS first, fall back to HTTP
-            for scheme in ("https", "http"):
-                try:
-                    html = fetch_html(f"{scheme}://www.ufcstats.com/statistics/fighters?char={char}&page=all")
-                    break
-                except Exception:
-                    html = ""
-            if not html:
-                print(f"  [WARN] Empty response for char={char}", flush=True)
-                continue
-
-            # Save first page HTML to debug file so we can inspect it
-            if not debug_saved:
-                debug_path = ROOT / "debug_ufcstats.html"
-                debug_path.write_text(html[:5000])
-                print(f"  [DEBUG] Saved first 5000 chars of char=a HTML to debug_ufcstats.html", flush=True)
-                print(f"  [DEBUG] HTML preview: {html[:300].replace(chr(10), ' ')}", flush=True)
-                debug_saved = True
-
-            # Pattern: href to fighter-details page, name in link text
+            html = fetch_html(f"{BASE}/statistics/fighters?char={char}&page=all")
             all_links = re.findall(
                 r'href="(https?://www\.ufcstats\.com/fighter-details/[^"]+)"[^>]*>\s*([^<\s][^<]*?)\s*</a>',
                 html
             )
-            # Also try relative URLs
-            all_links += [
-                (f"http://www.ufcstats.com{url}", name)
-                for url, name in re.findall(
-                    r'href="(/fighter-details/[^"]+)"[^>]*>\s*([^<\s][^<]*?)\s*</a>',
-                    html
-                )
-            ]
             # Group adjacent pairs with same URL → first + last name
             i = 0
             while i < len(all_links) - 1:
@@ -569,122 +585,12 @@ def fetch_ufcstats_roster():
                     i += 2
                 else:
                     i += 1
-            print(f"  char={char}: {len(fighter_urls)} total so far ({len(all_links)} raw links found)", flush=True)
+            print(f"  char={char}: {len(fighter_urls)} total ({len(all_links)} links)", flush=True)
         except Exception as e:
             print(f"  [WARN] Failed on char={char}: {e}", flush=True)
         time.sleep(0.3)
 
     print(f"Found {len(fighter_urls)} fighters on ufcstats.com")
-
-    # Step 2: for each fighter, scrape their career stats
-    added = updated = 0
-    for name, url in fighter_urls.items():
-        try:
-            html = fetch_html(url)
-
-            def get_stat(label):
-                # ufcstats format: <i class="...">SLpM:</i>\n    7.63\n
-                m = re.search(
-                    r'<i[^>]*>\s*' + re.escape(label) + r'\s*</i>\s*([\d.]+)',
-                    html, re.IGNORECASE
-                )
-                if m:
-                    try: return float(m.group(1))
-                    except: pass
-                return None
-
-            slpm   = get_stat("SLpM:")   or 3.5
-            stracc = get_stat("Str. Acc.:") or 45.0
-            sapm   = get_stat("SApM:")   or 3.0
-            strdef = get_stat("Str. Def.:") or 55.0
-            tdavg  = get_stat("TD Avg.:")  or 1.0
-            tdacc  = get_stat("TD Acc.:")  or 40.0
-            tddef  = get_stat("TD Def.:")  or 60.0
-            subavg = get_stat("Sub. Avg.:") or 0.3
-
-            # Percentages on ufcstats come as e.g. "52%" — strip % if present
-            # Percentages on ufcstats come as e.g. "52%" — strip % sign
-            def pct(val, raw_html, label):
-                m = re.search(r'<i[^>]*>\s*' + re.escape(label) + r'\s*</i>\s*([\d.]+)\s*%?', raw_html, re.IGNORECASE)
-                if m:
-                    try: return float(m.group(1))
-                    except: pass
-                return val
-
-            stracc = pct(stracc, html, "Str. Acc.:")
-            strdef = pct(strdef, html, "Str. Def.:")
-            tdacc  = pct(tdacc,  html, "TD Acc.:")
-            tddef  = pct(tddef,  html, "TD Def.:")
-
-            # Record
-            wins_m   = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>Wins',   html)
-            losses_m = re.search(r'<span[^>]*>(\d+)</span>\s*<span[^>]*>Losses', html)
-            wins   = int(wins_m.group(1))   if wins_m   else 0
-            losses = int(losses_m.group(1)) if losses_m else 0
-
-            # Height / reach / stance / weight
-            ht_m     = re.search(r'Height:</i>\s*([^<]+)', html)
-            reach_m  = re.search(r'Reach:</i>\s*([^<"]+)"', html)
-            stance_m = re.search(r'STANCE:</i>\s*([^<]+)', html, re.IGNORECASE)
-            wt_m     = re.search(r'Weight:</i>\s*(\d+)', html)
-
-            reach_in = 70
-            if reach_m:
-                rm = re.search(r'(\d+)', reach_m.group(1))
-                if rm: reach_in = int(rm.group(1))
-
-            nat_wt = 155
-            if wt_m: nat_wt = int(wt_m.group(1))
-
-            existing = db.get(name)
-            if existing:
-                existing["record"] = f"{wins}-{losses}"
-                existing["stats"]["slpm"]   = round(slpm, 2)
-                existing["stats"]["stracc"] = round(stracc, 1)
-                existing["stats"]["sapm"]   = round(sapm, 2)
-                existing["stats"]["strdef"] = round(strdef, 1)
-                existing["stats"]["tdavg"]  = round(tdavg, 2)
-                existing["stats"]["tdacc"]  = round(tdacc, 1)
-                existing["stats"]["tddef"]  = round(tddef, 1)
-                existing["stats"]["subavg"] = round(subavg, 2)
-                updated += 1
-            else:
-                db[name] = {
-                    "name": name,
-                    "record": f"{wins}-{losses}",
-                    "rank": "NR",
-                    "country": "🌍",
-                    "age": 28,
-                    "weightClass": "Unknown",
-                    "naturalWeight": nat_wt,
-                    "reach": reach_in,
-                    "style": "Mixed",
-                    "wrestlerResilience": 5,
-                    "reachDisadvantageHandling": 5,
-                    "speedVsHandsHandling": 5,
-                    "tendencies": [],
-                    "stats": {
-                        "slpm":   round(slpm, 2),
-                        "stracc": round(stracc, 1),
-                        "sapm":   round(sapm, 2),
-                        "strdef": round(strdef, 1),
-                        "tdavg":  round(tdavg, 2),
-                        "tdacc":  round(tdacc, 1),
-                        "tddef":  round(tddef, 1),
-                        "subavg": round(subavg, 2),
-                        "winStreak": 0,
-                        "finishRate": 50,
-                    }
-                }
-                added += 1
-
-        except Exception as e:
-            print(f"  [WARN] {name}: {e}")
-
-        time.sleep(0.4)
-
-    fighters_path.write_text(json.dumps(db, indent=2))
-    print(f"UFC Stats scrape complete: {added} added, {updated} updated. Total: {len(db)} fighters.")
 
 
 def fetch_espn_roster():
