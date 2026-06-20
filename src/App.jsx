@@ -1506,18 +1506,42 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
 
   useEffect(() => {
     let cancelled = false;
+
+    async function wikiPhotoByTitle(title) {
+      const r = await fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(title)}&prop=pageimages&format=json&pithumbsize=600&origin=*`);
+      const d = await r.json();
+      return Object.values(d.query.pages)[0]?.thumbnail?.source || null;
+    }
+
     async function getWikiImg(name) {
       try {
-        const r = await fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(name)}&prop=pageimages&format=json&pithumbsize=600&origin=*`);
-        const d = await r.json();
-        return Object.values(d.query.pages)[0]?.thumbnail?.source || null;
+        // 1. Exact name
+        const direct = await wikiPhotoByTitle(name);
+        if (direct) return direct;
+        // 2. Search Wikipedia for "Name MMA fighter"
+        const sr = await fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(name+' MMA fighter')}&srlimit=3&format=json&origin=*`);
+        const sd = await sr.json();
+        for (const result of (sd.query?.search || [])) {
+          const img = await wikiPhotoByTitle(result.title);
+          if (img) return img;
+        }
+        // 3. Try "Name UFC"
+        const sr2 = await fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(name+' UFC')}&srlimit=2&format=json&origin=*`);
+        const sd2 = await sr2.json();
+        for (const result of (sd2.query?.search || [])) {
+          const img = await wikiPhotoByTitle(result.title);
+          if (img) return img;
+        }
+        return null;
       } catch { return null; }
     }
+
     async function getImgPair(name) {
       const tapology = tapologyPhotoUrl(name);
       const wiki = await getWikiImg(name);
       return { primary: tapology || wiki, fallback: tapology ? wiki : null };
     }
+
     Promise.all([getImgPair(f1.name), getImgPair(f2.name)]).then(r => { if (!cancelled) setImgs(r); });
     return () => { cancelled = true; };
   }, [f1.name, f2.name]);
