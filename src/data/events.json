@@ -78,20 +78,6 @@
       ]
     },
     {
-      "event": "UFC Fight Night 281: Medic vs. Rodriguez",
-      "date": "August 2, 2026",
-      "venue": "UFC Apex, Las Vegas, NV",
-      "fights": [
-        {
-          "f1": "Uros Medic",
-          "f2": "Daniel Rodriguez",
-          "weightClass": "Welterweight",
-          "isMain": true,
-          "context": "Medic has been perfect since joining the UFC, showcasing technical kickboxing that's earned him a main event shot. Rodriguez is a durable pressure fighter who walks opponents down — a classic styles clash between technical precision and relentless forward pressure."
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night 282: Ankalaev vs. Rountree Jr.",
       "date": "July 25, 2026",
       "venue": "Etihad Arena, Abu Dhabi, UAE",
@@ -109,6 +95,20 @@
           "weightClass": "Bantamweight",
           "isMain": false,
           "context": "Umar continues his undefeated march toward the BW title. Martinez is a technical kickboxer with reach but Umar's elite Khabib-style wrestling could make this a very long night for the Spaniard."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night 281: Medic vs. Rodriguez",
+      "date": "August 2, 2026",
+      "venue": "UFC Apex, Las Vegas, NV",
+      "fights": [
+        {
+          "f1": "Uros Medic",
+          "f2": "Daniel Rodriguez",
+          "weightClass": "Welterweight",
+          "isMain": true,
+          "context": "Medic has been perfect since joining the UFC, showcasing technical kickboxing that's earned him a main event shot. Rodriguez is a durable pressure fighter who walks opponents down — a classic styles clash between technical precision and relentless forward pressure."
         }
       ]
     }
