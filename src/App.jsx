@@ -1803,15 +1803,21 @@ export default function App(){
 
   function findOdds(name1,name2){
     const norm=s=>s.toLowerCase().replace(/[^a-z]/g,"");
-    return oddsData.find(o=>{
-      const of1=norm(o.f1),of2=norm(o.f2),n1=norm(name1),n2=norm(name2);
+    const n1=norm(name1),n2=norm(name2);
+    const match=oddsData.find(o=>{
+      const of1=norm(o.f1),of2=norm(o.f2);
       return (of1.includes(n1.slice(0,5))||n1.includes(of1.slice(0,5)))&&
              (of2.includes(n2.slice(0,5))||n2.includes(of2.slice(0,5)));
-    })||oddsData.find(o=>{
-      const of1=norm(o.f1),of2=norm(o.f2),n1=norm(name1),n2=norm(name2);
+    });
+    if(match) return match;
+    // try reversed order and swap so f1Pct always corresponds to name1
+    const rev=oddsData.find(o=>{
+      const of1=norm(o.f1),of2=norm(o.f2);
       return (of1.includes(n2.slice(0,5))||n2.includes(of1.slice(0,5)))&&
              (of2.includes(n1.slice(0,5))||n1.includes(of2.slice(0,5)));
     });
+    if(!rev) return null;
+    return {f1:rev.f2,f2:rev.f1,f1Odds:rev.f2Odds,f2Odds:rev.f1Odds,f1Pct:rev.f2Pct,f2Pct:rev.f1Pct};
   }
 
   function analyze(){
