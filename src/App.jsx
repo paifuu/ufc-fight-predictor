@@ -1084,6 +1084,49 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
   );
 }
 
+function FighterSearchBox({label,query,setQuery,results,loading,selected,setFighter,setResults,onSelect,accent,bg,bdr}){
+  return(
+    <div style={{flex:1,minWidth:0}}>
+      <div style={{fontSize:9,color:accent,letterSpacing:2,textTransform:"uppercase",marginBottom:6}}>{label}</div>
+      <div style={{position:"relative"}}>
+        <input value={query} onChange={e=>{setQuery(e.target.value);setFighter(null);onSelect();}}
+          placeholder="Search any UFC fighter..."
+          style={{width:"100%",boxSizing:"border-box",background:"#0a0a0a",border:`1px solid ${selected?"#d4a843":"#2a2a2a"}`,
+            borderRadius:6,padding:"10px 12px",color:"#e8e0d4",fontSize:13,outline:"none"}}/>
+        {loading&&<div style={{position:"absolute",right:10,top:"50%",transform:"translateY(-50%)",fontSize:10,color:"#5a5a5a"}}>...</div>}
+        {results.length>0&&(
+          <div style={{position:"absolute",top:"100%",left:0,right:0,zIndex:50,background:"#12121a",border:"1px solid #2a2a2a",borderRadius:6,overflow:"hidden",marginTop:2}}>
+            {results.map(a=>(
+              <button key={a.id} onClick={()=>onSelect(a)}
+                style={{display:"block",width:"100%",padding:"9px 12px",background:"transparent",border:"none",
+                  borderBottom:"1px solid #1a1a1a",color:"#e8e0d4",fontSize:12,textAlign:"left",cursor:"pointer"}}
+                onMouseEnter={e=>e.currentTarget.style.background="#1a1a2a"}
+                onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                <span style={{fontWeight:700}}>{a.displayName||a.fullName}</span>
+                {a.weightClass&&<span style={{fontSize:10,color:"#5a5a7a",marginLeft:8}}>{a.weightClass.displayName||a.weightClass}</span>}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+      {selected&&(
+        <div style={{marginTop:8,background:bg,border:`1px solid ${bdr}`,borderRadius:8,padding:10}}>
+          <div style={{fontSize:13,fontWeight:700,color:"#e8e0d4"}}>{selected.name}</div>
+          <div style={{fontSize:10,color:accent,marginBottom:6}}>{selected.record} · {selected.rank} · {selected.weightClass}</div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:3}}>
+            {[["SLpM",selected.stats.slpm],["Str%",selected.stats.stracc+"%"],["TDavg",selected.stats.tdavg],["Fin%",selected.stats.finishRate+"%"]].map(([k,v])=>(
+              <div key={k} style={{background:"#0a0a0a",borderRadius:4,padding:"4px",textAlign:"center"}}>
+                <div style={{fontSize:7,color:"#3a3a4a",textTransform:"uppercase"}}>{k}</div>
+                <div style={{fontSize:11,fontWeight:700,color:accent}}>{v}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function App(){
   const[mode,setMode]=useState("scheduled");
   const[menuOpen,setMenuOpen]=useState(false);
@@ -1234,49 +1277,6 @@ export default function App(){
     const t=setTimeout(()=>espnSearch(srchQ2,setSrchRes2,setSrchLoading2),300);
     return()=>clearTimeout(t);
   },[srchQ2]);
-
-  function FighterSearchBox({label,query,setQuery,results,loading,selected,setFighter,setResults,accent,bg,bdr}){
-    return(
-      <div style={{flex:1,minWidth:0}}>
-        <div style={{fontSize:9,color:accent,letterSpacing:2,textTransform:"uppercase",marginBottom:6}}>{label}</div>
-        <div style={{position:"relative"}}>
-          <input value={query} onChange={e=>{setQuery(e.target.value);setFighter(null);setSrchPred(null);}}
-            placeholder="Search any UFC fighter..."
-            style={{width:"100%",boxSizing:"border-box",background:"#0a0a0a",border:`1px solid ${selected?"#d4a843":"#2a2a2a"}`,
-              borderRadius:6,padding:"10px 12px",color:"#e8e0d4",fontSize:13,outline:"none"}}/>
-          {loading&&<div style={{position:"absolute",right:10,top:"50%",transform:"translateY(-50%)",fontSize:10,color:"#5a5a5a"}}>...</div>}
-          {results.length>0&&(
-            <div style={{position:"absolute",top:"100%",left:0,right:0,zIndex:50,background:"#12121a",border:"1px solid #2a2a2a",borderRadius:6,overflow:"hidden",marginTop:2}}>
-              {results.map(a=>(
-                <button key={a.id} onClick={()=>espnLoadFighter(a,setFighter,setResults,setQuery)}
-                  style={{display:"block",width:"100%",padding:"9px 12px",background:"transparent",border:"none",
-                    borderBottom:"1px solid #1a1a1a",color:"#e8e0d4",fontSize:12,textAlign:"left",cursor:"pointer"}}
-                  onMouseEnter={e=>e.currentTarget.style.background="#1a1a2a"}
-                  onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
-                  <span style={{fontWeight:700}}>{a.displayName||a.fullName}</span>
-                  {a.weightClass&&<span style={{fontSize:10,color:"#5a5a7a",marginLeft:8}}>{a.weightClass.displayName||a.weightClass}</span>}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-        {selected&&(
-          <div style={{marginTop:8,background:bg,border:`1px solid ${bdr}`,borderRadius:8,padding:10}}>
-            <div style={{fontSize:13,fontWeight:700,color:"#e8e0d4"}}>{selected.name}</div>
-            <div style={{fontSize:10,color:accent,marginBottom:6}}>{selected.record} · {selected.rank} · {selected.weightClass}</div>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:3}}>
-              {[["SLpM",selected.stats.slpm],["Str%",selected.stats.stracc+"%"],["TDavg",selected.stats.tdavg],["Fin%",selected.stats.finishRate+"%"]].map(([k,v])=>(
-                <div key={k} style={{background:"#0a0a0a",borderRadius:4,padding:"4px",textAlign:"center"}}>
-                  <div style={{fontSize:7,color:"#3a3a4a",textTransform:"uppercase"}}>{k}</div>
-                  <div style={{fontSize:11,fontWeight:700,color:accent}}>{v}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
 
   const evtMeta=UPCOMING_EVENTS[selEvt];
   const fightMeta=evtMeta.fights[selFight];
@@ -1502,11 +1502,13 @@ export default function App(){
               label="🔴 Fighter 1" query={srchQ1} setQuery={setSrchQ1}
               results={srchRes1} loading={srchLoading1}
               selected={srchF1} setFighter={setSrchF1} setResults={setSrchRes1}
+              onSelect={a=>a?espnLoadFighter(a,setSrchF1,setSrchRes1,setSrchQ1):setSrchPred(null)}
               accent="#d4a843" bg="linear-gradient(135deg,#1a1000,#110800)" bdr="#2a1a0a"/>
             <FighterSearchBox
               label="🔵 Fighter 2" query={srchQ2} setQuery={setSrchQ2}
               results={srchRes2} loading={srchLoading2}
               selected={srchF2} setFighter={setSrchF2} setResults={setSrchRes2}
+              onSelect={a=>a?espnLoadFighter(a,setSrchF2,setSrchRes2,setSrchQ2):setSrchPred(null)}
               accent="#6a8ad4" bg="linear-gradient(135deg,#00001a,#08001a)" bdr="#0a0a2a"/>
           </div>
           {srchF1&&srchF2&&!srchPred&&(
