@@ -4539,14 +4539,14 @@
     "reach": 77,
     "style": "Grappler",
     "stats": {
-      "slpm": 4.6,
-      "stracc": 50,
-      "sapm": 2.4,
-      "strdef": 66,
-      "tdavg": 1.6,
+      "slpm": 7.63,
+      "stracc": 53,
+      "sapm": 2.18,
+      "strdef": 69,
+      "tdavg": 1.57,
       "tdacc": 50,
       "tddef": 78,
-      "subavg": 1.0,
+      "subavg": 1.02,
       "winStreak": 5,
       "finishRate": 87
     }

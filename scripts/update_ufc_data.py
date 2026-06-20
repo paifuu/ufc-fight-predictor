@@ -540,9 +540,9 @@ def fetch_ufcstats_roster():
             html = fetch_html(url)
 
             def get_stat(label):
-                # Pattern: <li class="b-list__box-list-item..."><i ...>Label</i>value</li>
+                # ufcstats format: <i class="...">SLpM:</i>\n    7.63\n
                 m = re.search(
-                    re.escape(label) + r'[^<]*</i>\s*([0-9.]+)',
+                    r'<i[^>]*>\s*' + re.escape(label) + r'\s*</i>\s*([\d.]+)',
                     html, re.IGNORECASE
                 )
                 if m:
@@ -560,8 +560,9 @@ def fetch_ufcstats_roster():
             subavg = get_stat("Sub. Avg.:") or 0.3
 
             # Percentages on ufcstats come as e.g. "52%" — strip % if present
+            # Percentages on ufcstats come as e.g. "52%" — strip % sign
             def pct(val, raw_html, label):
-                m = re.search(re.escape(label) + r'[^<]*</i>\s*([0-9.]+)\s*%?', raw_html, re.IGNORECASE)
+                m = re.search(r'<i[^>]*>\s*' + re.escape(label) + r'\s*</i>\s*([\d.]+)\s*%?', raw_html, re.IGNORECASE)
                 if m:
                     try: return float(m.group(1))
                     except: pass
