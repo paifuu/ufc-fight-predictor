@@ -78,6 +78,69 @@
       ]
     },
     {
+      "event": "UFC Fight Night: Oklahoma City",
+      "date": "July 18, 2026",
+      "venue": "Paycom Center, Oklahoma City",
+      "fights": [
+        {
+          "f1": "Alden Coria",
+          "f2": "Stewart Nicoll",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Alden Coria vs Stewart Nicoll."
+        },
+        {
+          "f1": "Veronica Hardy",
+          "f2": "Dione Barbosa",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Veronica Hardy vs Dione Barbosa."
+        },
+        {
+          "f1": "Chase Hooper",
+          "f2": "Mitch Ramirez",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Chase Hooper vs Mitch Ramirez."
+        },
+        {
+          "f1": "Brad Tavares",
+          "f2": "Marc-Andre Barriault",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Brad Tavares vs Marc-Andre Barriault."
+        },
+        {
+          "f1": "Amanda Ribas",
+          "f2": "Fatima Kline",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Amanda Ribas vs Fatima Kline."
+        },
+        {
+          "f1": "Kevin Holland",
+          "f2": "Jacobe Smith",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Kevin Holland vs Jacobe Smith."
+        },
+        {
+          "f1": "Jared Cannonier",
+          "f2": "Christian Leroy Duncan",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Jared Cannonier vs Christian Leroy Duncan."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
       "event": "UFC Fight Night 282: Ankalaev vs. Rountree Jr.",
       "date": "July 25, 2026",
       "venue": "Etihad Arena, Abu Dhabi, UAE",
@@ -92,6 +155,76 @@
       ]
     },
     {
+      "event": "UFC Fight Night: Medić vs. Rodriguez",
+      "date": "August 01, 2026",
+      "venue": "Belgrade Arena, Belgrade",
+      "fights": [
+        {
+          "f1": "Dennis Buzukja",
+          "f2": "Bogdan Grad",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Dennis Buzukja vs Bogdan Grad."
+        },
+        {
+          "f1": "Josias Musasa",
+          "f2": "Mark Vologdin",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Josias Musasa vs Mark Vologdin."
+        },
+        {
+          "f1": "Ludovit Klein",
+          "f2": "Tofiq Musayev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Ludovit Klein vs Tofiq Musayev."
+        },
+        {
+          "f1": "Jovan Leka",
+          "f2": "Max Gimenis",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Jovan Leka vs Max Gimenis."
+        },
+        {
+          "f1": "Gilbert Urbina",
+          "f2": "Vlasto Čepo",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Gilbert Urbina vs Vlasto Čepo."
+        },
+        {
+          "f1": "Duško Todorović",
+          "f2": "Robert Valentin",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Duško Todorović vs Robert Valentin."
+        },
+        {
+          "f1": "Marcin Tybura",
+          "f2": "Aleksandar Rakic",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Marcin Tybura vs Aleksandar Rakic."
+        },
+        {
+          "f1": "Ante Delija",
+          "f2": "Johnny Walker",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Ante Delija vs Johnny Walker."
+        },
+        {
+          "f1": "Daniel Rodriguez",
+          "f2": "Uroš Medić",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Daniel Rodriguez vs Uroš Medić."
+        }
+      ]
+    },
+    {
       "event": "UFC Fight Night 281: Medic vs. Rodriguez",
       "date": "August 2, 2026",
       "venue": "UFC Apex, Las Vegas, NV",
@@ -102,6 +235,69 @@
           "weightClass": "Welterweight",
           "isMain": true,
           "context": "Medic has been perfect since joining the UFC, showcasing technical kickboxing that's earned him a main event shot. Rodriguez is a durable pressure fighter who walks opponents down — a classic styles clash between technical precision and relentless forward pressure."
+        }
+      ]
+    },
+    {
+      "event": "UFC 330: Makhachev vs. Machado Garry",
+      "date": "August 15, 2026",
+      "venue": "Xfinity Mobile Arena, Philadelphia",
+      "fights": [
+        {
+          "f1": "Erin Blanchfield",
+          "f2": "Jasmine Jasudavicius",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Erin Blanchfield vs Jasmine Jasudavicius."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Mackenzie Dern",
+          "f2": "Gillian Robertson",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Mackenzie Dern vs Gillian Robertson."
+        },
+        {
+          "f1": "Islam Makhachev",
+          "f2": "Ian Machado Garry",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Islam Makhachev vs Ian Machado Garry."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Paris",
+      "date": "September 05, 2026",
+      "venue": "Accor Arena, Paris",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
         }
       ]
     }
