@@ -500,36 +500,64 @@ def fetch_ufcstats_roster():
     db = json.loads(fighters_path.read_text()) if fighters_path.exists() else {}
 
     headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "text/html,application/xhtml+xml",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.5",
+        "Accept-Encoding": "gzip, deflate",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
     }
 
     def fetch_html(url):
         req = urllib.request.Request(url, headers=headers)
         with urllib.request.urlopen(req, timeout=20) as r:
-            return r.read().decode("utf-8", errors="replace")
+            raw = r.read()
+            # Handle gzip encoding
+            import gzip as _gzip
+            try:
+                return _gzip.decompress(raw).decode("utf-8", errors="replace")
+            except Exception:
+                return raw.decode("utf-8", errors="replace")
 
     # Step 1: collect all fighter detail page URLs from the A-Z list
     fighter_urls = {}  # name -> url
-    print("Collecting fighter list from ufcstats.com...")
-    debug_done = False
+    print("Collecting fighter list from ufcstats.com...", flush=True)
+    debug_saved = False
     for char in "abcdefghijklmnopqrstuvwxyz":
         try:
-            html = fetch_html(f"http://www.ufcstats.com/statistics/fighters?char={char}&page=all")
+            # Try HTTPS first, fall back to HTTP
+            for scheme in ("https", "http"):
+                try:
+                    html = fetch_html(f"{scheme}://www.ufcstats.com/statistics/fighters?char={char}&page=all")
+                    break
+                except Exception:
+                    html = ""
+            if not html:
+                print(f"  [WARN] Empty response for char={char}", flush=True)
+                continue
 
-            # Debug: print a snippet on first letter to diagnose HTML structure
-            if not debug_done:
-                snippet = html[:2000].replace('\n', ' ')
-                print(f"  [DEBUG] First 2000 chars of char=a page: {snippet}")
-                debug_done = True
+            # Save first page HTML to debug file so we can inspect it
+            if not debug_saved:
+                debug_path = ROOT / "debug_ufcstats.html"
+                debug_path.write_text(html[:5000])
+                print(f"  [DEBUG] Saved first 5000 chars of char=a HTML to debug_ufcstats.html", flush=True)
+                print(f"  [DEBUG] HTML preview: {html[:300].replace(chr(10), ' ')}", flush=True)
+                debug_saved = True
 
-            # Try multiple patterns to find fighter links
-            # Pattern 1: href with fighter-details (any hex-like ID)
+            # Pattern: href to fighter-details page, name in link text
             all_links = re.findall(
-                r'href="(http://www\.ufcstats\.com/fighter-details/[^"]+)"[^>]*>\s*([^<\s][^<]*?)\s*</a>',
+                r'href="(https?://www\.ufcstats\.com/fighter-details/[^"]+)"[^>]*>\s*([^<\s][^<]*?)\s*</a>',
                 html
             )
-            # Group pairs with same URL into first+last name
+            # Also try relative URLs
+            all_links += [
+                (f"http://www.ufcstats.com{url}", name)
+                for url, name in re.findall(
+                    r'href="(/fighter-details/[^"]+)"[^>]*>\s*([^<\s][^<]*?)\s*</a>',
+                    html
+                )
+            ]
+            # Group adjacent pairs with same URL → first + last name
             i = 0
             while i < len(all_links) - 1:
                 url1, name1 = all_links[i]
@@ -541,10 +569,10 @@ def fetch_ufcstats_roster():
                     i += 2
                 else:
                     i += 1
-            print(f"  char={char}: {len(fighter_urls)} total so far")
+            print(f"  char={char}: {len(fighter_urls)} total so far ({len(all_links)} raw links found)", flush=True)
         except Exception as e:
-            print(f"  [WARN] Failed on char={char}: {e}")
-        time.sleep(0.5)
+            print(f"  [WARN] Failed on char={char}: {e}", flush=True)
+        time.sleep(0.3)
 
     print(f"Found {len(fighter_urls)} fighters on ufcstats.com")
 
