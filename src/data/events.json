@@ -1,0 +1,215 @@
+{
+  "upcoming": [
+    {
+      "event": "UFC Fight Night 279: Kape vs. Horiguchi 2",
+      "date": "June 20, 2026",
+      "venue": "Meta Apex (UFC Apex), Las Vegas, NV",
+      "fights": [
+        {
+          "f1": "Manel Kape",
+          "f2": "Kyoji Horiguchi",
+          "weightClass": "Flyweight",
+          "isMain": true,
+          "context": "Rematch — Horiguchi beat Kape in 2017 via arm-triangle at Rizin. Kape has been on a tear in the UFC with brutal KO power. Horiguchi returns with back-to-back wins. Winner likely gets the next flyweight title shot."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night 280: Fiziev vs. Torres",
+      "date": "June 27, 2026",
+      "venue": "National Gymnastics Arena, Baku, Azerbaijan",
+      "fights": [
+        {
+          "f1": "Rafael Fiziev",
+          "f2": "Manuel Torres",
+          "weightClass": "Lightweight",
+          "isMain": true,
+          "context": "Fiziev fights in front of his home crowd in Azerbaijan looking to rebound after his loss to Ruffy. Torres is a relentless pressure fighter from Mexico with serious finishing ability — exactly the kind of brawler who could nullify Fiziev's flashy kickboxing."
+        },
+        {
+          "f1": "Shara Magomedov",
+          "f2": "Michel Pereira",
+          "weightClass": "Middleweight",
+          "isMain": false,
+          "context": "Two of the most spectacular fighters in MMA. Shara's spinning KO power vs Pereira's backflip kicks and wild unorthodox movement. Could be the most entertaining fight of 2026."
+        }
+      ]
+    },
+    {
+      "event": "UFC 329: McGregor vs. Holloway 2",
+      "date": "July 11, 2026",
+      "venue": "T-Mobile Arena, Las Vegas, NV",
+      "fights": [
+        {
+          "f1": "Conor McGregor",
+          "f2": "Max Holloway",
+          "weightClass": "Welterweight",
+          "isMain": true,
+          "context": "The long-awaited rematch 13 years after McGregor beat Holloway at featherweight. McGregor returns after a 5-year layoff — massive questions about his chin, conditioning and ring rust vs a prime Max Holloway."
+        },
+        {
+          "f1": "Paddy Pimblett",
+          "f2": "Benoit Saint Denis",
+          "weightClass": "Lightweight",
+          "isMain": false,
+          "context": "Pimblett bounces back after the Gaethje loss. Saint Denis is an explosive sambo grappler — a stylistic nightmare for Pimblett if he can get the fight to the ground."
+        },
+        {
+          "f1": "Cory Sandhagen",
+          "f2": "Mario Bautista",
+          "weightClass": "Bantamweight",
+          "isMain": false,
+          "context": "Sandhagen vs Bautista 2 — Bautista won the first meeting. Sandhagen's unorthodox striking vs Bautista's relentless wrestling pressure."
+        },
+        {
+          "f1": "Brandon Royval",
+          "f2": "Lone'er Kavanagh",
+          "weightClass": "Flyweight",
+          "isMain": false,
+          "context": "Royval's elite submission game vs Kavanagh the upset specialist. Royval needs a statement win to stay relevant in the title picture."
+        },
+        {
+          "f1": "Gable Steveson",
+          "f2": "Elisha Ellison",
+          "weightClass": "Heavyweight",
+          "isMain": false,
+          "context": "Olympic gold medalist and 2x NCAA wrestling champion Steveson makes his long-awaited UFC debut. A massive mismatch on paper against the 0-1 Ellison."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night 282: Ankalaev vs. Rountree Jr.",
+      "date": "July 25, 2026",
+      "venue": "Etihad Arena, Abu Dhabi, UAE",
+      "fights": [
+        {
+          "f1": "Magomed Ankalaev",
+          "f2": "Khalil Rountree Jr.",
+          "weightClass": "Light Heavyweight",
+          "isMain": true,
+          "context": "The #1 ranked contender Ankalaev — dominant wrestler and GnP specialist — vs the hard-hitting southpaw Rountree. Ankalaev's elite wrestling is the ultimate equalizer against Rountree's massive one-punch KO power."
+        },
+        {
+          "f1": "Umar Nurmagomedov",
+          "f2": "David Martinez",
+          "weightClass": "Bantamweight",
+          "isMain": false,
+          "context": "Umar continues his undefeated march toward the BW title. Martinez is a technical kickboxer with reach but Umar's elite Khabib-style wrestling could make this a very long night for the Spaniard."
+        }
+      ]
+    }
+  ],
+  "past": [
+    {
+      "event": "UFC Fight Night 277: Song vs. Figueiredo",
+      "date": "May 30, 2026",
+      "venue": "Galaxy Arena, Macau, China",
+      "fights": [
+        {
+          "f1": "Song Yadong",
+          "f2": "Deiveson Figueiredo",
+          "weightClass": "Bantamweight",
+          "isMain": true,
+          "actualWinner": "Song Yadong",
+          "method": "Submission (Guillotine Choke)",
+          "round": 2,
+          "time": "4:42"
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night 278: Muhammad vs. Bonfim",
+      "date": "June 6, 2026",
+      "venue": "Meta Apex, Las Vegas, NV",
+      "fights": [
+        {
+          "f1": "Belal Muhammad",
+          "f2": "Gabriel Bonfim",
+          "weightClass": "Welterweight",
+          "isMain": true,
+          "actualWinner": "Gabriel Bonfim",
+          "method": "Decision (Unanimous)",
+          "round": 5,
+          "time": "5:00"
+        }
+      ]
+    },
+    {
+      "event": "UFC Freedom 250 — The White House",
+      "date": "June 14, 2026",
+      "venue": "South Lawn, White House, Washington D.C.",
+      "fights": [
+        {
+          "f1": "Ilia Topuria",
+          "f2": "Justin Gaethje",
+          "weightClass": "Lightweight (Title Unification)",
+          "isMain": true,
+          "actualWinner": "Justin Gaethje",
+          "method": "TKO (Corner Stoppage)",
+          "round": 4,
+          "time": "5:00"
+        },
+        {
+          "f1": "Ciryl Gane",
+          "f2": "Alex Pereira",
+          "weightClass": "Heavyweight (Interim Title)",
+          "isMain": false,
+          "actualWinner": "Ciryl Gane",
+          "method": "TKO (Punches)",
+          "round": 2,
+          "time": "1:27"
+        },
+        {
+          "f1": "Sean O'Malley",
+          "f2": "Aiemann Zahabi",
+          "weightClass": "Bantamweight",
+          "isMain": false,
+          "actualWinner": "Sean O'Malley",
+          "method": "TKO (Punches)",
+          "round": 2,
+          "time": "4:02"
+        },
+        {
+          "f1": "Josh Hokit",
+          "f2": "Derrick Lewis",
+          "weightClass": "Heavyweight",
+          "isMain": false,
+          "actualWinner": "Josh Hokit",
+          "method": "TKO (Punches)",
+          "round": 2,
+          "time": "4:09"
+        },
+        {
+          "f1": "Mauricio Ruffy",
+          "f2": "Michael Chandler",
+          "weightClass": "Lightweight",
+          "isMain": false,
+          "actualWinner": "Mauricio Ruffy",
+          "method": "TKO (Spinning Wheel Kick & Punches)",
+          "round": 1,
+          "time": "4:29"
+        },
+        {
+          "f1": "Bo Nickal",
+          "f2": "Kyle Daukaus",
+          "weightClass": "Middleweight",
+          "isMain": false,
+          "actualWinner": "Bo Nickal",
+          "method": "TKO (Punches)",
+          "round": 1,
+          "time": "4:34"
+        },
+        {
+          "f1": "Diego Lopes",
+          "f2": "Steve Garcia",
+          "weightClass": "Featherweight",
+          "isMain": false,
+          "actualWinner": "Diego Lopes",
+          "method": "KO (Punches)",
+          "round": 2,
+          "time": "2:42"
+        }
+      ]
+    }
+  ]
+}
