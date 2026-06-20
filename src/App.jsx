@@ -280,7 +280,7 @@ const FIGHTER_DB = {
     pastMatchups:{},
   },
   "Lone'er Kavanagh": {
-    name:"Lone'er Kavanagh",record:"10-1",rank:"#7 FLW",country:"🇩🇰",age:27,
+    name:"Lone'er Kavanagh",record:"10-1",rank:"#7 FLW",country:"🏴󠁧󠁢󠁥󠁮󠁧󠁿",age:27,
     weightClass:"Flyweight",naturalWeight:125,reach:67,style:"Striker",
     tendencies:["explosive hands","power punching","pressures opponents","upset specialist"],
     strengths:["power (for FLW)","chin","aggression","surprised Moreno"],
@@ -605,7 +605,7 @@ const FIGHTER_EXTRAS = {
   "Gable Steveson":        { height:'5\'10"', stance:"Orthodox",  nationality:"USA" },
   "Elisha Ellison":        { height:'6\'3"',  stance:"Orthodox",  nationality:"USA" },
   "Brandon Royval":        { height:'5\'6"',  stance:"Orthodox",  nationality:"USA" },
-  "Lone\'er Kavanagh":     { height:'5\'5"',  stance:"Orthodox",  nationality:"Denmark" },
+  "Lone\'er Kavanagh":     { height:'5\'5"',  stance:"Orthodox",  nationality:"England" },
   "Manel Kape":            { height:'5\'5"',  stance:"Southpaw",  nationality:"Angola" },
   "Kyoji Horiguchi":       { height:'5\'4"',  stance:"Orthodox",  nationality:"Japan" },
   "Kai Kara-France":       { height:'5\'7"',  stance:"Orthodox",  nationality:"New Zealand" },
