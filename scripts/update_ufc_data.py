@@ -81,6 +81,9 @@ UFC_SLUGS = {
     "Shara Magomedov":       "sharabutdin-magomedov",
     "Manuel Torres":         "manuel-torres",
     "Michel Pereira":        "michel-pereira",
+    "Uros Medic":            "uros-medic",
+    "Joshua Van":            "joshua-van",
+    "Tatsuro Taira":         "tatsuro-taira",
 }
 
 # ESPN athlete IDs for fighter record lookups
@@ -127,6 +130,10 @@ ESPN_IDS = {
     "Kevin Holland":         "3151091",
     "Song Yadong":           "4036736",
     "Deiveson Figueiredo":   "3899618",
+    "Uros Medic":            "4875234",
+    "Daniel Rodriguez":      "3900280",
+    "Joshua Van":            "4875190",
+    "Tatsuro Taira":         "4875310",
 }
 
 HEADERS = {
@@ -388,22 +395,22 @@ def scrape_ufc_image_url(slug):
         print(f"  [WARN] Cannot fetch UFC page for {slug}: {e}")
         return None
 
-    # Pattern 1: athlete_bio_full_body image in JSON-LD or img tags
+    # Only match the transparent shoulder-up bio image (520x325 PNG)
+    # These always use the athlete_bio_full_body style on the UFC CDN
     patterns = [
         r'(https://dmxg5wxfqgde4\.cloudfront\.net/styles/athlete_bio_full_body/[^"\'>\s]+\.png)',
-        r'(https://dmxg5wxfqgde4\.cloudfront\.net[^"\'>\s]*athlete_bio[^"\'>\s]+\.png)',
+        r'(https://dmxg5wxfqgde4\.cloudfront\.net/styles/athlete_bio_full_body/[^"\'>\s]+)',
+        # Some pages encode the URL in HTML entities
+        r'(https://dmxg5wxfqgde4\.cloudfront\.net[^"\'>\s]*athlete_bio_full_body[^"\'>\s]+\.png)',
     ]
     for pat in patterns:
         m = re.search(pat, html)
         if m:
-            return m.group(1)
+            url = m.group(1).replace("&amp;", "&")
+            return url
 
-    # Pattern 2: Drupal image field in JSON blob
-    m = re.search(r'"field_fighter_featured_image":\s*\{[^}]*"uri":\s*"([^"]+)"', html)
-    if m:
-        uri = m.group(1).replace("\\u0026", "&")
-        return uri
-
+    # Do NOT fall back to generic featured image — those are promo shots, not transparent PNGs
+    print(f"  [WARN] athlete_bio_full_body image not found for {slug} — page may have changed markup")
     return None
 
 
