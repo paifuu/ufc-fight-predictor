@@ -51,6 +51,7 @@ const FIGHTER_EXTRAS = {
   "Belal Muhammad":        { height:'5\'11"', stance:"Southpaw",  nationality:"USA" },
   "Song Yadong":           { height:'5\'7"',  stance:"Orthodox",  nationality:"China" },
   "Deiveson Figueiredo":   { height:'5\'5"',  stance:"Orthodox",  nationality:"Brazil" },
+  "Uros Medic":            { height:'6\'0"',  stance:"Orthodox",  nationality:"Serbia" },
 };
 
 // ─── PAST RESULTS & UPCOMING EVENTS — loaded from src/data/events.json ─────────

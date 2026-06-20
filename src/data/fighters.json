@@ -574,5 +574,17 @@
     "opponentQuality":76,
     "stats":{"slpm":5.3,"stracc":44,"sapm":4.8,"strdef":52,"tdavg":0.5,"tdacc":27,"tddef":57,"subavg":0.3,"winStreak":1,"finishRate":65},
     "pastMatchups":{}
+  },
+  "Uros Medic": {
+    "name":"Uros Medic","record":"13-1","rank":"#11 WW","country":"🇷🇸","age":29,
+    "weightClass":"Welterweight","naturalWeight":170,"reach":74,"style":"Kickboxer",
+    "tendencies":["technical striking","long jab","teep kicks","patient setup","counter punching"],
+    "strengths":["technical kickboxing","accuracy","footwork","composure","unbeaten in UFC"],
+    "weaknesses":["limited top-level sample","grappling when taken down","untested vs elite wrestlers"],
+    "wrestlerResilience":5,"reachDisadvantageHandling":7,"speedVsHandsHandling":7,"yearsInactive":0,"recentForm":8,
+    "styleMatchups":{"Wrestler":-5,"Grappler":-4,"BJJ Specialist":-6,"Sambo / Wrestler":-5,"Pressure Fighter":4,"Striker":3,"Counter Striker":3,"Power Striker":2,"Brawler":3,"Flashy Striker":2,"Complete Fighter":-2},
+    "opponentQuality":72,
+    "stats":{"slpm":5.1,"stracc":52,"sapm":3.6,"strdef":61,"tdavg":0.4,"tdacc":30,"tddef":65,"subavg":0.1,"winStreak":6,"finishRate":69},
+    "pastMatchups":{}
   }
 }
