@@ -1464,36 +1464,61 @@ const BLANK={name:"",record:"0-0",rank:"Unranked",country:"🌍",age:28,weightCl
   pastMatchups:{}};
 const STYLES=["Striker","Kickboxer","Power Striker","Counter Striker","Pressure Boxer","Pressure Fighter","Brawler","Wrestler","Grappler","BJJ Specialist","BJJ / Submission Hunter","Sambo / Wrestler","Complete Fighter","Flashy Striker","Counter Striker / Grappler","Wrestler / Grappler"];
 
-// Fighter photos dropped into public/fighters/<slug>.jpg override Wikipedia
-const FIGHTER_PHOTOS = {
-  "Manuel Torres":        "/fighters/manuel-torres.jpg",
-  "Shara Magomedov":      "/fighters/shara-magomedov.jpg",
-  "Michel Pereira":       "/fighters/michel-pereira.jpg",
-  "Benoit Saint Denis":   "/fighters/benoit-saint-denis.jpg",
-  "Mario Bautista":       "/fighters/mario-bautista.jpg",
-  "Brandon Royval":       "/fighters/brandon-royval.jpg",
-  "Lone'er Kavanagh":     "/fighters/loner-kavanagh.jpg",
-  "Elisha Ellison":       "/fighters/elisha-ellison.jpg",
-  "David Martinez":       "/fighters/david-martinez.jpg",
+// Tapology fighter IDs — used to build photo CDN URLs (loads in user's browser, no CORS needed)
+const TAPOLOGY_IDS = {
+  "Manuel Torres":        199049,
+  "Shara Magomedov":      179803,
+  "Michel Pereira":       87007,
+  "Benoit Saint Denis":   164700,
+  "Mario Bautista":       127516,
+  "Brandon Royval":       109823,
+  "Lone'er Kavanagh":     222536,
+  "Elisha Ellison":       235120,
+  "David Martinez":       197820,
+  "Manel Kape":           113100,
+  "Kyoji Horiguchi":      26949,
+  "Rafael Fiziev":        127390,
+  "Magomed Ankalaev":     119014,
+  "Khalil Rountree Jr.":  78303,
+  "Umar Nurmagomedov":    164283,
+  "Conor McGregor":       14022,
+  "Max Holloway":         22854,
+  "Paddy Pimblett":       90629,
+  "Cory Sandhagen":       104430,
+  "Shara Magomedov":      179803,
+  "Mario Bautista":       127516,
+  "Benoit Saint Denis":   164700,
 };
+
+function tapologyPhotoUrl(name) {
+  const id = TAPOLOGY_IDS[name];
+  if (!id) return null;
+  const padded = String(id).padStart(9, '0');
+  const [a, b, c] = [padded.slice(0,3), padded.slice(3,6), padded.slice(6,9)];
+  return `https://photos.tapology.com/fighter_photos/${a}/${b}/${c}/medium/${id}.jpg`;
+}
 
 // ─── UFC-STYLE MATCHUP CARD ──────────────────────────────────────────────────
 function UFCMatchupCard({ f1, f2, fightMeta }) {
+  // Each entry: { primary: url, fallback: url|null }
   const [imgs, setImgs] = useState([null, null]);
   const GOLD = "#d4a843", BLUE = "#6a8ad4";
 
   useEffect(() => {
     let cancelled = false;
-    async function getImg(name) {
-      // Use custom photo if available
-      if (FIGHTER_PHOTOS[name]) return FIGHTER_PHOTOS[name];
+    async function getWikiImg(name) {
       try {
         const r = await fetch(`https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(name)}&prop=pageimages&format=json&pithumbsize=600&origin=*`);
         const d = await r.json();
         return Object.values(d.query.pages)[0]?.thumbnail?.source || null;
       } catch { return null; }
     }
-    Promise.all([getImg(f1.name), getImg(f2.name)]).then(r => { if (!cancelled) setImgs(r); });
+    async function getImgPair(name) {
+      const tapology = tapologyPhotoUrl(name);
+      const wiki = await getWikiImg(name);
+      return { primary: tapology || wiki, fallback: tapology ? wiki : null };
+    }
+    Promise.all([getImgPair(f1.name), getImgPair(f2.name)]).then(r => { if (!cancelled) setImgs(r); });
     return () => { cancelled = true; };
   }, [f1.name, f2.name]);
 
@@ -1558,8 +1583,9 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
         <div style={{width:"50%",display:"flex",flexDirection:"column",alignItems:"flex-start",
           padding:"16px 12px 16px 16px",zIndex:2}}>
           <div style={{marginBottom:10}}>
-            {imgs[0]
-              ? <div style={photoBox}><img src={imgs[0]} alt={f1.name} style={imgStyle}/></div>
+            {imgs[0]?.primary
+              ? <div style={photoBox}><img src={imgs[0].primary} alt={f1.name} style={imgStyle}
+                  onError={e=>{if(imgs[0].fallback&&e.target.src!==imgs[0].fallback)e.target.src=imgs[0].fallback;else e.target.style.display='none';}}/></div>
               : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"transparent"}}>
                   <Silhouette color={GOLD}/>
                 </div>
@@ -1584,8 +1610,9 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
         <div style={{width:"50%",display:"flex",flexDirection:"column",alignItems:"flex-end",
           padding:"16px 16px 16px 12px",zIndex:2}}>
           <div style={{marginBottom:10}}>
-            {imgs[1]
-              ? <div style={{...photoBox,transform:"scaleX(-1)"}}><img src={imgs[1]} alt={f2.name} style={imgStyle}/></div>
+            {imgs[1]?.primary
+              ? <div style={{...photoBox,transform:"scaleX(-1)"}}><img src={imgs[1].primary} alt={f2.name} style={imgStyle}
+                  onError={e=>{if(imgs[1].fallback&&e.target.src!==imgs[1].fallback)e.target.src=imgs[1].fallback;else e.target.style.display='none';}}/></div>
               : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center",background:"transparent"}}>
                   <Silhouette color={BLUE}/>
                 </div>
