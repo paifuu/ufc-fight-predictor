@@ -515,18 +515,26 @@ def fetch_ufcstats_roster():
     for char in "abcdefghijklmnopqrstuvwxyz":
         try:
             html = fetch_html(f"http://www.ufcstats.com/statistics/fighters?char={char}&page=all")
-            # Each row: <tr class="b-statistics__table-row"> with <td> cells
-            rows = re.findall(r'<tr[^>]*class="b-statistics__table-row"[^>]*>(.*?)</tr>', html, re.DOTALL)
-            for row in rows:
-                # Extract fighter detail link and name
-                link_m = re.search(r'href="(http://www\.ufcstats\.com/fighter-details/[^"]+)"', row)
-                name_parts = re.findall(r'<a[^>]*class="b-link[^"]*"[^>]*>([^<]+)</a>', row)
-                if link_m and len(name_parts) >= 2:
-                    first = name_parts[0].strip()
-                    last  = name_parts[1].strip()
-                    full  = f"{first} {last}".strip()
+            # Find all fighter detail links and names
+            # Pattern: <a href="http://www.ufcstats.com/fighter-details/...">Name</a>
+            links = re.findall(
+                r'href="(http://www\.ufcstats\.com/fighter-details/[a-f0-9]+)"[^>]*>\s*([^<]+?)\s*</a>',
+                html
+            )
+            # Group consecutive links into first+last name pairs (each fighter has 2 links)
+            i = 0
+            while i < len(links) - 1:
+                url1, name1 = links[i]
+                url2, name2 = links[i+1]
+                if url1 == url2:
+                    # same URL = first and last name of same fighter
+                    full = f"{name1.strip()} {name2.strip()}".strip()
                     if full:
-                        fighter_urls[full] = link_m.group(1)
+                        fighter_urls[full] = url1
+                    i += 2
+                else:
+                    i += 1
+            print(f"  char={char}: {len([u for u in fighter_urls])} total so far")
         except Exception as e:
             print(f"  [WARN] Failed on char={char}: {e}")
         time.sleep(0.5)
