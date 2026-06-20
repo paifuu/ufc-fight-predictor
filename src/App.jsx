@@ -1625,10 +1625,10 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
       <div style={{display:"flex",position:"relative",height:240,overflow:"hidden"}}>
 
         {/* LEFT half */}
-        <div style={{width:"50%",position:"relative",overflow:"hidden"}}>
+        <div style={{width:"50%",position:"relative",overflow:"hidden",background:"#fff"}}>
           {imgs[0]?.primary
             ? <img src={imgs[0].primary} alt={f1.name}
-                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top center"}}
+                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top center",mixBlendMode:"multiply"}}
                 onError={e=>{ e.target.style.display='none'; }}/>
             : <div style={{position:"absolute",inset:0,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingBottom:8}}>
                 <Silhouette color={GOLD}/>
@@ -1651,10 +1651,10 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
         </div>
 
         {/* RIGHT half */}
-        <div style={{width:"50%",position:"relative",overflow:"hidden"}}>
+        <div style={{width:"50%",position:"relative",overflow:"hidden",background:"#fff"}}>
           {imgs[1]?.primary
             ? <img src={imgs[1].primary} alt={f2.name}
-                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top center",transform:"scaleX(-1)"}}
+                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top center",transform:"scaleX(-1)",mixBlendMode:"multiply"}}
                 onError={e=>{ e.target.style.display='none'; }}/>
             : <div style={{position:"absolute",inset:0,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingBottom:8}}>
                 <Silhouette color={BLUE}/>
