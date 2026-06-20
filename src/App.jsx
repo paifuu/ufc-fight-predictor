@@ -1465,18 +1465,6 @@ const BLANK={name:"",record:"0-0",rank:"Unranked",country:"🌍",age:28,weightCl
 const STYLES=["Striker","Kickboxer","Power Striker","Counter Striker","Pressure Boxer","Pressure Fighter","Brawler","Wrestler","Grappler","BJJ Specialist","BJJ / Submission Hunter","Sambo / Wrestler","Complete Fighter","Flashy Striker","Counter Striker / Grappler","Wrestler / Grappler"];
 
 // Custom photos hosted in public/fighters/
-const FIGHTER_PHOTOS = {
-  "Manuel Torres":        "/fighters/manueltorres.png",
-  "Shara Magomedov":      "/fighters/sharaputdin.png",
-  "Michel Pereira":       "/fighters/michelpereira.png",
-  "Benoit Saint Denis":   "/fighters/benoit.png",
-  "Mario Bautista":       "/fighters/bautista.png",
-  "Brandon Royval":       "/fighters/royval.png",
-  "Lone'er Kavanagh":     "/fighters/kavanagh.png",
-  "Elisha Ellison":       "/fighters/elishaellison.png",
-  "David Martinez":       "/fighters/davidmartinez.png",
-};
-
 // Wikipedia page title overrides for fighters whose name doesn't exactly match their Wikipedia article
 const WIKI_TITLES = {
   "Conor McGregor":       "Conor McGregor",
@@ -1549,7 +1537,6 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
     }
 
     async function getImgPair(name) {
-      if (FIGHTER_PHOTOS[name]) return { primary: FIGHTER_PHOTOS[name], fallback: null };
       const wiki = await getWikiImg(name);
       return { primary: wiki, fallback: null };
     }
