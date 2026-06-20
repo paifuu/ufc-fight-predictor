@@ -1611,57 +1611,69 @@ function UFCMatchupCard({ f1, f2, fightMeta }) {
           background:"#1a1000",border:"1px solid #2a1a00",color:GOLD,letterSpacing:1,textTransform:"uppercase"}}>Main Event</span>}
       </div>
 
-      {/* Fighter photos + info */}
-      {/* Photos meeting at center */}
-      <div style={{display:"flex",position:"relative",overflow:"hidden"}}>
-        {/* Left photo — right edge flush to center */}
-        <div style={{width:"50%",display:"flex",justifyContent:"flex-end"}}>
+      {/* Full-bleed split: each half is a photo panel with text overlay */}
+      <div style={{display:"flex",position:"relative",height:240,overflow:"hidden"}}>
+
+        {/* LEFT half */}
+        <div style={{width:"50%",position:"relative",overflow:"hidden"}}>
           {imgs[0]?.primary
-            ? <div style={photoBox}><img src={imgs[0].primary} alt={f1.name} style={imgStyle}
-                onError={e=>{ e.target.style.display='none'; }}/></div>
-            : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center"}}>
+            ? <img src={imgs[0].primary} alt={f1.name}
+                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top center"}}
+                onError={e=>{ e.target.style.display='none'; }}/>
+            : <div style={{position:"absolute",inset:0,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingBottom:8}}>
                 <Silhouette color={GOLD}/>
               </div>
           }
+          {/* dark gradient so text is readable */}
+          <div style={{position:"absolute",inset:0,
+            background:"linear-gradient(to right, rgba(10,10,15,0.55) 0%, rgba(10,10,15,0.1) 60%, transparent 100%)"}}/>
+          <div style={{position:"absolute",inset:0,
+            background:"linear-gradient(to top, rgba(10,10,15,0.9) 0%, transparent 55%)"}}/>
+          {/* text pinned to bottom-left */}
+          <div style={{position:"absolute",bottom:12,left:12,right:4}}>
+            <div style={{fontSize:8,color:"#888",letterSpacing:1,textTransform:"uppercase",marginBottom:3}}>
+              {f1.country} {e1.nationality||""}
+            </div>
+            <div style={{fontSize:17,fontWeight:800,color:"#fff",lineHeight:1.1,marginBottom:3,textShadow:"0 2px 8px rgba(0,0,0,0.8)"}}>{f1.name}</div>
+            <div style={{fontSize:10,color:"#888",marginBottom:2}}>{f1.record}</div>
+            <div style={{fontSize:8,color:GOLD,letterSpacing:1,textTransform:"uppercase"}}>{f1.rank}</div>
+          </div>
         </div>
 
-        {/* Right photo — left edge flush to center */}
-        <div style={{width:"50%",display:"flex",justifyContent:"flex-start"}}>
+        {/* RIGHT half */}
+        <div style={{width:"50%",position:"relative",overflow:"hidden"}}>
           {imgs[1]?.primary
-            ? <div style={{...photoBox,transform:"scaleX(-1)"}}><img src={imgs[1].primary} alt={f2.name} style={imgStyle}
-                onError={e=>{ e.target.style.display='none'; }}/></div>
-            : <div style={{...photoBox,display:"flex",alignItems:"flex-end",justifyContent:"center"}}>
+            ? <img src={imgs[1].primary} alt={f2.name}
+                style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"top center",transform:"scaleX(-1)"}}
+                onError={e=>{ e.target.style.display='none'; }}/>
+            : <div style={{position:"absolute",inset:0,display:"flex",alignItems:"flex-end",justifyContent:"center",paddingBottom:8}}>
                 <Silhouette color={BLUE}/>
               </div>
           }
+          <div style={{position:"absolute",inset:0,
+            background:"linear-gradient(to left, rgba(10,10,15,0.55) 0%, rgba(10,10,15,0.1) 60%, transparent 100%)"}}/>
+          <div style={{position:"absolute",inset:0,
+            background:"linear-gradient(to top, rgba(10,10,15,0.9) 0%, transparent 55%)"}}/>
+          {/* text pinned to bottom-right */}
+          <div style={{position:"absolute",bottom:12,right:12,left:4,textAlign:"right"}}>
+            <div style={{fontSize:8,color:"#888",letterSpacing:1,textTransform:"uppercase",marginBottom:3}}>
+              {f2.country} {e2.nationality||""}
+            </div>
+            <div style={{fontSize:17,fontWeight:800,color:"#fff",lineHeight:1.1,marginBottom:3,textShadow:"0 2px 8px rgba(0,0,0,0.8)"}}>{f2.name}</div>
+            <div style={{fontSize:10,color:"#888",marginBottom:2}}>{f2.record}</div>
+            <div style={{fontSize:8,color:BLUE,letterSpacing:1,textTransform:"uppercase"}}>{f2.rank}</div>
+          </div>
         </div>
 
-        {/* VS badge floating over center seam */}
-        <div style={{position:"absolute",left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:10}}>
-          <div style={{width:38,height:38,borderRadius:"50%",background:"#0a0a10",border:`2px solid ${GOLD}`,
+        {/* VS badge at center seam */}
+        <div style={{position:"absolute",left:"50%",top:"44%",transform:"translate(-50%,-50%)",zIndex:10}}>
+          <div style={{width:38,height:38,borderRadius:"50%",background:"rgba(10,10,15,0.85)",border:`2px solid ${GOLD}`,
             display:"flex",alignItems:"center",justifyContent:"center",
             fontSize:10,fontWeight:700,color:GOLD,letterSpacing:1}}>VS</div>
         </div>
-      </div>
 
-      {/* Fighter info row below photos */}
-      <div style={{display:"flex",padding:"10px 16px 14px"}}>
-        <div style={{width:"50%"}}>
-          <div style={{fontSize:9,color:"#454555",letterSpacing:1,textTransform:"uppercase",marginBottom:3}}>
-            {f1.country} {e1.nationality||""}
-          </div>
-          <div style={{fontSize:16,fontWeight:700,color:"#e8e0d4",lineHeight:1.15,marginBottom:2}}>{f1.name}</div>
-          <div style={{fontSize:11,color:"#55556a",marginBottom:2}}>{f1.record}</div>
-          <div style={{fontSize:8,color:GOLD,letterSpacing:1,textTransform:"uppercase"}}>{f1.rank}</div>
-        </div>
-        <div style={{width:"50%",textAlign:"right"}}>
-          <div style={{fontSize:9,color:"#454555",letterSpacing:1,textTransform:"uppercase",marginBottom:3}}>
-            {f2.country} {e2.nationality||""}
-          </div>
-          <div style={{fontSize:16,fontWeight:700,color:"#e8e0d4",lineHeight:1.15,marginBottom:2}}>{f2.name}</div>
-          <div style={{fontSize:11,color:"#55556a",marginBottom:2}}>{f2.record}</div>
-          <div style={{fontSize:8,color:BLUE,letterSpacing:1,textTransform:"uppercase"}}>{f2.rank}</div>
-        </div>
+        {/* Thin center divider line */}
+        <div style={{position:"absolute",left:"50%",top:0,width:1,height:"100%",background:"rgba(212,168,67,0.25)",zIndex:5}}/>
       </div>
 
       {/* Stats comparison */}
