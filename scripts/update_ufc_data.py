@@ -704,6 +704,26 @@ def fetch_ufcstats_roster():
             # Style auto-derived from stats
             style = derive_style(slpm, tdavg, subavg, stracc)
 
+            # Past matchups: parse fight history table rows
+            # Each row: result cell (win/loss/draw/nc) + opponent name cell
+            past_matchups = {}
+            row_pattern = re.compile(
+                r'<i[^>]*>\s*(win|loss|draw|no contest)\s*</i>'   # result
+                r'(?:(?!<tr).)*?'                                  # skip to opponent
+                r'<a[^>]+href="[^"]*fighter-details[^"]*"[^>]*>\s*([^<]+?)\s*</a>',
+                re.IGNORECASE | re.DOTALL
+            )
+            for m in row_pattern.finditer(html):
+                outcome = m.group(1).strip().lower()
+                opponent = m.group(2).strip()
+                if not opponent or len(opponent) < 3:
+                    continue
+                if outcome == "win":
+                    past_matchups[opponent] = "W"
+                elif outcome == "loss":
+                    past_matchups[opponent] = "L"
+                # draw/NC: omit (no useful signal)
+
             existing = db.get(name)
             if existing:
                 existing["record"] = f"{wins}-{losses}"
@@ -724,6 +744,9 @@ def fetch_ufcstats_roster():
                 existing["stats"]["tddef"]      = round(tddef, 1)
                 existing["stats"]["subavg"]     = round(subavg, 2)
                 existing["stats"]["finishRate"] = finish_rate
+                # Merge past matchups — scraped data wins over old hand-curated
+                if past_matchups:
+                    existing.setdefault("pastMatchups", {}).update(past_matchups)
                 updated += 1
             else:
                 db[name] = {
@@ -740,6 +763,7 @@ def fetch_ufcstats_roster():
                     "reachDisadvantageHandling": 5,
                     "speedVsHandsHandling": 5,
                     "tendencies": [],
+                    "pastMatchups": past_matchups,
                     "stats": {
                         "slpm":       round(slpm, 2),
                         "stracc":     round(stracc, 1),
