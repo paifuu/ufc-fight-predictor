@@ -55,6 +55,35 @@ function deriveStyleMatchups(s) {
   return matchups;
 }
 
+// Build past-matchup index from events data: { "Fighter A||Fighter B": winnerName|null }
+const PAST_MATCHUP_INDEX = (() => {
+  const idx = {};
+  const allEvents = [
+    ...(EVENTS_DATA.past || []),
+    ...(EVENTS_DATA.upcoming || []),
+  ];
+  for (const evt of allEvents) {
+    for (const fight of (evt.fights || [])) {
+      const { f1, f2, actualWinner } = fight;
+      if (!f1 || !f2 || !actualWinner) continue;
+      const key = [f1, f2].sort().join("||");
+      const w = actualWinner.toLowerCase();
+      idx[key] = (w === "draw" || w === "no contest") ? null : actualWinner;
+    }
+  }
+  return idx;
+})();
+
+function getPastMatchupMod(name1, name2) {
+  const key = [name1, name2].sort().join("||");
+  const winner = PAST_MATCHUP_INDEX[key];
+  if (winner === undefined) return 0;
+  if (winner === null) return 0; // draw/NC
+  if (winner === name1) return 10;   // f1 won previously
+  if (winner === name2) return -12;  // f2 won previously
+  return 0;
+}
+
 const FIGHTER_DB = Object.fromEntries(
   Object.entries(FIGHTER_DB_RAW).map(([k, f]) => {
     if (f.styleMatchups && Object.keys(f.styleMatchups).length > 0) return [k, f];
@@ -251,12 +280,14 @@ function scoreFight(fighter1, fighter2) {
     + ((fighter1.reachDisadvantageHandling??5)-(fighter2.reachDisadvantageHandling??5))*0.5;
   const sizeBonus = weightBonus+reachBonus;
 
-  // 8. PAST MATCHUP
-  let pastMod = 0;
-  if(fighter1.pastMatchups?.[fighter2.name]==="W") pastMod=10;
-  if(fighter1.pastMatchups?.[fighter2.name]==="L") pastMod=-12;
-  if(fighter2.pastMatchups?.[fighter1.name]==="W") pastMod=-10;
-  if(fighter2.pastMatchups?.[fighter1.name]==="L") pastMod=12;
+  // 8. PAST MATCHUP — check events data first, fall back to hand-curated pastMatchups
+  let pastMod = getPastMatchupMod(fighter1.name, fighter2.name);
+  if (pastMod === 0) {
+    if(fighter1.pastMatchups?.[fighter2.name]==="W") pastMod=10;
+    if(fighter1.pastMatchups?.[fighter2.name]==="L") pastMod=-12;
+    if(fighter2.pastMatchups?.[fighter1.name]==="W") pastMod=-10;
+    if(fighter2.pastMatchups?.[fighter1.name]==="L") pastMod=12;
+  }
 
   // 9. SPEED / HANDS HANDLING
   const speedHandsBonus = ((fighter1.speedVsHandsHandling??5)-(fighter2.speedVsHandsHandling??5))*0.6;
