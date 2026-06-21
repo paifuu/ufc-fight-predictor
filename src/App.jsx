@@ -4,7 +4,63 @@ import EVENTS_DATA from "./data/events.json";
 
 // ─── FIGHTER DATABASE ──────────────────────────────────────────────────────
 // Data lives in src/data/fighters.json — auto-updated by scripts/update_ufc_data.py
-const FIGHTER_DB = FIGHTER_DB_RAW;
+
+// Auto-derive styleMatchups from a fighter's stats when none are hand-curated.
+// Returns a map of { style: bonus } where positive = advantage, negative = disadvantage.
+function deriveStyleMatchups(s) {
+  if (!s) return {};
+  const isStriker   = s.slpm  >= 4.5 && s.tdavg < 1.5;
+  const isWrestler  = s.tdavg >= 2.0;
+  const isGrappler  = s.subavg >= 0.8 || s.tdavg >= 1.5;
+  const isDefensive = s.strdef >= 60 && s.tddef >= 65;
+
+  const matchups = {};
+  if (isStriker) {
+    // Strikers do well vs Wrestlers (keep distance) but struggle vs BJJ (taken down)
+    matchups["Wrestler"]     = -6;
+    matchups["BJJ"]          = -4;
+    matchups["Striker"]      =  0;
+    matchups["Kickboxer"]    =  2;
+    matchups["Boxer"]        =  3;
+    matchups["Grappler"]     = -5;
+    matchups["Mixed"]        =  2;
+  } else if (isWrestler) {
+    matchups["Striker"]      =  7;
+    matchups["Kickboxer"]    =  6;
+    matchups["Boxer"]        =  5;
+    matchups["BJJ"]          = -3;
+    matchups["Grappler"]     = -2;
+    matchups["Wrestler"]     =  0;
+    matchups["Mixed"]        =  3;
+  } else if (isGrappler) {
+    matchups["Striker"]      =  5;
+    matchups["Kickboxer"]    =  4;
+    matchups["Boxer"]        =  4;
+    matchups["Wrestler"]     =  2;
+    matchups["BJJ"]          =  0;
+    matchups["Grappler"]     =  0;
+    matchups["Mixed"]        =  2;
+  } else {
+    // Balanced/Mixed — slight edge vs pure specialists
+    matchups["Striker"]      =  1;
+    matchups["Kickboxer"]    =  1;
+    matchups["Boxer"]        =  1;
+    matchups["Wrestler"]     =  1;
+    matchups["BJJ"]          =  1;
+    matchups["Grappler"]     =  1;
+    matchups["Mixed"]        =  0;
+  }
+  // Defensive fighters get a small bonus across all matchups
+  if (isDefensive) Object.keys(matchups).forEach(k => { matchups[k] += 2; });
+  return matchups;
+}
+
+const FIGHTER_DB = Object.fromEntries(
+  Object.entries(FIGHTER_DB_RAW).map(([k, f]) => {
+    if (f.styleMatchups && Object.keys(f.styleMatchups).length > 0) return [k, f];
+    return [k, { ...f, styleMatchups: deriveStyleMatchups(f.stats) }];
+  })
+);
 const FIGHTER_NAMES = Object.keys(FIGHTER_DB).sort();
 
 // Height / stance / nationality not in the scoring DB — kept separate so scoring logic stays clean
