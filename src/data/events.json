@@ -1,20 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC Fight Night 279: Kape vs. Horiguchi 2",
-      "date": "June 20, 2026",
-      "venue": "Meta Apex (UFC Apex), Las Vegas, NV",
-      "fights": [
-        {
-          "f1": "Manel Kape",
-          "f2": "Kyoji Horiguchi",
-          "weightClass": "Flyweight",
-          "isMain": true,
-          "context": "Rematch — Horiguchi beat Kape in 2017 via arm-triangle at Rizin. Kape has been on a tear in the UFC with brutal KO power. Horiguchi returns with back-to-back wins. Winner likely gets the next flyweight title shot."
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night 280: Fiziev vs. Torres",
       "date": "June 27, 2026",
       "venue": "National Gymnastics Arena, Baku, Azerbaijan",
@@ -411,6 +397,20 @@
           "method": "KO (Punches)",
           "round": 2,
           "time": "2:42"
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night 279: Kape vs. Horiguchi 2",
+      "date": "June 20, 2026",
+      "venue": "Meta Apex (UFC Apex), Las Vegas, NV",
+      "fights": [
+        {
+          "f1": "Manel Kape",
+          "f2": "Kyoji Horiguchi",
+          "weightClass": "Flyweight",
+          "isMain": true,
+          "context": "Rematch — Horiguchi beat Kape in 2017 via arm-triangle at Rizin. Kape has been on a tear in the UFC with brutal KO power. Horiguchi returns with back-to-back wins. Winner likely gets the next flyweight title shot."
         }
       ]
     }
