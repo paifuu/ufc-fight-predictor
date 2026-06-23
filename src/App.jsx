@@ -922,8 +922,8 @@ function ResultsTab(){
         </div>
       )}
 
-      {/* Group by event */}
-      {PAST_EVENTS.map(evt => {
+      {/* Group by event — newest first */}
+      {[...PAST_EVENTS].reverse().map(evt => {
         const evtFights = evt.fights.filter(f => FIGHTER_DB[f.f1] && FIGHTER_DB[f.f2]);
         if (!evtFights.length) return null;
         return (
