@@ -410,7 +410,11 @@
           "f2": "Kyoji Horiguchi",
           "weightClass": "Flyweight",
           "isMain": true,
-          "context": "Rematch — Horiguchi beat Kape in 2017 via arm-triangle at Rizin. Kape has been on a tear in the UFC with brutal KO power. Horiguchi returns with back-to-back wins. Winner likely gets the next flyweight title shot."
+          "context": "Rematch — Horiguchi beat Kape in 2017 via arm-triangle at Rizin. Kape has been on a tear in the UFC with brutal KO power. Horiguchi returns with back-to-back wins. Winner likely gets the next flyweight title shot.",
+          "actualWinner": "Manel Kape",
+          "method": "TKO",
+          "round": 3,
+          "time": "2:42"
         }
       ]
     }
