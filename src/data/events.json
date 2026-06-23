@@ -10,14 +10,22 @@
           "f2": "Manuel Torres",
           "weightClass": "Lightweight",
           "isMain": true,
-          "context": "Fiziev fights in front of his home crowd in Azerbaijan looking to rebound after his loss to Ruffy. Torres is a relentless pressure fighter from Mexico with serious finishing ability — exactly the kind of brawler who could nullify Fiziev's flashy kickboxing."
+          "context": "Fiziev fights in front of his home crowd in Azerbaijan looking to rebound after his loss to Ruffy. Torres is a relentless pressure fighter from Mexico with serious finishing ability — exactly the kind of brawler who could nullify Fiziev's flashy kickboxing.",
+          "predictedWinner": "Manuel Torres",
+          "predictedPct": 54,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Shara Magomedov",
           "f2": "Michel Pereira",
           "weightClass": "Middleweight",
           "isMain": false,
-          "context": "Two of the most spectacular fighters in MMA. Shara's spinning KO power vs Pereira's backflip kicks and wild unorthodox movement. Could be the most entertaining fight of 2026."
+          "context": "Two of the most spectacular fighters in MMA. Shara's spinning KO power vs Pereira's backflip kicks and wild unorthodox movement. Could be the most entertaining fight of 2026.",
+          "predictedWinner": "Michel Pereira",
+          "predictedPct": 52,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         }
       ]
     },
@@ -31,35 +39,55 @@
           "f2": "Max Holloway",
           "weightClass": "Welterweight",
           "isMain": true,
-          "context": "The long-awaited rematch 13 years after McGregor beat Holloway at featherweight. McGregor returns after a 5-year layoff — massive questions about his chin, conditioning and ring rust vs a prime Max Holloway."
+          "context": "The long-awaited rematch 13 years after McGregor beat Holloway at featherweight. McGregor returns after a 5-year layoff — massive questions about his chin, conditioning and ring rust vs a prime Max Holloway.",
+          "predictedWinner": "Max Holloway",
+          "predictedPct": 56,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Paddy Pimblett",
           "f2": "Benoit Saint Denis",
           "weightClass": "Lightweight",
           "isMain": false,
-          "context": "Pimblett bounces back after the Gaethje loss. Saint Denis is an explosive sambo grappler — a stylistic nightmare for Pimblett if he can get the fight to the ground."
+          "context": "Pimblett bounces back after the Gaethje loss. Saint Denis is an explosive sambo grappler — a stylistic nightmare for Pimblett if he can get the fight to the ground.",
+          "predictedWinner": "Benoit Saint Denis",
+          "predictedPct": 65,
+          "predictedMethod": "KO/TKO",
+          "predictedRound": "1"
         },
         {
           "f1": "Cory Sandhagen",
           "f2": "Mario Bautista",
           "weightClass": "Bantamweight",
           "isMain": false,
-          "context": "Sandhagen vs Bautista 2 — Bautista won the first meeting. Sandhagen's unorthodox striking vs Bautista's relentless wrestling pressure."
+          "context": "Sandhagen vs Bautista 2 — Bautista won the first meeting. Sandhagen's unorthodox striking vs Bautista's relentless wrestling pressure.",
+          "predictedWinner": "Mario Bautista",
+          "predictedPct": 55,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Brandon Royval",
           "f2": "Lone'er Kavanagh",
           "weightClass": "Flyweight",
           "isMain": false,
-          "context": "Royval's elite submission game vs Kavanagh the upset specialist. Royval needs a statement win to stay relevant in the title picture."
+          "context": "Royval's elite submission game vs Kavanagh the upset specialist. Royval needs a statement win to stay relevant in the title picture.",
+          "predictedWinner": "Lone'er Kavanagh",
+          "predictedPct": 50,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Gable Steveson",
           "f2": "Elisha Ellison",
           "weightClass": "Heavyweight",
           "isMain": false,
-          "context": "Olympic gold medalist and 2x NCAA wrestling champion Steveson makes his long-awaited UFC debut. A massive mismatch on paper against the 0-1 Ellison."
+          "context": "Olympic gold medalist and 2x NCAA wrestling champion Steveson makes his long-awaited UFC debut. A massive mismatch on paper against the 0-1 Ellison.",
+          "predictedWinner": "Gable Steveson",
+          "predictedPct": 54,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         }
       ]
     },
@@ -73,49 +101,77 @@
           "f2": "Stewart Nicoll",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Alden Coria vs Stewart Nicoll."
+          "context": "Upcoming UFC fight: Alden Coria vs Stewart Nicoll.",
+          "predictedWinner": "Stewart Nicoll",
+          "predictedPct": 53,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Veronica Hardy",
           "f2": "Dione Barbosa",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Veronica Hardy vs Dione Barbosa."
+          "context": "Upcoming UFC fight: Veronica Hardy vs Dione Barbosa.",
+          "predictedWinner": "Dione Barbosa",
+          "predictedPct": 55,
+          "predictedMethod": "Submission",
+          "predictedRound": "2"
         },
         {
           "f1": "Chase Hooper",
           "f2": "Mitch Ramirez",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Chase Hooper vs Mitch Ramirez."
+          "context": "Upcoming UFC fight: Chase Hooper vs Mitch Ramirez.",
+          "predictedWinner": "Chase Hooper",
+          "predictedPct": 53,
+          "predictedMethod": "Submission",
+          "predictedRound": "2"
         },
         {
           "f1": "Brad Tavares",
           "f2": "Marc-Andre Barriault",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Brad Tavares vs Marc-Andre Barriault."
+          "context": "Upcoming UFC fight: Brad Tavares vs Marc-Andre Barriault.",
+          "predictedWinner": "Marc-Andre Barriault",
+          "predictedPct": 55,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Amanda Ribas",
           "f2": "Fatima Kline",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Amanda Ribas vs Fatima Kline."
+          "context": "Upcoming UFC fight: Amanda Ribas vs Fatima Kline.",
+          "predictedWinner": "Amanda Ribas",
+          "predictedPct": 51,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Kevin Holland",
           "f2": "Jacobe Smith",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Kevin Holland vs Jacobe Smith."
+          "context": "Upcoming UFC fight: Kevin Holland vs Jacobe Smith.",
+          "predictedWinner": "Jacobe Smith",
+          "predictedPct": 60,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Jared Cannonier",
           "f2": "Christian Leroy Duncan",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Jared Cannonier vs Christian Leroy Duncan."
+          "context": "Upcoming UFC fight: Jared Cannonier vs Christian Leroy Duncan.",
+          "predictedWinner": "Jared Cannonier",
+          "predictedPct": 50,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "TBA",
@@ -136,7 +192,11 @@
           "f2": "Khalil Rountree Jr.",
           "weightClass": "Light Heavyweight",
           "isMain": true,
-          "context": "The #1 ranked contender Ankalaev — dominant wrestler and GnP specialist — vs the hard-hitting southpaw Rountree. Ankalaev's elite wrestling is the ultimate equalizer against Rountree's massive one-punch KO power."
+          "context": "The #1 ranked contender Ankalaev — dominant wrestler and GnP specialist — vs the hard-hitting southpaw Rountree. Ankalaev's elite wrestling is the ultimate equalizer against Rountree's massive one-punch KO power.",
+          "predictedWinner": "Khalil Rountree Jr.",
+          "predictedPct": 55,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         }
       ]
     },
@@ -150,28 +210,44 @@
           "f2": "Bogdan Grad",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Dennis Buzukja vs Bogdan Grad."
+          "context": "Upcoming UFC fight: Dennis Buzukja vs Bogdan Grad.",
+          "predictedWinner": "Bogdan Grad",
+          "predictedPct": 54,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Josias Musasa",
           "f2": "Mark Vologdin",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Josias Musasa vs Mark Vologdin."
+          "context": "Upcoming UFC fight: Josias Musasa vs Mark Vologdin.",
+          "predictedWinner": "Josias Musasa",
+          "predictedPct": 51,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Ludovit Klein",
           "f2": "Tofiq Musayev",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Ludovit Klein vs Tofiq Musayev."
+          "context": "Upcoming UFC fight: Ludovit Klein vs Tofiq Musayev.",
+          "predictedWinner": "Ludovit Klein",
+          "predictedPct": 50,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Jovan Leka",
           "f2": "Max Gimenis",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Jovan Leka vs Max Gimenis."
+          "context": "Upcoming UFC fight: Jovan Leka vs Max Gimenis.",
+          "predictedWinner": "Max Gimenis",
+          "predictedPct": 54,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Gilbert Urbina",
@@ -192,14 +268,22 @@
           "f2": "Aleksandar Rakic",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Marcin Tybura vs Aleksandar Rakic."
+          "context": "Upcoming UFC fight: Marcin Tybura vs Aleksandar Rakic.",
+          "predictedWinner": "Aleksandar Rakic",
+          "predictedPct": 53,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Ante Delija",
           "f2": "Johnny Walker",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Ante Delija vs Johnny Walker."
+          "context": "Upcoming UFC fight: Ante Delija vs Johnny Walker.",
+          "predictedWinner": "Johnny Walker",
+          "predictedPct": 59,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Daniel Rodriguez",
@@ -220,7 +304,11 @@
           "f2": "Daniel Rodriguez",
           "weightClass": "Welterweight",
           "isMain": true,
-          "context": "Medic has been perfect since joining the UFC, showcasing technical kickboxing that's earned him a main event shot. Rodriguez is a durable pressure fighter who walks opponents down — a classic styles clash between technical precision and relentless forward pressure."
+          "context": "Medic has been perfect since joining the UFC, showcasing technical kickboxing that's earned him a main event shot. Rodriguez is a durable pressure fighter who walks opponents down — a classic styles clash between technical precision and relentless forward pressure.",
+          "predictedWinner": "Uros Medic",
+          "predictedPct": 54,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         }
       ]
     },
@@ -234,7 +322,11 @@
           "f2": "Jasmine Jasudavicius",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Erin Blanchfield vs Jasmine Jasudavicius."
+          "context": "Upcoming UFC fight: Erin Blanchfield vs Jasmine Jasudavicius.",
+          "predictedWinner": "Jasmine Jasudavicius",
+          "predictedPct": 51,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "TBA",
@@ -255,14 +347,22 @@
           "f2": "Gillian Robertson",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Mackenzie Dern vs Gillian Robertson."
+          "context": "Upcoming UFC fight: Mackenzie Dern vs Gillian Robertson.",
+          "predictedWinner": "Gillian Robertson",
+          "predictedPct": 58,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Islam Makhachev",
           "f2": "Ian Machado Garry",
           "weightClass": "",
           "isMain": false,
-          "context": "Upcoming UFC fight: Islam Makhachev vs Ian Machado Garry."
+          "context": "Upcoming UFC fight: Islam Makhachev vs Ian Machado Garry.",
+          "predictedWinner": "Islam Makhachev",
+          "predictedPct": 56,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         }
       ]
     },
@@ -302,7 +402,11 @@
           "actualWinner": "Song Yadong",
           "method": "Submission (Guillotine Choke)",
           "round": 2,
-          "time": "4:42"
+          "time": "4:42",
+          "predictedWinner": "Deiveson Figueiredo",
+          "predictedPct": 55,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         }
       ]
     },
@@ -319,7 +423,11 @@
           "actualWinner": "Gabriel Bonfim",
           "method": "Decision (Unanimous)",
           "round": 5,
-          "time": "5:00"
+          "time": "5:00",
+          "predictedWinner": "Gabriel Bonfim",
+          "predictedPct": 55,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         }
       ]
     },
@@ -336,7 +444,11 @@
           "actualWinner": "Justin Gaethje",
           "method": "TKO (Corner Stoppage)",
           "round": 4,
-          "time": "5:00"
+          "time": "5:00",
+          "predictedWinner": "Ilia Topuria",
+          "predictedPct": 54,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Ciryl Gane",
@@ -346,7 +458,11 @@
           "actualWinner": "Ciryl Gane",
           "method": "TKO (Punches)",
           "round": 2,
-          "time": "1:27"
+          "time": "1:27",
+          "predictedWinner": "Alex Pereira",
+          "predictedPct": 56,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Sean O'Malley",
@@ -356,7 +472,11 @@
           "actualWinner": "Sean O'Malley",
           "method": "TKO (Punches)",
           "round": 2,
-          "time": "4:02"
+          "time": "4:02",
+          "predictedWinner": "Aiemann Zahabi",
+          "predictedPct": 51,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Josh Hokit",
@@ -366,7 +486,11 @@
           "actualWinner": "Josh Hokit",
           "method": "TKO (Punches)",
           "round": 2,
-          "time": "4:09"
+          "time": "4:09",
+          "predictedWinner": "Josh Hokit",
+          "predictedPct": 53,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Mauricio Ruffy",
@@ -376,7 +500,11 @@
           "actualWinner": "Mauricio Ruffy",
           "method": "TKO (Spinning Wheel Kick & Punches)",
           "round": 1,
-          "time": "4:29"
+          "time": "4:29",
+          "predictedWinner": "Michael Chandler",
+          "predictedPct": 52,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Bo Nickal",
@@ -386,7 +514,11 @@
           "actualWinner": "Bo Nickal",
           "method": "TKO (Punches)",
           "round": 1,
-          "time": "4:34"
+          "time": "4:34",
+          "predictedWinner": "Bo Nickal",
+          "predictedPct": 59,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         },
         {
           "f1": "Diego Lopes",
@@ -396,7 +528,11 @@
           "actualWinner": "Diego Lopes",
           "method": "KO (Punches)",
           "round": 2,
-          "time": "2:42"
+          "time": "2:42",
+          "predictedWinner": "Steve Garcia",
+          "predictedPct": 57,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         }
       ]
     },
@@ -414,7 +550,11 @@
           "actualWinner": "Manel Kape",
           "method": "TKO",
           "round": 3,
-          "time": "2:42"
+          "time": "2:42",
+          "predictedWinner": "Kyoji Horiguchi",
+          "predictedPct": 51,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         }
       ]
     }

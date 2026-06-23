@@ -891,7 +891,10 @@ function ResultsTab(){
     allFights.forEach(f => {
       const key = f.f1 + "||" + f.f2;
       const a = FIGHTER_DB[f.f1], b = FIGHTER_DB[f.f2];
-      if (a && b) {
+      // Use frozen prediction from events.json if available (prevents stat updates changing history)
+      if (f.predictedWinner) {
+        results[key] = { predicted: f.predictedWinner, pct: f.predictedPct || 55, method: f.predictedMethod || "Decision", round: f.predictedRound || "3", actual: f.actualWinner };
+      } else if (a && b) {
         const sc = scoreFight(a, b);
         const pct = sc.winner === a.name ? sc.f1WinPct : sc.f2WinPct;
         results[key] = { predicted: sc.winner, pct, method: sc.method, round: sc.round, actual: f.actualWinner };
