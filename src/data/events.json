@@ -403,7 +403,7 @@
           "method": "Submission (Guillotine Choke)",
           "round": 2,
           "time": "4:42",
-          "predictedWinner": "Deiveson Figueiredo",
+          "predictedWinner": "Song Yadong",
           "predictedPct": 55,
           "predictedMethod": "Decision",
           "predictedRound": "3"
@@ -459,9 +459,9 @@
           "method": "TKO (Punches)",
           "round": 2,
           "time": "1:27",
-          "predictedWinner": "Alex Pereira",
+          "predictedWinner": "Ciryl Gane",
           "predictedPct": 56,
-          "predictedMethod": "Decision",
+          "predictedMethod": "KO/TKO",
           "predictedRound": "3"
         },
         {
@@ -501,9 +501,9 @@
           "method": "TKO (Spinning Wheel Kick & Punches)",
           "round": 1,
           "time": "4:29",
-          "predictedWinner": "Michael Chandler",
+          "predictedWinner": "Mauricio Ruffy",
           "predictedPct": 52,
-          "predictedMethod": "Decision",
+          "predictedMethod": "KO/TKO",
           "predictedRound": "3"
         },
         {
@@ -529,10 +529,10 @@
           "method": "KO (Punches)",
           "round": 2,
           "time": "2:42",
-          "predictedWinner": "Steve Garcia",
+          "predictedWinner": "Diego Lopes",
           "predictedPct": 57,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
+          "predictedMethod": "Submission",
+          "predictedRound": "2"
         }
       ]
     },
