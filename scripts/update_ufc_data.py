@@ -355,35 +355,101 @@ def resolve_past_events():
             if "actualWinner" in fight:
                 continue  # Already resolved
 
-            # Try to find result from ESPN
             f1, f2 = fight["f1"], fight["f2"]
-            # Look up ESPN IDs for both fighters
+            print(f"  Trying to resolve: {f1} vs {f2}", flush=True)
+
+            # Try ESPN eventlog first
             id1 = ESPN_IDS.get(f1)
-            id2 = ESPN_IDS.get(f2)
-            if not id1 or not id2:
+            espn_resolved = False
+            if id1:
+                url = f"https://site.api.espn.com/apis/site/v2/sports/mma/ufc/athletes/{id1}/eventlog"
+                data = fetch_json(url)
+                if data:
+                    for event_log in data.get("events", {}).get("items", []):
+                        opponent = event_log.get("opponent", {}).get("displayName", "")
+                        if f2.lower() not in opponent.lower():
+                            continue
+                        result = event_log.get("gameResult", "")
+                        method = event_log.get("notes", "")
+                        if result == "W":
+                            fight["actualWinner"] = f1
+                        elif result == "L":
+                            fight["actualWinner"] = f2
+                        if method:
+                            fight["method"] = method
+                        espn_resolved = True
+                        resolved += 1
+                        print(f"  Resolved (ESPN): {f1} vs {f2} → {fight.get('actualWinner', '?')}", flush=True)
+                        break
+
+            if espn_resolved:
                 continue
 
-            # Fetch fighter's recent fights to find this matchup
-            url = f"https://site.api.espn.com/apis/site/v2/sports/mma/ufc/athletes/{id1}/eventlog"
-            data = fetch_json(url)
-            if not data:
-                continue
+            # Fallback: scrape ufcstats.com recent events for results
+            print(f"  ESPN failed, trying ufcstats for {f1} vs {f2}", flush=True)
+            try:
+                import hashlib, http.cookiejar, urllib.parse as uparse
+                BASE = "http://www.ufcstats.com"
+                hdrs2 = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36", "Accept": "text/html,application/xhtml+xml"}
+                jar2 = http.cookiejar.CookieJar()
+                opener2 = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar2))
 
-            for event_log in data.get("events", {}).get("items", []):
-                opponent = event_log.get("opponent", {}).get("displayName", "")
-                if f2.lower() not in opponent.lower():
-                    continue
-                result = event_log.get("gameResult", "")
-                method = event_log.get("notes", "")
-                if result == "W":
-                    fight["actualWinner"] = f1
-                elif result == "L":
-                    fight["actualWinner"] = f2
-                if method:
-                    fight["method"] = method
-                resolved += 1
-                print(f"  Resolved: {f1} vs {f2} → {fight.get('actualWinner', '?')}")
-                break
+                def fetch2(url):
+                    req = urllib.request.Request(url, headers=hdrs2)
+                    with opener2.open(req, timeout=20) as r:
+                        return r.read().decode("utf-8", errors="replace")
+
+                # Solve PoW if needed
+                ch = fetch2(f"{BASE}/statistics/events/completed?page=all")
+                if "sha256" in ch:
+                    nm = re.search(r'var nonce="([^"]+)"', ch)
+                    tm = re.search(r'target=new Array\((\d+)\+1\)\.join', ch)
+                    if nm and tm:
+                        nonce, tlen = nm.group(1), int(tm.group(1))
+                        target = "0" * tlen
+                        n = 0
+                        while True:
+                            h = hashlib.sha256(f"{nonce}:{n}".encode()).hexdigest()
+                            if h[:tlen] == target: break
+                            n += 1
+                        body = f"nonce={uparse.quote(nonce)}&n={n}".encode()
+                        req = urllib.request.Request(f"{BASE}/__c", data=body, headers={**hdrs2, "Content-Type": "application/x-www-form-urlencoded"})
+                        opener2.open(req, timeout=10)
+                    ch = fetch2(f"{BASE}/statistics/events/completed?page=all")
+
+                # Find event URLs from completed events list
+                event_links = re.findall(r'href="(http://www\.ufcstats\.com/event-details/[^"]+)"', ch)
+                norm = lambda s: re.sub(r'[^a-z]', '', s.lower())
+                f1n, f2n = norm(f1), norm(f2)
+
+                for elink in event_links[:15]:  # check last 15 events
+                    try:
+                        ehtml = fetch2(elink)
+                        # Look for a row containing both fighters
+                        rows = re.findall(r'<tr[^>]*class="[^"]*b-fight-details__table-row[^"]*"[^>]*>(.*?)</tr>', ehtml, re.DOTALL)
+                        for row in rows:
+                            names = re.findall(r'<a[^>]+href="[^"]*fighter-details[^"]*"[^>]*>\s*([^<]+?)\s*</a>', row)
+                            normed = [norm(n) for n in names]
+                            if f1n in normed and f2n in normed:
+                                # Found the fight — determine winner (first name = winner on ufcstats)
+                                winner_name = names[0].strip() if normed[0] == f1n else names[1].strip() if normed[1] == f1n else None
+                                # Parse method
+                                method_m = re.search(r'<td[^>]*>\s*([A-Z][^\n<]{2,30}?)\s*</td>', row)
+                                method_str = method_m.group(1).strip() if method_m else ""
+                                if winner_name:
+                                    fight["actualWinner"] = f1 if norm(winner_name) == f1n else f2
+                                    if method_str:
+                                        fight["method"] = method_str
+                                    resolved += 1
+                                    print(f"  Resolved (ufcstats): {f1} vs {f2} → {fight['actualWinner']}", flush=True)
+                                break
+                        if "actualWinner" in fight:
+                            break
+                        time.sleep(0.3)
+                    except Exception as e2:
+                        print(f"  [WARN] event fetch failed: {e2}", flush=True)
+            except Exception as e:
+                print(f"  [WARN] ufcstats resolve failed for {f1} vs {f2}: {e}", flush=True)
 
     with open(events_path, "w") as f:
         json.dump(events_data, f, indent=2, ensure_ascii=False)
