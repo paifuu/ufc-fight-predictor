@@ -333,6 +333,22 @@ def resolve_past_events():
     with open(fighters_path) as f:
         db = json.load(f)
 
+    # First, move any past-dated events from upcoming → past
+    today = datetime.now(timezone.utc).date()
+    still_upcoming = []
+    past_names = {e["event"] for e in events_data.get("past", [])}
+    for event in events_data.get("upcoming", []):
+        try:
+            event_date = datetime.strptime(event["date"], "%B %d, %Y").date()
+            if event_date < today and event["event"] not in past_names:
+                events_data.setdefault("past", []).append(event)
+                print(f"  Moved to past: {event['event']}", flush=True)
+            else:
+                still_upcoming.append(event)
+        except ValueError:
+            still_upcoming.append(event)
+    events_data["upcoming"] = still_upcoming
+
     resolved = 0
     for event in events_data.get("past", []):
         for fight in event.get("fights", []):
