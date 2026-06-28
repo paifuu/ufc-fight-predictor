@@ -1,35 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC Fight Night 280: Fiziev vs. Torres",
-      "date": "June 27, 2026",
-      "venue": "National Gymnastics Arena, Baku, Azerbaijan",
-      "fights": [
-        {
-          "f1": "Rafael Fiziev",
-          "f2": "Manuel Torres",
-          "weightClass": "Lightweight",
-          "isMain": true,
-          "context": "Fiziev fights in front of his home crowd in Azerbaijan looking to rebound after his loss to Ruffy. Torres is a relentless pressure fighter from Mexico with serious finishing ability — exactly the kind of brawler who could nullify Fiziev's flashy kickboxing.",
-          "predictedWinner": "Manuel Torres",
-          "predictedPct": 54,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Shara Magomedov",
-          "f2": "Michel Pereira",
-          "weightClass": "Middleweight",
-          "isMain": false,
-          "context": "Two of the most spectacular fighters in MMA. Shara's spinning KO power vs Pereira's backflip kicks and wild unorthodox movement. Could be the most entertaining fight of 2026.",
-          "predictedWinner": "Michel Pereira",
-          "predictedPct": 52,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        }
-      ]
-    },
-    {
       "event": "UFC 329: McGregor vs. Holloway 2",
       "date": "July 11, 2026",
       "venue": "T-Mobile Arena, Las Vegas, NV",
@@ -367,6 +338,27 @@
       ]
     },
     {
+      "event": "UFC Fight Night: Hernandez vs. Rodrigues",
+      "date": "August 22, 2026",
+      "venue": "Golden 1 Center, Sacramento",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Anthony Hernandez",
+          "f2": "Gregory Rodrigues",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Anthony Hernandez vs Gregory Rodrigues."
+        }
+      ]
+    },
+    {
       "event": "UFC Fight Night: Paris",
       "date": "September 05, 2026",
       "venue": "Accor Arena, Paris",
@@ -555,6 +547,37 @@
           "predictedPct": 51,
           "predictedMethod": "Decision",
           "predictedRound": "3"
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night 280: Fiziev vs. Torres",
+      "date": "June 27, 2026",
+      "venue": "National Gymnastics Arena, Baku, Azerbaijan",
+      "fights": [
+        {
+          "f1": "Rafael Fiziev",
+          "f2": "Manuel Torres",
+          "weightClass": "Lightweight",
+          "isMain": true,
+          "context": "Fiziev fights in front of his home crowd in Azerbaijan looking to rebound after his loss to Ruffy. Torres is a relentless pressure fighter from Mexico with serious finishing ability — exactly the kind of brawler who could nullify Fiziev's flashy kickboxing.",
+          "predictedWinner": "Manuel Torres",
+          "predictedPct": 54,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Rafael Fiziev"
+        },
+        {
+          "f1": "Shara Magomedov",
+          "f2": "Michel Pereira",
+          "weightClass": "Middleweight",
+          "isMain": false,
+          "context": "Two of the most spectacular fighters in MMA. Shara's spinning KO power vs Pereira's backflip kicks and wild unorthodox movement. Could be the most entertaining fight of 2026.",
+          "predictedWinner": "Michel Pereira",
+          "predictedPct": 52,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Shara Magomedov"
         }
       ]
     }
