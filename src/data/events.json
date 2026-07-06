@@ -284,6 +284,20 @@
       ]
     },
     {
+      "event": "UFC Fight Night: Gamrot vs Salkilld",
+      "date": "August 08, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "Mateusz Gamrot",
+          "f2": "Quillan Salkilld",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Mateusz Gamrot vs Quillan Salkilld."
+        }
+      ]
+    },
+    {
       "event": "UFC 330: Makhachev vs. Machado Garry",
       "date": "August 15, 2026",
       "venue": "Xfinity Mobile Arena, Philadelphia",
