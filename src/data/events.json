@@ -373,6 +373,48 @@
       ]
     },
     {
+      "event": "UFC Fight Night: Nurmagomedov vs. Song",
+      "date": "August 29, 2026",
+      "venue": "Shanghai Oriental Sports Center, Shanghai",
+      "fights": [
+        {
+          "f1": "Junior Tafa",
+          "f2": "Ce Liu",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Junior Tafa vs Ce Liu."
+        },
+        {
+          "f1": "Rei Tsuruya",
+          "f2": "Kevin Borjas",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Rei Tsuruya vs Kevin Borjas."
+        },
+        {
+          "f1": "Alex Perez",
+          "f2": "Sumudaerji",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Alex Perez vs Sumudaerji."
+        },
+        {
+          "f1": "Yan Xiaonan",
+          "f2": "Denise Gomes",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Yan Xiaonan vs Denise Gomes."
+        },
+        {
+          "f1": "Song Yadong",
+          "f2": "Umar Nurmagomedov",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Song Yadong vs Umar Nurmagomedov."
+        }
+      ]
+    },
+    {
       "event": "UFC Fight Night: Paris",
       "date": "September 05, 2026",
       "venue": "Accor Arena, Paris",
