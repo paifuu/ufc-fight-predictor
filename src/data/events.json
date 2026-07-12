@@ -1,68 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC 329: McGregor vs. Holloway 2",
-      "date": "July 11, 2026",
-      "venue": "T-Mobile Arena, Las Vegas, NV",
-      "fights": [
-        {
-          "f1": "Conor McGregor",
-          "f2": "Max Holloway",
-          "weightClass": "Welterweight",
-          "isMain": true,
-          "context": "The long-awaited rematch 13 years after McGregor beat Holloway at featherweight. McGregor returns after a 5-year layoff — massive questions about his chin, conditioning and ring rust vs a prime Max Holloway.",
-          "predictedWinner": "Max Holloway",
-          "predictedPct": 56,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Paddy Pimblett",
-          "f2": "Benoit Saint Denis",
-          "weightClass": "Lightweight",
-          "isMain": false,
-          "context": "Pimblett bounces back after the Gaethje loss. Saint Denis is an explosive sambo grappler — a stylistic nightmare for Pimblett if he can get the fight to the ground.",
-          "predictedWinner": "Benoit Saint Denis",
-          "predictedPct": 65,
-          "predictedMethod": "KO/TKO",
-          "predictedRound": "1"
-        },
-        {
-          "f1": "Cory Sandhagen",
-          "f2": "Mario Bautista",
-          "weightClass": "Bantamweight",
-          "isMain": false,
-          "context": "Sandhagen vs Bautista 2 — Bautista won the first meeting. Sandhagen's unorthodox striking vs Bautista's relentless wrestling pressure.",
-          "predictedWinner": "Mario Bautista",
-          "predictedPct": 55,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Brandon Royval",
-          "f2": "Lone'er Kavanagh",
-          "weightClass": "Flyweight",
-          "isMain": false,
-          "context": "Royval's elite submission game vs Kavanagh the upset specialist. Royval needs a statement win to stay relevant in the title picture.",
-          "predictedWinner": "Lone'er Kavanagh",
-          "predictedPct": 50,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Gable Steveson",
-          "f2": "Elisha Ellison",
-          "weightClass": "Heavyweight",
-          "isMain": false,
-          "context": "Olympic gold medalist and 2x NCAA wrestling champion Steveson makes his long-awaited UFC debut. A massive mismatch on paper against the 0-1 Ellison.",
-          "predictedWinner": "Gable Steveson",
-          "predictedPct": 54,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night: Oklahoma City",
       "date": "July 18, 2026",
       "venue": "Paycom Center, Oklahoma City",
@@ -634,6 +572,73 @@
           "predictedMethod": "Decision",
           "predictedRound": "3",
           "actualWinner": "Shara Magomedov"
+        }
+      ]
+    },
+    {
+      "event": "UFC 329: McGregor vs. Holloway 2",
+      "date": "July 11, 2026",
+      "venue": "T-Mobile Arena, Las Vegas, NV",
+      "fights": [
+        {
+          "f1": "Conor McGregor",
+          "f2": "Max Holloway",
+          "weightClass": "Welterweight",
+          "isMain": true,
+          "context": "The long-awaited rematch 13 years after McGregor beat Holloway at featherweight. McGregor returns after a 5-year layoff — massive questions about his chin, conditioning and ring rust vs a prime Max Holloway.",
+          "predictedWinner": "Max Holloway",
+          "predictedPct": 56,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Conor McGregor"
+        },
+        {
+          "f1": "Paddy Pimblett",
+          "f2": "Benoit Saint Denis",
+          "weightClass": "Lightweight",
+          "isMain": false,
+          "context": "Pimblett bounces back after the Gaethje loss. Saint Denis is an explosive sambo grappler — a stylistic nightmare for Pimblett if he can get the fight to the ground.",
+          "predictedWinner": "Benoit Saint Denis",
+          "predictedPct": 65,
+          "predictedMethod": "KO/TKO",
+          "predictedRound": "1",
+          "actualWinner": "Paddy Pimblett"
+        },
+        {
+          "f1": "Cory Sandhagen",
+          "f2": "Mario Bautista",
+          "weightClass": "Bantamweight",
+          "isMain": false,
+          "context": "Sandhagen vs Bautista 2 — Bautista won the first meeting. Sandhagen's unorthodox striking vs Bautista's relentless wrestling pressure.",
+          "predictedWinner": "Mario Bautista",
+          "predictedPct": 55,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Cory Sandhagen"
+        },
+        {
+          "f1": "Brandon Royval",
+          "f2": "Lone'er Kavanagh",
+          "weightClass": "Flyweight",
+          "isMain": false,
+          "context": "Royval's elite submission game vs Kavanagh the upset specialist. Royval needs a statement win to stay relevant in the title picture.",
+          "predictedWinner": "Lone'er Kavanagh",
+          "predictedPct": 50,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Brandon Royval"
+        },
+        {
+          "f1": "Gable Steveson",
+          "f2": "Elisha Ellison",
+          "weightClass": "Heavyweight",
+          "isMain": false,
+          "context": "Olympic gold medalist and 2x NCAA wrestling champion Steveson makes his long-awaited UFC debut. A massive mismatch on paper against the 0-1 Ellison.",
+          "predictedWinner": "Gable Steveson",
+          "predictedPct": 54,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Gable Steveson"
         }
       ]
     }
