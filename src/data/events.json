@@ -1,97 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC Fight Night: Oklahoma City",
-      "date": "July 18, 2026",
-      "venue": "Paycom Center, Oklahoma City",
-      "fights": [
-        {
-          "f1": "Alden Coria",
-          "f2": "Stewart Nicoll",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Alden Coria vs Stewart Nicoll.",
-          "predictedWinner": "Stewart Nicoll",
-          "predictedPct": 53,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Veronica Hardy",
-          "f2": "Dione Barbosa",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Veronica Hardy vs Dione Barbosa.",
-          "predictedWinner": "Dione Barbosa",
-          "predictedPct": 55,
-          "predictedMethod": "Submission",
-          "predictedRound": "2"
-        },
-        {
-          "f1": "Chase Hooper",
-          "f2": "Mitch Ramirez",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Chase Hooper vs Mitch Ramirez.",
-          "predictedWinner": "Chase Hooper",
-          "predictedPct": 53,
-          "predictedMethod": "Submission",
-          "predictedRound": "2"
-        },
-        {
-          "f1": "Brad Tavares",
-          "f2": "Marc-Andre Barriault",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Brad Tavares vs Marc-Andre Barriault.",
-          "predictedWinner": "Marc-Andre Barriault",
-          "predictedPct": 55,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Amanda Ribas",
-          "f2": "Fatima Kline",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Amanda Ribas vs Fatima Kline.",
-          "predictedWinner": "Amanda Ribas",
-          "predictedPct": 51,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Kevin Holland",
-          "f2": "Jacobe Smith",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Kevin Holland vs Jacobe Smith.",
-          "predictedWinner": "Jacobe Smith",
-          "predictedPct": 60,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Jared Cannonier",
-          "f2": "Christian Leroy Duncan",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Jared Cannonier vs Christian Leroy Duncan.",
-          "predictedWinner": "Jared Cannonier",
-          "predictedPct": 50,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night 282: Ankalaev vs. Rountree Jr.",
       "date": "July 25, 2026",
       "venue": "Etihad Arena, Abu Dhabi, UAE",
@@ -444,6 +353,62 @@
       ]
     },
     {
+      "event": "Noche UFC",
+      "date": "September 12, 2026",
+      "venue": "Desert Diamond Arena, Glendale",
+      "fights": [
+        {
+          "f1": "JJ Aldrich",
+          "f2": "Regina Tarin",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: JJ Aldrich vs Regina Tarin."
+        },
+        {
+          "f1": "Kelvin Gastelum",
+          "f2": "Yousri Belgaroui",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Kelvin Gastelum vs Yousri Belgaroui."
+        },
+        {
+          "f1": "Alexa Grasso",
+          "f2": "Manon Fiorot",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Alexa Grasso vs Manon Fiorot."
+        },
+        {
+          "f1": "Curtis Blaydes",
+          "f2": "Waldo Cortes Acosta",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Curtis Blaydes vs Waldo Cortes Acosta."
+        },
+        {
+          "f1": "Tim Elliott",
+          "f2": "Édgar Cháirez",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Tim Elliott vs Édgar Cháirez."
+        },
+        {
+          "f1": "Brandon Moreno",
+          "f2": "Joseph Morales",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Brandon Moreno vs Joseph Morales."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
       "event": "Dana White's Contender Series: Season 10, Week 6",
       "date": "September 16, 2026",
       "venue": "Meta APEX, Las Vegas",
@@ -486,6 +451,20 @@
       ]
     },
     {
+      "event": "Dana White's Contender Series: Season 10, Week 8",
+      "date": "September 30, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
       "event": "Dana White's Contender Series: Season 10, Week 9",
       "date": "October 07, 2026",
       "venue": "Meta APEX, Las Vegas",
@@ -504,6 +483,27 @@
       "date": "October 14, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Edmonton",
+      "date": "October 17, 2026",
+      "venue": "Rogers Place, Edmonton",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
         {
           "f1": "TBA",
           "f2": "Opponent TBA",
@@ -779,6 +779,100 @@
           "predictedMethod": "Decision",
           "predictedRound": "3",
           "actualWinner": "Gable Steveson"
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Oklahoma City",
+      "date": "July 18, 2026",
+      "venue": "Paycom Center, Oklahoma City",
+      "fights": [
+        {
+          "f1": "Alden Coria",
+          "f2": "Stewart Nicoll",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Alden Coria vs Stewart Nicoll.",
+          "predictedWinner": "Stewart Nicoll",
+          "predictedPct": 53,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Alden Coria"
+        },
+        {
+          "f1": "Veronica Hardy",
+          "f2": "Dione Barbosa",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Veronica Hardy vs Dione Barbosa.",
+          "predictedWinner": "Dione Barbosa",
+          "predictedPct": 55,
+          "predictedMethod": "Submission",
+          "predictedRound": "2"
+        },
+        {
+          "f1": "Chase Hooper",
+          "f2": "Mitch Ramirez",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Chase Hooper vs Mitch Ramirez.",
+          "predictedWinner": "Chase Hooper",
+          "predictedPct": 53,
+          "predictedMethod": "Submission",
+          "predictedRound": "2",
+          "actualWinner": "Chase Hooper"
+        },
+        {
+          "f1": "Brad Tavares",
+          "f2": "Marc-Andre Barriault",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Brad Tavares vs Marc-Andre Barriault.",
+          "predictedWinner": "Marc-Andre Barriault",
+          "predictedPct": 55,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
+        },
+        {
+          "f1": "Amanda Ribas",
+          "f2": "Fatima Kline",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Amanda Ribas vs Fatima Kline.",
+          "predictedWinner": "Amanda Ribas",
+          "predictedPct": 51,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
+        },
+        {
+          "f1": "Kevin Holland",
+          "f2": "Jacobe Smith",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Kevin Holland vs Jacobe Smith.",
+          "predictedWinner": "Jacobe Smith",
+          "predictedPct": 60,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
+        },
+        {
+          "f1": "Jared Cannonier",
+          "f2": "Christian Leroy Duncan",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Jared Cannonier vs Christian Leroy Duncan.",
+          "predictedWinner": "Jared Cannonier",
+          "predictedPct": 50,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Jared Cannonier"
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
         }
       ]
     }
