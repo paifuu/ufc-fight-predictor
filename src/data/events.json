@@ -1,24 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC Fight Night 282: Ankalaev vs. Rountree Jr.",
-      "date": "July 25, 2026",
-      "venue": "Etihad Arena, Abu Dhabi, UAE",
-      "fights": [
-        {
-          "f1": "Magomed Ankalaev",
-          "f2": "Khalil Rountree Jr.",
-          "weightClass": "Light Heavyweight",
-          "isMain": true,
-          "context": "The #1 ranked contender Ankalaev — dominant wrestler and GnP specialist — vs the hard-hitting southpaw Rountree. Ankalaev's elite wrestling is the ultimate equalizer against Rountree's massive one-punch KO power.",
-          "predictedWinner": "Khalil Rountree Jr.",
-          "predictedPct": 55,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night: Medić vs. Rodriguez",
       "date": "August 01, 2026",
       "venue": "Belgrade Arena, Belgrade",
@@ -873,6 +855,24 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night 282: Ankalaev vs. Rountree Jr.",
+      "date": "July 25, 2026",
+      "venue": "Etihad Arena, Abu Dhabi, UAE",
+      "fights": [
+        {
+          "f1": "Magomed Ankalaev",
+          "f2": "Khalil Rountree Jr.",
+          "weightClass": "Light Heavyweight",
+          "isMain": true,
+          "context": "The #1 ranked contender Ankalaev — dominant wrestler and GnP specialist — vs the hard-hitting southpaw Rountree. Ankalaev's elite wrestling is the ultimate equalizer against Rountree's massive one-punch KO power.",
+          "predictedWinner": "Khalil Rountree Jr.",
+          "predictedPct": 55,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
         }
       ]
     }
