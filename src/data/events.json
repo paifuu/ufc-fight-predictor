@@ -128,6 +128,20 @@
     },
     {
       "event": "Dana White's Contender Series: Season 10, Week 1",
+      "date": "August 11, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 1",
       "date": "August 12, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
@@ -196,6 +210,20 @@
     },
     {
       "event": "Dana White's Contender Series: Season 10, Week 2",
+      "date": "August 18, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 2",
       "date": "August 19, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
@@ -226,6 +254,20 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: Anthony Hernandez vs Gregory Rodrigues."
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 3",
+      "date": "August 25, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
         }
       ]
     },
@@ -287,6 +329,20 @@
     },
     {
       "event": "Dana White's Contender Series: Season 10, Week 4",
+      "date": "September 01, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 4",
       "date": "September 02, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
@@ -311,6 +367,20 @@
           "isMain": false,
           "context": "Upcoming UFC fight: TBA vs Opponent TBA."
         },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 5",
+      "date": "September 08, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
         {
           "f1": "TBA",
           "f2": "Opponent TBA",
@@ -392,7 +462,35 @@
     },
     {
       "event": "Dana White's Contender Series: Season 10, Week 6",
+      "date": "September 15, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 6",
       "date": "September 16, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 7",
+      "date": "September 22, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
         {
@@ -448,7 +546,35 @@
     },
     {
       "event": "Dana White's Contender Series: Season 10, Week 9",
+      "date": "October 06, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 9",
       "date": "October 07, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 10",
+      "date": "October 13, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
         {
