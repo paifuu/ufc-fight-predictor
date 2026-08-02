@@ -1,100 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC Fight Night: Medić vs. Rodriguez",
-      "date": "August 01, 2026",
-      "venue": "Belgrade Arena, Belgrade",
-      "fights": [
-        {
-          "f1": "Dennis Buzukja",
-          "f2": "Bogdan Grad",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Dennis Buzukja vs Bogdan Grad.",
-          "predictedWinner": "Bogdan Grad",
-          "predictedPct": 54,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Josias Musasa",
-          "f2": "Mark Vologdin",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Josias Musasa vs Mark Vologdin.",
-          "predictedWinner": "Josias Musasa",
-          "predictedPct": 51,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Ludovit Klein",
-          "f2": "Tofiq Musayev",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Ludovit Klein vs Tofiq Musayev.",
-          "predictedWinner": "Ludovit Klein",
-          "predictedPct": 50,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Jovan Leka",
-          "f2": "Max Gimenis",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Jovan Leka vs Max Gimenis.",
-          "predictedWinner": "Max Gimenis",
-          "predictedPct": 54,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Gilbert Urbina",
-          "f2": "Vlasto Čepo",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Gilbert Urbina vs Vlasto Čepo."
-        },
-        {
-          "f1": "Duško Todorović",
-          "f2": "Robert Valentin",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Duško Todorović vs Robert Valentin."
-        },
-        {
-          "f1": "Marcin Tybura",
-          "f2": "Aleksandar Rakic",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Marcin Tybura vs Aleksandar Rakic.",
-          "predictedWinner": "Aleksandar Rakic",
-          "predictedPct": 53,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Ante Delija",
-          "f2": "Johnny Walker",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Ante Delija vs Johnny Walker.",
-          "predictedWinner": "Johnny Walker",
-          "predictedPct": 59,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Daniel Rodriguez",
-          "f2": "Uroš Medić",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Daniel Rodriguez vs Uroš Medić."
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night 281: Medic vs. Rodriguez",
       "date": "August 2, 2026",
       "venue": "UFC Apex, Las Vegas, NV",
@@ -479,6 +385,34 @@
       "date": "September 16, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC 331",
+      "date": "September 19, 2026",
+      "venue": "crypto.com Arena, Los Angeles",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
         {
           "f1": "TBA",
           "f2": "Opponent TBA",
@@ -999,6 +933,103 @@
           "predictedPct": 55,
           "predictedMethod": "Decision",
           "predictedRound": "3"
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Medić vs. Rodriguez",
+      "date": "August 01, 2026",
+      "venue": "Belgrade Arena, Belgrade",
+      "fights": [
+        {
+          "f1": "Dennis Buzukja",
+          "f2": "Bogdan Grad",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Dennis Buzukja vs Bogdan Grad.",
+          "predictedWinner": "Bogdan Grad",
+          "predictedPct": 54,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Dennis Buzukja"
+        },
+        {
+          "f1": "Josias Musasa",
+          "f2": "Mark Vologdin",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Josias Musasa vs Mark Vologdin.",
+          "predictedWinner": "Josias Musasa",
+          "predictedPct": 51,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
+        },
+        {
+          "f1": "Ludovit Klein",
+          "f2": "Tofiq Musayev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Ludovit Klein vs Tofiq Musayev.",
+          "predictedWinner": "Ludovit Klein",
+          "predictedPct": 50,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Ludovit Klein"
+        },
+        {
+          "f1": "Jovan Leka",
+          "f2": "Max Gimenis",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Jovan Leka vs Max Gimenis.",
+          "predictedWinner": "Max Gimenis",
+          "predictedPct": 54,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
+        },
+        {
+          "f1": "Gilbert Urbina",
+          "f2": "Vlasto Čepo",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Gilbert Urbina vs Vlasto Čepo."
+        },
+        {
+          "f1": "Duško Todorović",
+          "f2": "Robert Valentin",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Duško Todorović vs Robert Valentin."
+        },
+        {
+          "f1": "Marcin Tybura",
+          "f2": "Aleksandar Rakic",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Marcin Tybura vs Aleksandar Rakic.",
+          "predictedWinner": "Aleksandar Rakic",
+          "predictedPct": 53,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Marcin Tybura"
+        },
+        {
+          "f1": "Ante Delija",
+          "f2": "Johnny Walker",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Ante Delija vs Johnny Walker.",
+          "predictedWinner": "Johnny Walker",
+          "predictedPct": 59,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
+        },
+        {
+          "f1": "Daniel Rodriguez",
+          "f2": "Uroš Medić",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Daniel Rodriguez vs Uroš Medić."
         }
       ]
     }
