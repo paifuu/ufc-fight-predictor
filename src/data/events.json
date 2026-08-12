@@ -2,20 +2,6 @@
   "upcoming": [
     {
       "event": "Dana White's Contender Series: Season 10, Week 1",
-      "date": "August 11, 2026",
-      "venue": "Meta APEX, Las Vegas",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
-      "event": "Dana White's Contender Series: Season 10, Week 1",
       "date": "August 12, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
@@ -1060,6 +1046,20 @@
           "isMain": false,
           "context": "Upcoming UFC fight: Mateusz Gamrot vs Quillan Salkilld.",
           "actualWinner": "Mateusz Gamrot"
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 1",
+      "date": "August 11, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
         }
       ]
     }
