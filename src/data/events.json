@@ -1,60 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC 330: Makhachev vs. Machado Garry",
-      "date": "August 15, 2026",
-      "venue": "Xfinity Mobile Arena, Philadelphia",
-      "fights": [
-        {
-          "f1": "Erin Blanchfield",
-          "f2": "Jasmine Jasudavicius",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Erin Blanchfield vs Jasmine Jasudavicius.",
-          "predictedWinner": "Jasmine Jasudavicius",
-          "predictedPct": 51,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        },
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        },
-        {
-          "f1": "Mackenzie Dern",
-          "f2": "Gillian Robertson",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Mackenzie Dern vs Gillian Robertson.",
-          "predictedWinner": "Gillian Robertson",
-          "predictedPct": 58,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        },
-        {
-          "f1": "Islam Makhachev",
-          "f2": "Ian Machado Garry",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Islam Makhachev vs Ian Machado Garry.",
-          "predictedWinner": "Islam Makhachev",
-          "predictedPct": 56,
-          "predictedMethod": "Decision",
-          "predictedRound": "3"
-        }
-      ]
-    },
-    {
       "event": "Dana White's Contender Series: Season 10, Week 2",
       "date": "August 18, 2026",
       "venue": "Meta APEX, Las Vegas",
@@ -391,6 +337,27 @@
       ]
     },
     {
+      "event": "UFC Fight Night: Rosas Jr. vs. Barcelos",
+      "date": "September 26, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Raoni Barcelos",
+          "f2": "Raul Rosas Jr.",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Raoni Barcelos vs Raul Rosas Jr.."
+        }
+      ]
+    },
+    {
       "event": "Dana White's Contender Series: Season 10, Week 8",
       "date": "September 29, 2026",
       "venue": "Meta APEX, Las Vegas",
@@ -520,6 +487,97 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC 333: Volkanovski vs. Evloev",
+      "date": "October 24, 2026",
+      "venue": "Etihad Arena, Abu Dhabi",
+      "fights": [
+        {
+          "f1": "Grant Dawson",
+          "f2": "Nurullo Aliev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Grant Dawson vs Nurullo Aliev."
+        },
+        {
+          "f1": "Nikita Krylov",
+          "f2": "Abdul-Rakhman Yakhyaev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Nikita Krylov vs Abdul-Rakhman Yakhyaev."
+        },
+        {
+          "f1": "Abus Magomedov",
+          "f2": "Cam Rowston",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Abus Magomedov vs Cam Rowston."
+        },
+        {
+          "f1": "Azamat Murzakanov",
+          "f2": "Dominick Reyes",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Azamat Murzakanov vs Dominick Reyes."
+        },
+        {
+          "f1": "Arnold Allen",
+          "f2": "Aaron Pico",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Arnold Allen vs Aaron Pico."
+        },
+        {
+          "f1": "Alexander Volkov",
+          "f2": "Rizvan Kuniev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Alexander Volkov vs Rizvan Kuniev."
+        },
+        {
+          "f1": "Ramazan Temirov",
+          "f2": "Lone'er Kavanagh",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Ramazan Temirov vs Lone'er Kavanagh."
+        },
+        {
+          "f1": "Merab Dvalishvili",
+          "f2": "Petr Yan",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Merab Dvalishvili vs Petr Yan."
+        },
+        {
+          "f1": "Alexander Volkanovski",
+          "f2": "Movsar Evloev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Alexander Volkanovski vs Movsar Evloev."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Bonfim vs. Brady",
+      "date": "November 07, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Sean Brady",
+          "f2": "Gabriel Bonfim",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Sean Brady vs Gabriel Bonfim."
         }
       ]
     }
@@ -1046,6 +1104,62 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC 330: Makhachev vs. Machado Garry",
+      "date": "August 15, 2026",
+      "venue": "Xfinity Mobile Arena, Philadelphia",
+      "fights": [
+        {
+          "f1": "Erin Blanchfield",
+          "f2": "Jasmine Jasudavicius",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Erin Blanchfield vs Jasmine Jasudavicius.",
+          "predictedWinner": "Jasmine Jasudavicius",
+          "predictedPct": 51,
+          "predictedMethod": "Decision",
+          "predictedRound": "3"
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Mackenzie Dern",
+          "f2": "Gillian Robertson",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Mackenzie Dern vs Gillian Robertson.",
+          "predictedWinner": "Gillian Robertson",
+          "predictedPct": 58,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Mackenzie Dern"
+        },
+        {
+          "f1": "Islam Makhachev",
+          "f2": "Ian Machado Garry",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Islam Makhachev vs Ian Machado Garry.",
+          "predictedWinner": "Islam Makhachev",
+          "predictedPct": 56,
+          "predictedMethod": "Decision",
+          "predictedRound": "3",
+          "actualWinner": "Islam Makhachev"
         }
       ]
     }
