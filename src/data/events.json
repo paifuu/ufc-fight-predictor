@@ -1,20 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "Dana White's Contender Series: Season 10, Week 2",
-      "date": "August 19, 2026",
-      "venue": "Meta APEX, Las Vegas",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night: Hernandez vs. Rodrigues",
       "date": "August 22, 2026",
       "venue": "Golden 1 Center, Sacramento",
