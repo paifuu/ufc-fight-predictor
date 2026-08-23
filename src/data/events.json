@@ -1,27 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC Fight Night: Hernandez vs. Rodrigues",
-      "date": "August 22, 2026",
-      "venue": "Golden 1 Center, Sacramento",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        },
-        {
-          "f1": "Anthony Hernandez",
-          "f2": "Gregory Rodrigues",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Anthony Hernandez vs Gregory Rodrigues."
-        }
-      ]
-    },
-    {
       "event": "Dana White's Contender Series: Season 10, Week 3",
       "date": "August 25, 2026",
       "venue": "Meta APEX, Las Vegas",
@@ -1146,6 +1125,28 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Hernandez vs. Rodrigues",
+      "date": "August 22, 2026",
+      "venue": "Golden 1 Center, Sacramento",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Anthony Hernandez",
+          "f2": "Gregory Rodrigues",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Anthony Hernandez vs Gregory Rodrigues.",
+          "actualWinner": "Anthony Hernandez"
         }
       ]
     }
