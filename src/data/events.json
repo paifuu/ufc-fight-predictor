@@ -531,6 +531,34 @@
           "context": "Upcoming UFC fight: Sean Brady vs Gabriel Bonfim."
         }
       ]
+    },
+    {
+      "event": "UFC 334",
+      "date": "November 14, 2026",
+      "venue": "Madison Square Garden, New York",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
     }
   ],
   "past": [

@@ -4369,7 +4369,7 @@
   },
   "Reinier de Ridder": {
     "name": "Reinier de Ridder",
-    "record": "21-4",
+    "record": "22-4",
     "rank": "#8 MW",
     "country": "🇳🇱",
     "age": 28,
@@ -4387,12 +4387,12 @@
       "tddef": 40.0,
       "subavg": 0.6,
       "winStreak": 0,
-      "finishRate": 33
+      "finishRate": 36
     }
   },
   "Gregory Rodrigues": {
     "name": "Gregory Rodrigues",
-    "record": "19-6",
+    "record": "20-6",
     "rank": "#9 MW",
     "country": "🇧🇷",
     "age": 28,
@@ -4410,7 +4410,7 @@
       "tddef": 75.0,
       "subavg": 0.4,
       "winStreak": 2,
-      "finishRate": 68
+      "finishRate": 65
     }
   },
   "Jiri Prochazka": {
@@ -4853,7 +4853,7 @@
   },
   "Farida Abdueva": {
     "name": "Farida Abdueva",
-    "record": "8-0",
+    "record": "8-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -7796,7 +7796,7 @@
   },
   "Mahamed Aly": {
     "name": "Mahamed Aly",
-    "record": "5-1",
+    "record": "5-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -7809,16 +7809,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 6.0,
-      "stracc": 66.0,
-      "sapm": 12.0,
+      "slpm": 5.89,
+      "stracc": 59.0,
+      "sapm": 11.41,
       "strdef": 55.0,
       "tdavg": 1.0,
       "tdacc": 0.0,
       "tddef": 0.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 80
+      "finishRate": 100
     }
   },
   "Andre Amado": {
@@ -11684,7 +11684,7 @@
   },
   "Marcio Barbosa": {
     "name": "Marcio Barbosa",
-    "record": "18-2",
+    "record": "19-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -11706,7 +11706,7 @@
       "tddef": 100.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 28
+      "finishRate": 32
     }
   },
   "Edson Barboza": {
@@ -17111,7 +17111,7 @@
   },
   "Kaik Brito": {
     "name": "Kaik Brito",
-    "record": "19-6",
+    "record": "20-6",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -17124,16 +17124,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 2.8,
-      "stracc": 38.0,
-      "sapm": 3.87,
+      "slpm": 5.95,
+      "stracc": 52.0,
+      "sapm": 6.19,
       "strdef": 55.0,
-      "tdavg": 1.0,
-      "tdacc": 0.0,
+      "tdavg": 0.6,
+      "tdacc": 33.0,
       "tddef": 55.0,
-      "subavg": 2.0,
+      "subavg": 1.2,
       "winStreak": 0,
-      "finishRate": 16
+      "finishRate": 20
     }
   },
   "Icaro Brito": {
@@ -22430,7 +22430,7 @@
   },
   "Jeisla Chaves": {
     "name": "Jeisla Chaves",
-    "record": "8-0",
+    "record": "8-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -22452,7 +22452,7 @@
       "tddef": 62.0,
       "subavg": 0.5,
       "winStreak": 0,
-      "finishRate": 38
+      "finishRate": 50
     }
   },
   "Ernest Chavez": {
@@ -30827,7 +30827,7 @@
   },
   "Roman Dolidze": {
     "name": "Roman Dolidze",
-    "record": "15-5",
+    "record": "15-6",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -30849,7 +30849,7 @@
       "tddef": 32.0,
       "subavg": 0.7,
       "winStreak": 0,
-      "finishRate": 60
+      "finishRate": 67
     }
   },
   "Cameron Dollar": {
@@ -31421,7 +31421,7 @@
   },
   "Lerryan Douglas": {
     "name": "Lerryan Douglas",
-    "record": "14-5",
+    "record": "14-6",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -31443,7 +31443,7 @@
       "tddef": 0.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 36
+      "finishRate": 43
     }
   },
   "Cedric Doumbe": {
@@ -32690,7 +32690,7 @@
   },
   "Shanelle Dyer": {
     "name": "Shanelle Dyer",
-    "record": "7-1",
+    "record": "8-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -32712,7 +32712,7 @@
       "tddef": 100.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 57
+      "finishRate": 62
     }
   },
   "Ben Earwood": {
@@ -33932,7 +33932,7 @@
   },
   "Jamall Emmers": {
     "name": "Jamall Emmers",
-    "record": "22-8",
+    "record": "23-8",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -33954,7 +33954,7 @@
       "tddef": 81.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 36
+      "finishRate": 39
     }
   },
   "Marius Enache": {
@@ -40493,7 +40493,7 @@
   },
   "Shamil Gaziev": {
     "name": "Shamil Gaziev",
-    "record": "14-3",
+    "record": "15-3",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -40515,7 +40515,7 @@
       "tddef": 83.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 64
+      "finishRate": 67
     }
   },
   "Charlene Gellner": {
@@ -46244,7 +46244,7 @@
   },
   "Nasrat Haqparast": {
     "name": "Nasrat Haqparast",
-    "record": "18-6",
+    "record": "18-7",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -46266,7 +46266,7 @@
       "tddef": 86.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 39
+      "finishRate": 44
     }
   },
   "Shin Haraguchi": {
@@ -48404,7 +48404,7 @@
   },
   "Anthony Hernandez": {
     "name": "Anthony Hernandez",
-    "record": "15-3",
+    "record": "15-4",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -55262,7 +55262,7 @@
   },
   "Mason Jones": {
     "name": "Mason Jones",
-    "record": "18-2",
+    "record": "18-3",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -55284,7 +55284,7 @@
       "tddef": 73.0,
       "subavg": 0.2,
       "winStreak": 0,
-      "finishRate": 22
+      "finishRate": 28
     }
   },
   "Craig Jones": {
@@ -55883,7 +55883,7 @@
   },
   "Carli Judice": {
     "name": "Carli Judice",
-    "record": "6-2",
+    "record": "7-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -55905,7 +55905,7 @@
       "tddef": 80.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 83
+      "finishRate": 86
     }
   },
   "Steve Judson": {
@@ -65765,29 +65765,29 @@
   },
   "Alik Lorenz": {
     "name": "Alik Lorenz",
-    "record": "7-2",
+    "record": "8-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
     "weightClass": "Lightweight",
     "naturalWeight": 155,
     "reach": 70,
-    "style": "Mixed",
+    "style": "Kickboxer",
     "wrestlerResilience": 5,
     "reachDisadvantageHandling": 5,
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 2.0,
-      "stracc": 33.0,
-      "sapm": 32.0,
+      "slpm": 9.71,
+      "stracc": 54.0,
+      "sapm": 10.4,
       "strdef": 55.0,
       "tdavg": 1.0,
       "tdacc": 0.0,
       "tddef": 0.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 57
+      "finishRate": 62
     }
   },
   "Brendan Loughnane": {
@@ -72110,7 +72110,7 @@
   },
   "Jackson McVey": {
     "name": "Jackson McVey",
-    "record": "7-2",
+    "record": "8-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -72132,7 +72132,7 @@
       "tddef": 0.0,
       "subavg": 1.2,
       "winStreak": 0,
-      "finishRate": 86
+      "finishRate": 88
     }
   },
   "Daniel McWilliams": {
@@ -72272,7 +72272,7 @@
   },
   "MarQuel Mederos": {
     "name": "MarQuel Mederos",
-    "record": "11-1",
+    "record": "12-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -72294,7 +72294,7 @@
       "tddef": 82.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 36
+      "finishRate": 42
     }
   },
   "Todd Medina": {
@@ -81290,7 +81290,7 @@
   },
   "Kennedy Nzechukwu": {
     "name": "Kennedy Nzechukwu",
-    "record": "14-6",
+    "record": "14-7",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -83747,7 +83747,7 @@
   },
   "Chris Padilla": {
     "name": "Chris Padilla",
-    "record": "17-6",
+    "record": "18-6",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -83769,7 +83769,7 @@
       "tddef": 80.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 35
+      "finishRate": 39
     }
   },
   "Damacio Page": {
@@ -86582,7 +86582,7 @@
   },
   "Cristian Perez": {
     "name": "Cristian Perez",
-    "record": "14-2",
+    "record": "15-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -86595,16 +86595,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 1.31,
-      "stracc": 44.0,
-      "sapm": 3.23,
+      "slpm": 3.3,
+      "stracc": 46.0,
+      "sapm": 4.56,
       "strdef": 55.0,
-      "tdavg": 3.46,
-      "tdacc": 37.0,
-      "tddef": 100.0,
-      "subavg": 1.1,
+      "tdavg": 2.36,
+      "tdacc": 30.0,
+      "tddef": 87.0,
+      "subavg": 0.8,
       "winStreak": 0,
-      "finishRate": 29
+      "finishRate": 33
     }
   },
   "Rafael Pergentino": {
@@ -87014,7 +87014,7 @@
   },
   "Vitor Petrino": {
     "name": "Vitor Petrino",
-    "record": "14-2",
+    "record": "15-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -87036,7 +87036,7 @@
       "tddef": 79.0,
       "subavg": 0.7,
       "winStreak": 0,
-      "finishRate": 71
+      "finishRate": 67
     }
   },
   "Andre Petroski": {
@@ -87527,7 +87527,7 @@
   },
   "Mario Piazzon": {
     "name": "Mario Piazzon",
-    "record": "8-0",
+    "record": "12-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -87549,7 +87549,7 @@
       "tddef": 50.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 38
+      "finishRate": 25
     }
   },
   "Nick Pica": {
@@ -91145,7 +91145,7 @@
   },
   "Elise Reed": {
     "name": "Elise Reed",
-    "record": "8-5",
+    "record": "8-6",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -99920,7 +99920,7 @@
   },
   "Wes Schultz": {
     "name": "Wes Schultz",
-    "record": "9-3",
+    "record": "9-4",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -99942,7 +99942,7 @@
       "tddef": 0.0,
       "subavg": 3.6,
       "winStreak": 0,
-      "finishRate": 78
+      "finishRate": 89
     }
   },
   "Brian Schwartz": {
@@ -106076,7 +106076,7 @@
   },
   "Serghei Spivac": {
     "name": "Serghei Spivac",
-    "record": "18-6",
+    "record": "18-7",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -113447,7 +113447,7 @@
   },
   "Guilherme Uriel": {
     "name": "Guilherme Uriel",
-    "record": "6-2",
+    "record": "7-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -113469,7 +113469,7 @@
       "tddef": 53.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 67
+      "finishRate": 57
     }
   },
   "Nick Urso": {
@@ -121358,7 +121358,7 @@
   },
   "Gauge Young": {
     "name": "Gauge Young",
-    "record": "11-3",
+    "record": "11-4",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -122908,30 +122908,30 @@
   },
   "Namo Fazil": {
     "name": "Namo Fazil",
-    "record": "10-1",
+    "record": "10-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
     "weightClass": "Lightweight",
     "naturalWeight": 155,
     "reach": 70,
-    "style": "Mixed",
+    "style": "Boxer",
     "wrestlerResilience": 5,
     "reachDisadvantageHandling": 5,
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "pastMatchups": {},
     "stats": {
-      "slpm": 3.5,
-      "stracc": 0.0,
-      "sapm": 3.0,
+      "slpm": 9.61,
+      "stracc": 46.0,
+      "sapm": 10.59,
       "strdef": 55.0,
       "tdavg": 1.0,
       "tdacc": 0.0,
-      "tddef": 0.0,
+      "tddef": 66.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 30
+      "finishRate": 40
     }
   },
   "Nicholas Galanti": {
@@ -123468,30 +123468,30 @@
   },
   "Logan Paxton": {
     "name": "Logan Paxton",
-    "record": "10-1",
+    "record": "10-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
     "weightClass": "Lightweight",
     "naturalWeight": 155,
     "reach": 70,
-    "style": "Mixed",
+    "style": "Kickboxer",
     "wrestlerResilience": 5,
     "reachDisadvantageHandling": 5,
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "pastMatchups": {},
     "stats": {
-      "slpm": 3.5,
-      "stracc": 0.0,
-      "sapm": 3.0,
+      "slpm": 7.38,
+      "stracc": 63.0,
+      "sapm": 7.54,
       "strdef": 55.0,
-      "tdavg": 1.0,
-      "tdacc": 0.0,
-      "tddef": 0.0,
+      "tdavg": 2.46,
+      "tdacc": 14.0,
+      "tddef": 100.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 30
+      "finishRate": 40
     }
   },
   "Carlos Petruzella": {
@@ -123860,26 +123860,26 @@
   },
   "Taner Trembley": {
     "name": "Taner Trembley",
-    "record": "7-0",
+    "record": "7-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
     "weightClass": "Lightweight",
     "naturalWeight": 155,
     "reach": 70,
-    "style": "Mixed",
+    "style": "Boxer",
     "wrestlerResilience": 5,
     "reachDisadvantageHandling": 5,
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "pastMatchups": {},
     "stats": {
-      "slpm": 3.5,
-      "stracc": 0.0,
-      "sapm": 3.0,
+      "slpm": 9.2,
+      "stracc": 45.0,
+      "sapm": 12.4,
       "strdef": 55.0,
       "tdavg": 1.0,
-      "tdacc": 0.0,
+      "tdacc": 9.0,
       "tddef": 0.0,
       "subavg": 0.3,
       "winStreak": 0,
@@ -123916,7 +123916,7 @@
   },
   "Anthony Wint": {
     "name": "Anthony Wint",
-    "record": "7-0",
+    "record": "8-0",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -123939,7 +123939,7 @@
       "tddef": 100.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 57
+      "finishRate": 62
     }
   },
   "Hailai Wushamo": {
@@ -124868,30 +124868,30 @@
   },
   "Roman Gabriel Puga": {
     "name": "Roman Gabriel Puga",
-    "record": "5-1",
+    "record": "6-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
     "weightClass": "Lightweight",
     "naturalWeight": 155,
     "reach": 70,
-    "style": "Mixed",
+    "style": "Kickboxer",
     "wrestlerResilience": 5,
     "reachDisadvantageHandling": 5,
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "pastMatchups": {},
     "stats": {
-      "slpm": 3.5,
-      "stracc": 0.0,
-      "sapm": 3.0,
+      "slpm": 12.4,
+      "stracc": 53.0,
+      "sapm": 9.2,
       "strdef": 55.0,
       "tdavg": 1.0,
       "tdacc": 0.0,
-      "tddef": 0.0,
+      "tddef": 90.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 60
+      "finishRate": 50
     }
   },
   "Douglas Henry Rodrigues": {
@@ -124980,7 +124980,7 @@
   },
   "Terrance Chatman": {
     "name": "Terrance Chatman",
-    "record": "5-1",
+    "record": "5-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -125003,12 +125003,12 @@
       "tddef": 0.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 60
+      "finishRate": 80
     }
   },
   "Stan Dorsainvil": {
     "name": "Stan Dorsainvil",
-    "record": "5-0",
+    "record": "6-0",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -125031,12 +125031,12 @@
       "tddef": 0.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 60
+      "finishRate": 50
     }
   },
   "Ryan Kuse": {
     "name": "Ryan Kuse",
-    "record": "9-2",
+    "record": "9-3",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -125059,7 +125059,7 @@
       "tddef": 0.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 33
+      "finishRate": 44
     }
   },
   "Summer Onley": {
@@ -125116,6 +125116,622 @@
       "subavg": 0.3,
       "winStreak": 0,
       "finishRate": 33
+    }
+  },
+  "Loai Abushaar": {
+    "name": "Loai Abushaar",
+    "record": "7-1",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 43
+    }
+  },
+  "Michael Aljarouj": {
+    "name": "Michael Aljarouj",
+    "record": "13-3",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 23
+    }
+  },
+  "Alex Apodaca": {
+    "name": "Alex Apodaca",
+    "record": "3-1",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 100
+    }
+  },
+  "Aieza Bertolso": {
+    "name": "Aieza Bertolso",
+    "record": "7-0",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 43
+    }
+  },
+  "Luca Borando": {
+    "name": "Luca Borando",
+    "record": "9-1",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 33
+    }
+  },
+  "Ilias Bulaid": {
+    "name": "Ilias Bulaid",
+    "record": "9-0",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 33
+    }
+  },
+  "Davi Cabral de Souza": {
+    "name": "Davi Cabral de Souza",
+    "record": "7-0",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 43
+    }
+  },
+  "Douglas Da Lapa": {
+    "name": "Douglas Da Lapa",
+    "record": "6-0",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 50
+    }
+  },
+  "Ian Escuza": {
+    "name": "Ian Escuza",
+    "record": "7-0",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 43
+    }
+  },
+  "Luis Francischinelli": {
+    "name": "Luis Francischinelli",
+    "record": "6-1",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 50
+    }
+  },
+  "Sean King": {
+    "name": "Sean King",
+    "record": "6-0",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 50
+    }
+  },
+  "Francesco Nuzzi": {
+    "name": "Francesco Nuzzi",
+    "record": "11-2",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 27
+    }
+  },
+  "Carlos Petruzzella": {
+    "name": "Carlos Petruzzella",
+    "record": "15-1",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 20
+    }
+  },
+  "William Rentz": {
+    "name": "William Rentz",
+    "record": "8-2",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 38
+    }
+  },
+  "Douglas Henrique Rodrigues": {
+    "name": "Douglas Henrique Rodrigues",
+    "record": "7-2",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "BJJ",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.46,
+      "stracc": 53.0,
+      "sapm": 2.14,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 33.0,
+      "subavg": 2.5,
+      "winStreak": 0,
+      "finishRate": 57
+    }
+  },
+  "Hector Santiago": {
+    "name": "Hector Santiago",
+    "record": "6-1",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 50
+    }
+  },
+  "Aline Silva Pereira": {
+    "name": "Aline Silva Pereira",
+    "record": "3-2",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 100
+    }
+  },
+  "Fabia Sintes": {
+    "name": "Fabia Sintes",
+    "record": "11-3",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 27
+    }
+  },
+  "Mateus Soares": {
+    "name": "Mateus Soares",
+    "record": "11-2",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 27
+    }
+  },
+  "George Staines": {
+    "name": "George Staines",
+    "record": "10-0",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 30
+    }
+  },
+  "Smilla Sundell": {
+    "name": "Smilla Sundell",
+    "record": "2-0",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 100
+    }
+  },
+  "Erick Visconde": {
+    "name": "Erick Visconde",
+    "record": "17-3",
+    "rank": "NR",
+    "country": "🌍",
+    "age": 28,
+    "weightClass": "Lightweight",
+    "naturalWeight": 155,
+    "reach": 70,
+    "style": "Mixed",
+    "wrestlerResilience": 5,
+    "reachDisadvantageHandling": 5,
+    "speedVsHandsHandling": 5,
+    "tendencies": [],
+    "pastMatchups": {},
+    "stats": {
+      "slpm": 3.5,
+      "stracc": 0.0,
+      "sapm": 3.0,
+      "strdef": 55.0,
+      "tdavg": 1.0,
+      "tdacc": 0.0,
+      "tddef": 0.0,
+      "subavg": 0.3,
+      "winStreak": 0,
+      "finishRate": 18
     }
   }
 }
