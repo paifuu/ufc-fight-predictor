@@ -512,6 +512,27 @@
       ]
     },
     {
+      "event": "UFC Fight Night: Las Vegas",
+      "date": "October 31, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "Joe Kropschot",
+          "f2": "Nick Klein",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Joe Kropschot vs Nick Klein."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
       "event": "UFC Fight Night: Bonfim vs. Brady",
       "date": "November 07, 2026",
       "venue": "Meta APEX, Las Vegas",
