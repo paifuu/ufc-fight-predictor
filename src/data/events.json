@@ -1,20 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "Dana White's Contender Series: Season 10, Week 3",
-      "date": "August 26, 2026",
-      "venue": "Meta APEX, Las Vegas",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night: Nurmagomedov vs. Song",
       "date": "August 29, 2026",
       "venue": "Shanghai Oriental Sports Center, Shanghai",
