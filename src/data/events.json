@@ -1,62 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "Noche UFC",
-      "date": "September 12, 2026",
-      "venue": "Desert Diamond Arena, Glendale",
-      "fights": [
-        {
-          "f1": "JJ Aldrich",
-          "f2": "Regina Tarin",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: JJ Aldrich vs Regina Tarin."
-        },
-        {
-          "f1": "Kelvin Gastelum",
-          "f2": "Yousri Belgaroui",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Kelvin Gastelum vs Yousri Belgaroui."
-        },
-        {
-          "f1": "Alexa Grasso",
-          "f2": "Manon Fiorot",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Alexa Grasso vs Manon Fiorot."
-        },
-        {
-          "f1": "Curtis Blaydes",
-          "f2": "Waldo Cortes Acosta",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Curtis Blaydes vs Waldo Cortes Acosta."
-        },
-        {
-          "f1": "Tim Elliott",
-          "f2": "Édgar Cháirez",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Tim Elliott vs Édgar Cháirez."
-        },
-        {
-          "f1": "Brandon Moreno",
-          "f2": "Joseph Morales",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Brandon Moreno vs Joseph Morales."
-        },
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
       "event": "Dana White's Contender Series: Season 10, Week 6",
       "date": "September 15, 2026",
       "venue": "Meta APEX, Las Vegas",
@@ -431,6 +375,34 @@
       "event": "UFC 334",
       "date": "November 14, 2026",
       "venue": "Madison Square Garden, New York",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC 335",
+      "date": "December 12, 2026",
+      "venue": "T-Mobile Arena, Las Vegas",
       "fights": [
         {
           "f1": "TBA",
@@ -1173,6 +1145,66 @@
       "date": "September 08, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "Noche UFC",
+      "date": "September 12, 2026",
+      "venue": "Desert Diamond Arena, Glendale",
+      "fights": [
+        {
+          "f1": "JJ Aldrich",
+          "f2": "Regina Tarin",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: JJ Aldrich vs Regina Tarin.",
+          "actualWinner": "JJ Aldrich"
+        },
+        {
+          "f1": "Kelvin Gastelum",
+          "f2": "Yousri Belgaroui",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Kelvin Gastelum vs Yousri Belgaroui."
+        },
+        {
+          "f1": "Alexa Grasso",
+          "f2": "Manon Fiorot",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Alexa Grasso vs Manon Fiorot.",
+          "actualWinner": "Alexa Grasso"
+        },
+        {
+          "f1": "Curtis Blaydes",
+          "f2": "Waldo Cortes Acosta",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Curtis Blaydes vs Waldo Cortes Acosta.",
+          "actualWinner": "Curtis Blaydes"
+        },
+        {
+          "f1": "Tim Elliott",
+          "f2": "Édgar Cháirez",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Tim Elliott vs Édgar Cháirez."
+        },
+        {
+          "f1": "Brandon Moreno",
+          "f2": "Joseph Morales",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Brandon Moreno vs Joseph Morales.",
+          "actualWinner": "Brandon Moreno"
+        },
         {
           "f1": "TBA",
           "f2": "Opponent TBA",
