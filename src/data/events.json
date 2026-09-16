@@ -2,20 +2,6 @@
   "upcoming": [
     {
       "event": "Dana White's Contender Series: Season 10, Week 6",
-      "date": "September 15, 2026",
-      "venue": "Meta APEX, Las Vegas",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
-      "event": "Dana White's Contender Series: Season 10, Week 6",
       "date": "September 16, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
@@ -1205,6 +1191,20 @@
           "context": "Upcoming UFC fight: Brandon Moreno vs Joseph Morales.",
           "actualWinner": "Brandon Moreno"
         },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "Dana White's Contender Series: Season 10, Week 6",
+      "date": "September 15, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
         {
           "f1": "TBA",
           "f2": "Opponent TBA",
