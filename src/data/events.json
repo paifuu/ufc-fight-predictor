@@ -1,20 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "Dana White's Contender Series: Season 10, Week 6",
-      "date": "September 16, 2026",
-      "venue": "Meta APEX, Las Vegas",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
       "event": "UFC 331",
       "date": "September 19, 2026",
       "venue": "crypto.com Arena, Los Angeles",
