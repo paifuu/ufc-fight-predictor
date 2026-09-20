@@ -1,34 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC 331",
-      "date": "September 19, 2026",
-      "venue": "crypto.com Arena, Los Angeles",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        },
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        },
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
       "event": "Dana White's Contender Series: Season 10, Week 7",
       "date": "September 22, 2026",
       "venue": "Meta APEX, Las Vegas",
@@ -1191,6 +1163,34 @@
       "date": "September 15, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC 331",
+      "date": "September 19, 2026",
+      "venue": "crypto.com Arena, Los Angeles",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
         {
           "f1": "TBA",
           "f2": "Opponent TBA",
