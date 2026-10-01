@@ -1,20 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "Dana White's Contender Series: Season 10, Week 8",
-      "date": "September 30, 2026",
-      "venue": "Meta APEX, Las Vegas",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
       "event": "UFC 332",
       "date": "October 03, 2026",
       "venue": "Delta Center, Salt Lake City",
@@ -277,6 +263,76 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Procházka vs. Stirling",
+      "date": "November 21, 2026",
+      "venue": "ABHA Arena, Doha",
+      "fights": [
+        {
+          "f1": "Amir Albazi",
+          "f2": "Alessandro Costa",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Amir Albazi vs Alessandro Costa."
+        },
+        {
+          "f1": "Kyoji Horiguchi",
+          "f2": "Asu Almabayev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Kyoji Horiguchi vs Asu Almabayev."
+        },
+        {
+          "f1": "Aleksandre Topuria",
+          "f2": "Santiago Luna",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Aleksandre Topuria vs Santiago Luna."
+        },
+        {
+          "f1": "Jake Matthews",
+          "f2": "Tahir Abdullayev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Jake Matthews vs Tahir Abdullayev."
+        },
+        {
+          "f1": "Shamil Gaziev",
+          "f2": "Tallison Teixeira",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Shamil Gaziev vs Tallison Teixeira."
+        },
+        {
+          "f1": "Jared Cannonier",
+          "f2": "Ikram Aliskerov",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Jared Cannonier vs Ikram Aliskerov."
+        },
+        {
+          "f1": "Brian Ortega",
+          "f2": "Dan Hooker",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Brian Ortega vs Dan Hooker."
+        },
+        {
+          "f1": "Aljamain Sterling",
+          "f2": "Kevin Vallejos",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Aljamain Sterling vs Kevin Vallejos."
+        },
+        {
+          "f1": "Jiří Procházka",
+          "f2": "Navajo Stirling",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Jiří Procházka vs Navajo Stirling."
         }
       ]
     },
