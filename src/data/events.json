@@ -1,27 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC Fight Night: Edmonton",
-      "date": "October 17, 2026",
-      "venue": "Rogers Place, Edmonton",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        },
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
       "event": "UFC 333: Volkanovski vs. Evloev",
       "date": "October 24, 2026",
       "venue": "Etihad Arena, Abu Dhabi",
@@ -1208,6 +1187,27 @@
       "date": "October 13, 2026",
       "venue": "Meta APEX, Las Vegas",
       "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Edmonton",
+      "date": "October 17, 2026",
+      "venue": "Rogers Place, Edmonton",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
         {
           "f1": "TBA",
           "f2": "Opponent TBA",
