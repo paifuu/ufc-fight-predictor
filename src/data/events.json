@@ -1,76 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC 333: Volkanovski vs. Evloev",
-      "date": "October 24, 2026",
-      "venue": "Etihad Arena, Abu Dhabi",
-      "fights": [
-        {
-          "f1": "Grant Dawson",
-          "f2": "Nurullo Aliev",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Grant Dawson vs Nurullo Aliev."
-        },
-        {
-          "f1": "Nikita Krylov",
-          "f2": "Abdul-Rakhman Yakhyaev",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Nikita Krylov vs Abdul-Rakhman Yakhyaev."
-        },
-        {
-          "f1": "Abus Magomedov",
-          "f2": "Cam Rowston",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Abus Magomedov vs Cam Rowston."
-        },
-        {
-          "f1": "Azamat Murzakanov",
-          "f2": "Dominick Reyes",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Azamat Murzakanov vs Dominick Reyes."
-        },
-        {
-          "f1": "Arnold Allen",
-          "f2": "Aaron Pico",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Arnold Allen vs Aaron Pico."
-        },
-        {
-          "f1": "Alexander Volkov",
-          "f2": "Rizvan Kuniev",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Alexander Volkov vs Rizvan Kuniev."
-        },
-        {
-          "f1": "Ramazan Temirov",
-          "f2": "Lone'er Kavanagh",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Ramazan Temirov vs Lone'er Kavanagh."
-        },
-        {
-          "f1": "Merab Dvalishvili",
-          "f2": "Petr Yan",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Merab Dvalishvili vs Petr Yan."
-        },
-        {
-          "f1": "Alexander Volkanovski",
-          "f2": "Movsar Evloev",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Alexander Volkanovski vs Movsar Evloev."
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night: Las Vegas",
       "date": "October 31, 2026",
       "venue": "Meta APEX, Las Vegas",
@@ -1214,6 +1144,84 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC 333: Volkanovski vs. Evloev",
+      "date": "October 24, 2026",
+      "venue": "Etihad Arena, Abu Dhabi",
+      "fights": [
+        {
+          "f1": "Grant Dawson",
+          "f2": "Nurullo Aliev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Grant Dawson vs Nurullo Aliev.",
+          "actualWinner": "Grant Dawson"
+        },
+        {
+          "f1": "Nikita Krylov",
+          "f2": "Abdul-Rakhman Yakhyaev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Nikita Krylov vs Abdul-Rakhman Yakhyaev.",
+          "actualWinner": "Nikita Krylov"
+        },
+        {
+          "f1": "Abus Magomedov",
+          "f2": "Cam Rowston",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Abus Magomedov vs Cam Rowston.",
+          "actualWinner": "Abus Magomedov"
+        },
+        {
+          "f1": "Azamat Murzakanov",
+          "f2": "Dominick Reyes",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Azamat Murzakanov vs Dominick Reyes.",
+          "actualWinner": "Azamat Murzakanov"
+        },
+        {
+          "f1": "Arnold Allen",
+          "f2": "Aaron Pico",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Arnold Allen vs Aaron Pico."
+        },
+        {
+          "f1": "Alexander Volkov",
+          "f2": "Rizvan Kuniev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Alexander Volkov vs Rizvan Kuniev.",
+          "actualWinner": "Alexander Volkov"
+        },
+        {
+          "f1": "Ramazan Temirov",
+          "f2": "Lone'er Kavanagh",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Ramazan Temirov vs Lone'er Kavanagh.",
+          "actualWinner": "Ramazan Temirov"
+        },
+        {
+          "f1": "Merab Dvalishvili",
+          "f2": "Petr Yan",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Merab Dvalishvili vs Petr Yan.",
+          "actualWinner": "Merab Dvalishvili"
+        },
+        {
+          "f1": "Alexander Volkanovski",
+          "f2": "Movsar Evloev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Alexander Volkanovski vs Movsar Evloev.",
+          "actualWinner": "Alexander Volkanovski"
         }
       ]
     }
