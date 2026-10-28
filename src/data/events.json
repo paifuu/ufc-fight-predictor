@@ -167,6 +167,27 @@
           "context": "Upcoming UFC fight: TBA vs Opponent TBA."
         }
       ]
+    },
+    {
+      "event": "UFC Fight Night: Dallas",
+      "date": "January 16, 2027",
+      "venue": "American Airlines Center, Dallas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
     }
   ],
   "past": [
