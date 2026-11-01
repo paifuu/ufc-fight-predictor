@@ -1,27 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC Fight Night: Las Vegas",
-      "date": "October 31, 2026",
-      "venue": "Meta APEX, Las Vegas",
-      "fights": [
-        {
-          "f1": "Joe Kropschot",
-          "f2": "Nick Klein",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Joe Kropschot vs Nick Klein."
-        },
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night: Bonfim vs. Brady",
       "date": "November 07, 2026",
       "venue": "Meta APEX, Las Vegas",
@@ -186,6 +165,41 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC 336: Van vs. Kape",
+      "date": "January 30, 2027",
+      "venue": "Scotiabank Arena, Toronto",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Carlos Prates",
+          "f2": "Michael Morales",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Carlos Prates vs Michael Morales."
+        },
+        {
+          "f1": "Manel Kape",
+          "f2": "Joshua Van",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Manel Kape vs Joshua Van."
         }
       ]
     }
@@ -1243,6 +1257,28 @@
           "isMain": false,
           "context": "Upcoming UFC fight: Alexander Volkanovski vs Movsar Evloev.",
           "actualWinner": "Alexander Volkanovski"
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Las Vegas",
+      "date": "October 31, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "Joe Kropschot",
+          "f2": "Nick Klein",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Joe Kropschot vs Nick Klein.",
+          "actualWinner": "Joe Kropschot"
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
         }
       ]
     }
