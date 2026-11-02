@@ -2311,7 +2311,7 @@
   },
   "Renato Moicano": {
     "name": "Renato Moicano",
-    "record": "21-7",
+    "record": "21-8",
     "rank": "#11 LW",
     "country": "🇧🇷",
     "age": 28,
@@ -2356,16 +2356,16 @@
     },
     "opponentQuality": 80,
     "stats": {
-      "slpm": 4.1,
+      "slpm": 3.91,
       "stracc": 49.0,
-      "sapm": 3.55,
+      "sapm": 3.69,
       "strdef": 55.0,
-      "tdavg": 1.68,
-      "tdacc": 40.0,
-      "tddef": 64.0,
+      "tdavg": 1.8,
+      "tdacc": 42.0,
+      "tddef": 62.0,
       "subavg": 0.6,
       "winStreak": 2,
-      "finishRate": 81
+      "finishRate": 86
     },
     "pastMatchups": {}
   },
@@ -3150,7 +3150,7 @@
   },
   "Luana Santos": {
     "name": "Luana Santos",
-    "record": "11-2",
+    "record": "12-2",
     "rank": "NR",
     "country": "🇧🇷",
     "age": 28,
@@ -3159,16 +3159,16 @@
     "reach": 70,
     "style": "BJJ",
     "stats": {
-      "slpm": 2.53,
-      "stracc": 53.0,
-      "sapm": 2.45,
+      "slpm": 2.28,
+      "stracc": 52.0,
+      "sapm": 2.24,
       "strdef": 55.0,
-      "tdavg": 2.14,
-      "tdacc": 37.0,
+      "tdavg": 2.61,
+      "tdacc": 35.0,
       "tddef": 85.0,
-      "subavg": 1.0,
+      "subavg": 0.8,
       "winStreak": 2,
-      "finishRate": 55
+      "finishRate": 50
     }
   },
   "Virna Jandiroba": {
@@ -6419,7 +6419,7 @@
   },
   "Talita Alencar": {
     "name": "Talita Alencar",
-    "record": "8-1",
+    "record": "8-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -6432,14 +6432,14 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.09,
+      "slpm": 3.07,
       "stracc": 36.0,
-      "sapm": 3.67,
+      "sapm": 4.0,
       "strdef": 55.0,
       "tdavg": 3.01,
-      "tdacc": 29.0,
-      "tddef": 66.0,
-      "subavg": 0.5,
+      "tdacc": 30.0,
+      "tddef": 80.0,
+      "subavg": 0.4,
       "winStreak": 0,
       "finishRate": 50
     }
@@ -13709,7 +13709,7 @@
   },
   "Theodor Berggren": {
     "name": "Theodor Berggren",
-    "record": "8-4",
+    "record": "8-5",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -13722,16 +13722,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.49,
-      "stracc": 35.0,
-      "sapm": 10.78,
+      "slpm": 2.47,
+      "stracc": 40.0,
+      "sapm": 6.03,
       "strdef": 55.0,
       "tdavg": 1.0,
       "tdacc": 0.0,
-      "tddef": 0.0,
+      "tddef": 72.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 50
+      "finishRate": 62
     }
   },
   "Kenneth Bergh": {
@@ -17570,7 +17570,7 @@
   },
   "Randy Brown": {
     "name": "Randy Brown",
-    "record": "20-8",
+    "record": "20-9",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -17583,13 +17583,13 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.39,
+      "slpm": 4.19,
       "stracc": 47.0,
-      "sapm": 3.35,
+      "sapm": 3.31,
       "strdef": 55.0,
-      "tdavg": 0.71,
+      "tdavg": 0.67,
       "tdacc": 34.0,
-      "tddef": 74.0,
+      "tddef": 71.0,
       "subavg": 0.5,
       "winStreak": 0,
       "finishRate": 75
@@ -32501,7 +32501,7 @@
   },
   "Cody Durden": {
     "name": "Cody Durden",
-    "record": "18-11",
+    "record": "19-11",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -32514,16 +32514,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.27,
-      "stracc": 44.0,
-      "sapm": 3.89,
+      "slpm": 3.19,
+      "stracc": 45.0,
+      "sapm": 3.66,
       "strdef": 55.0,
-      "tdavg": 3.82,
-      "tdacc": 48.0,
+      "tdavg": 3.99,
+      "tdacc": 50.0,
       "tddef": 56.0,
-      "subavg": 0.6,
+      "subavg": 0.7,
       "winStreak": 0,
-      "finishRate": 67
+      "finishRate": 63
     }
   },
   "Luiz Dutra": {
@@ -34337,7 +34337,7 @@
   },
   "Julian Erosa": {
     "name": "Julian Erosa",
-    "record": "31-14",
+    "record": "32-14",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -34350,16 +34350,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 6.18,
+      "slpm": 6.22,
       "stracc": 48.0,
       "sapm": 6.31,
       "strdef": 55.0,
-      "tdavg": 1.73,
-      "tdacc": 43.0,
+      "tdavg": 1.72,
+      "tdacc": 41.0,
       "tddef": 61.0,
       "subavg": 0.7,
       "winStreak": 0,
-      "finishRate": 55
+      "finishRate": 56
     }
   },
   "Jarno Errens": {
@@ -39440,7 +39440,7 @@
   },
   "Mickey Gall": {
     "name": "Mickey Gall",
-    "record": "7-7",
+    "record": "7-8",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -39453,14 +39453,14 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.5,
+      "slpm": 3.62,
       "stracc": 49.0,
-      "sapm": 4.72,
+      "sapm": 5.05,
       "strdef": 55.0,
-      "tdavg": 1.15,
-      "tdacc": 32.0,
-      "tddef": 37.0,
-      "subavg": 1.6,
+      "tdavg": 1.0,
+      "tdacc": 29.0,
+      "tddef": 41.0,
+      "subavg": 1.4,
       "winStreak": 0,
       "finishRate": 100
     }
@@ -46946,7 +46946,7 @@
   },
   "Farman Hasanov": {
     "name": "Farman Hasanov",
-    "record": "6-0",
+    "record": "5-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -46959,16 +46959,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 1.4,
-      "stracc": 51.0,
-      "sapm": 1.0,
+      "slpm": 2.72,
+      "stracc": 37.0,
+      "sapm": 4.38,
       "strdef": 55.0,
-      "tdavg": 17.0,
-      "tdacc": 62.0,
+      "tdavg": 10.48,
+      "tdacc": 57.0,
       "tddef": 0.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 50
+      "finishRate": 80
     }
   },
   "Hidehiko Hasegawa": {
@@ -50132,7 +50132,7 @@
   },
   "Dakota Hope": {
     "name": "Dakota Hope",
-    "record": "11-2",
+    "record": "12-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -50145,16 +50145,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 7.07,
-      "stracc": 41.0,
-      "sapm": 7.0,
+      "slpm": 5.0,
+      "stracc": 40.0,
+      "sapm": 4.33,
       "strdef": 55.0,
-      "tdavg": 1.0,
-      "tdacc": 33.0,
-      "tddef": 100.0,
+      "tdavg": 0.5,
+      "tdacc": 16.0,
+      "tddef": 83.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 27
+      "finishRate": 25
     }
   },
   "Darrell Horcher": {
@@ -58961,7 +58961,7 @@
   },
   "Nick Klein": {
     "name": "Nick Klein",
-    "record": "6-3",
+    "record": "6-4",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -58974,14 +58974,14 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 2.51,
-      "stracc": 56.0,
-      "sapm": 3.41,
+      "slpm": 2.37,
+      "stracc": 50.0,
+      "sapm": 3.19,
       "strdef": 55.0,
-      "tdavg": 5.79,
-      "tdacc": 35.0,
-      "tddef": 66.0,
-      "subavg": 1.9,
+      "tdavg": 5.47,
+      "tdacc": 42.0,
+      "tddef": 50.0,
+      "subavg": 1.4,
       "winStreak": 0,
       "finishRate": 100
     }
@@ -62660,7 +62660,7 @@
   },
   "Jean-Paul Lebosnoyani": {
     "name": "Jean-Paul Lebosnoyani",
-    "record": "11-2",
+    "record": "12-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -62673,16 +62673,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.14,
-      "stracc": 46.0,
-      "sapm": 4.05,
+      "slpm": 5.38,
+      "stracc": 50.0,
+      "sapm": 4.13,
       "strdef": 55.0,
-      "tdavg": 2.89,
+      "tdavg": 2.08,
       "tdacc": 42.0,
-      "tddef": 100.0,
-      "subavg": 1.9,
+      "tddef": 80.0,
+      "subavg": 1.4,
       "winStreak": 0,
-      "finishRate": 36
+      "finishRate": 42
     }
   },
   "Mickael Lebout": {
@@ -63092,7 +63092,7 @@
   },
   "JeongYeong Lee": {
     "name": "JeongYeong Lee",
-    "record": "11-3",
+    "record": "11-4",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -63105,16 +63105,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.38,
-      "stracc": 49.0,
-      "sapm": 3.82,
+      "slpm": 3.46,
+      "stracc": 48.0,
+      "sapm": 4.03,
       "strdef": 55.0,
-      "tdavg": 0.63,
+      "tdavg": 0.61,
       "tdacc": 66.0,
-      "tddef": 72.0,
+      "tddef": 73.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 55
+      "finishRate": 64
     }
   },
   "JungHyun Lee": {
@@ -64901,29 +64901,29 @@
   },
   "Tainara Lisboa": {
     "name": "Tainara Lisboa",
-    "record": "7-4",
+    "record": "7-5",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
     "weightClass": "Lightweight",
     "naturalWeight": 155,
     "reach": 70,
-    "style": "Mixed",
+    "style": "Grappler",
     "wrestlerResilience": 5,
     "reachDisadvantageHandling": 5,
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 2.01,
-      "stracc": 44.0,
-      "sapm": 2.88,
+      "slpm": 1.82,
+      "stracc": 45.0,
+      "sapm": 3.35,
       "strdef": 55.0,
-      "tdavg": 1.67,
-      "tdacc": 31.0,
-      "tddef": 53.0,
-      "subavg": 0.3,
+      "tdavg": 1.56,
+      "tdacc": 25.0,
+      "tddef": 47.0,
+      "subavg": 0.5,
       "winStreak": 0,
-      "finishRate": 86
+      "finishRate": 100
     }
   },
   "Dean Lister": {
@@ -69275,7 +69275,7 @@
   },
   "Francis Marshall": {
     "name": "Francis Marshall",
-    "record": "10-3",
+    "record": "10-4",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -69288,14 +69288,14 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.19,
+      "slpm": 2.97,
       "stracc": 34.0,
-      "sapm": 3.45,
+      "sapm": 3.37,
       "strdef": 55.0,
-      "tdavg": 2.71,
-      "tdacc": 47.0,
-      "tddef": 88.0,
-      "subavg": 0.5,
+      "tdavg": 2.46,
+      "tdacc": 43.0,
+      "tddef": 91.0,
+      "subavg": 0.4,
       "winStreak": 0,
       "finishRate": 60
     }
@@ -80696,7 +80696,7 @@
   },
   "Tom Nolan": {
     "name": "Tom Nolan",
-    "record": "11-1",
+    "record": "12-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -80709,16 +80709,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.84,
-      "stracc": 45.0,
-      "sapm": 3.74,
+      "slpm": 5.04,
+      "stracc": 49.0,
+      "sapm": 3.23,
       "strdef": 55.0,
-      "tdavg": 1.08,
-      "tdacc": 26.0,
-      "tddef": 58.0,
-      "subavg": 1.4,
+      "tdavg": 1.12,
+      "tdacc": 31.0,
+      "tddef": 52.0,
+      "subavg": 1.1,
       "winStreak": 0,
-      "finishRate": 64
+      "finishRate": 67
     }
   },
   "Eric Nolan": {
@@ -82991,7 +82991,7 @@
   },
   "Ode Osbourne": {
     "name": "Ode Osbourne",
-    "record": "13-9",
+    "record": "13-10",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -83004,14 +83004,14 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 2.94,
+      "slpm": 2.71,
       "stracc": 40.0,
-      "sapm": 3.24,
+      "sapm": 3.13,
       "strdef": 55.0,
-      "tdavg": 0.94,
+      "tdavg": 0.83,
       "tdacc": 29.0,
-      "tddef": 66.0,
-      "subavg": 0.4,
+      "tddef": 60.0,
+      "subavg": 0.5,
       "winStreak": 0,
       "finishRate": 92
     }
@@ -91253,7 +91253,7 @@
   },
   "Zach Reese": {
     "name": "Zach Reese",
-    "record": "10-4",
+    "record": "11-4",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -91266,16 +91266,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.47,
+      "slpm": 5.04,
       "stracc": 54.0,
-      "sapm": 4.0,
+      "sapm": 4.1,
       "strdef": 55.0,
-      "tdavg": 2.74,
-      "tdacc": 61.0,
-      "tddef": 52.0,
-      "subavg": 1.2,
+      "tdavg": 2.19,
+      "tdacc": 57.0,
+      "tddef": 56.0,
+      "subavg": 1.0,
       "winStreak": 0,
-      "finishRate": 90
+      "finishRate": 82
     }
   },
   "Regezhen Chocolate Boy": {
@@ -94169,7 +94169,7 @@
   },
   "Piera Rodriguez": {
     "name": "Piera Rodriguez",
-    "record": "12-2",
+    "record": "13-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -94182,16 +94182,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.04,
+      "slpm": 4.27,
       "stracc": 46.0,
-      "sapm": 3.13,
+      "sapm": 3.11,
       "strdef": 55.0,
-      "tdavg": 4.04,
-      "tdacc": 50.0,
-      "tddef": 81.0,
+      "tdavg": 3.55,
+      "tdacc": 49.0,
+      "tddef": 76.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 33
+      "finishRate": 31
     }
   },
   "Christian Rodriguez": {
@@ -98273,7 +98273,7 @@
   },
   "Yana Santos": {
     "name": "Yana Santos",
-    "record": "17-8",
+    "record": "17-9",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -98286,13 +98286,13 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.41,
-      "stracc": 57.0,
-      "sapm": 3.12,
+      "slpm": 4.12,
+      "stracc": 56.0,
+      "sapm": 2.93,
       "strdef": 55.0,
-      "tdavg": 0.78,
+      "tdavg": 0.71,
       "tdacc": 47.0,
-      "tddef": 51.0,
+      "tddef": 57.0,
       "subavg": 0.1,
       "winStreak": 0,
       "finishRate": 35
@@ -100946,7 +100946,7 @@
   },
   "Rodrigo Sezinando": {
     "name": "Rodrigo Sezinando",
-    "record": "9-2",
+    "record": "10-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -100959,16 +100959,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 2.25,
-      "stracc": 27.0,
-      "sapm": 8.76,
+      "slpm": 2.7,
+      "stracc": 41.0,
+      "sapm": 3.94,
       "strdef": 55.0,
-      "tdavg": 3.37,
-      "tdacc": 25.0,
+      "tdavg": 4.15,
+      "tdacc": 26.0,
       "tddef": 66.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 44
+      "finishRate": 50
     }
   },
   "Scott Shaffer": {
@@ -104321,7 +104321,7 @@
   },
   "Jacobe Smith": {
     "name": "Jacobe Smith",
-    "record": "13-0",
+    "record": "14-0",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -104334,16 +104334,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 6.91,
-      "stracc": 67.0,
-      "sapm": 2.77,
+      "slpm": 5.22,
+      "stracc": 65.0,
+      "sapm": 2.09,
       "strdef": 55.0,
-      "tdavg": 7.92,
-      "tdacc": 85.0,
+      "tdavg": 5.96,
+      "tdacc": 88.0,
       "tddef": 100.0,
-      "subavg": 0.7,
+      "subavg": 0.4,
       "winStreak": 0,
-      "finishRate": 62
+      "finishRate": 57
     }
   },
   "Walter Smith-Cotito": {
@@ -124756,7 +124756,7 @@
   },
   "Joe Kropschot": {
     "name": "Joe Kropschot",
-    "record": "9-3",
+    "record": "10-3",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -124770,16 +124770,16 @@
     "tendencies": [],
     "pastMatchups": {},
     "stats": {
-      "slpm": 7.93,
-      "stracc": 61.0,
-      "sapm": 3.93,
+      "slpm": 6.35,
+      "stracc": 62.0,
+      "sapm": 3.36,
       "strdef": 55.0,
-      "tdavg": 1.0,
-      "tdacc": 50.0,
-      "tddef": 50.0,
-      "subavg": 3.0,
+      "tdavg": 1.4,
+      "tdacc": 66.0,
+      "tddef": 33.0,
+      "subavg": 4.2,
       "winStreak": 0,
-      "finishRate": 33
+      "finishRate": 40
     }
   },
   "Ozzy Martin": {
@@ -125932,30 +125932,30 @@
   },
   "Lucia Szabova": {
     "name": "Lucia Szabova",
-    "record": "12-0",
+    "record": "13-0",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
     "weightClass": "Lightweight",
     "naturalWeight": 155,
     "reach": 70,
-    "style": "Mixed",
+    "style": "Wrestler/BJJ",
     "wrestlerResilience": 5,
     "reachDisadvantageHandling": 5,
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "pastMatchups": {},
     "stats": {
-      "slpm": 3.5,
-      "stracc": 0.0,
-      "sapm": 3.0,
+      "slpm": 5.25,
+      "stracc": 72.0,
+      "sapm": 1.05,
       "strdef": 55.0,
-      "tdavg": 1.0,
-      "tdacc": 0.0,
-      "tddef": 0.0,
-      "subavg": 0.3,
+      "tdavg": 5.63,
+      "tdacc": 62.0,
+      "tddef": 88.0,
+      "subavg": 1.1,
       "winStreak": 0,
-      "finishRate": 25
+      "finishRate": 31
     }
   },
   "Ilimbek Akylbek Uulu": {
