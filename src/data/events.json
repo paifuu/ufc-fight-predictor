@@ -1,27 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC Fight Night: Bonfim vs. Brady",
-      "date": "November 07, 2026",
-      "venue": "Meta APEX, Las Vegas",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        },
-        {
-          "f1": "Sean Brady",
-          "f2": "Gabriel Bonfim",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: Sean Brady vs Gabriel Bonfim."
-        }
-      ]
-    },
-    {
       "event": "UFC 334",
       "date": "November 14, 2026",
       "venue": "Madison Square Garden, New York",
@@ -120,6 +99,97 @@
       ]
     },
     {
+      "event": "UFC Fight Night: Adesanya vs Magomedov",
+      "date": "December 05, 2026",
+      "venue": "ANB Arena, Riyadh",
+      "fights": [
+        {
+          "f1": "Abdul Hussein",
+          "f2": "Hecher Sosa",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Abdul Hussein vs Hecher Sosa."
+        },
+        {
+          "f1": "Matthieu Letho Duclos",
+          "f2": "Modestino Rodrigues",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Matthieu Letho Duclos vs Modestino Rodrigues."
+        },
+        {
+          "f1": "Mehemmedeli Osmanli",
+          "f2": "Pavel Andrusca",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Mehemmedeli Osmanli vs Pavel Andrusca."
+        },
+        {
+          "f1": "JunYong Park",
+          "f2": "Marco Tulio",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: JunYong Park vs Marco Tulio."
+        },
+        {
+          "f1": "Uran Satybaldiev",
+          "f2": "Ivan Gnizditskiy",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Uran Satybaldiev vs Ivan Gnizditskiy."
+        },
+        {
+          "f1": "Bruno Silva",
+          "f2": "Jafel Filho",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Bruno Silva vs Jafel Filho."
+        },
+        {
+          "f1": "Ion Cutelaba",
+          "f2": "Magomed Tuchalov",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Ion Cutelaba vs Magomed Tuchalov."
+        },
+        {
+          "f1": "Mairon Santos",
+          "f2": "Akbar Abdullaev",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Mairon Santos vs Akbar Abdullaev."
+        },
+        {
+          "f1": "Levan Chokheli",
+          "f2": "Islam Dulatov",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Levan Chokheli vs Islam Dulatov."
+        },
+        {
+          "f1": "Serghei Spivac",
+          "f2": "Mario Pinto",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Serghei Spivac vs Mario Pinto."
+        },
+        {
+          "f1": "Yaroslav Amosov",
+          "f2": "Ian Machado Garry",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Yaroslav Amosov vs Ian Machado Garry."
+        },
+        {
+          "f1": "Israel Adesanya",
+          "f2": "Shara Magomedov",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Israel Adesanya vs Shara Magomedov."
+        }
+      ]
+    },
+    {
       "event": "UFC 335",
       "date": "December 12, 2026",
       "venue": "T-Mobile Arena, Las Vegas",
@@ -200,6 +270,48 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: Manel Kape vs Joshua Van."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Salkilld vs. Saint Denis",
+      "date": "February 06, 2027",
+      "venue": "Afterpay Arena, Sydney",
+      "fights": [
+        {
+          "f1": "JooSang Yoo",
+          "f2": "Marwan Rahiki",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: JooSang Yoo vs Marwan Rahiki."
+        },
+        {
+          "f1": "Joanderson Brito",
+          "f2": "Kaan Ofli",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Joanderson Brito vs Kaan Ofli."
+        },
+        {
+          "f1": "Robert Whittaker",
+          "f2": "Bogdan Guskov",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Robert Whittaker vs Bogdan Guskov."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Benoît Saint Denis",
+          "f2": "Quillan Salkilld",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Benoît Saint Denis vs Quillan Salkilld."
         }
       ]
     }
@@ -1279,6 +1391,27 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Bonfim vs. Brady",
+      "date": "November 07, 2026",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Sean Brady",
+          "f2": "Gabriel Bonfim",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Sean Brady vs Gabriel Bonfim."
         }
       ]
     }
