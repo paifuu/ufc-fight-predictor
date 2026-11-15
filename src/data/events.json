@@ -1,34 +1,6 @@
 {
   "upcoming": [
     {
-      "event": "UFC 334",
-      "date": "November 14, 2026",
-      "venue": "Madison Square Garden, New York",
-      "fights": [
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        },
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        },
-        {
-          "f1": "TBA",
-          "f2": "Opponent TBA",
-          "weightClass": "",
-          "isMain": false,
-          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
-        }
-      ]
-    },
-    {
       "event": "UFC Fight Night: Procházka vs. Stirling",
       "date": "November 21, 2026",
       "venue": "ABHA Arena, Doha",
@@ -239,6 +211,27 @@
       ]
     },
     {
+      "event": "UFC Fight Night: Bonfim vs. Brady",
+      "date": "January 23, 2027",
+      "venue": "Meta APEX, Las Vegas",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Sean Brady",
+          "f2": "Gabriel Bonfim",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Sean Brady vs Gabriel Bonfim."
+        }
+      ]
+    },
+    {
       "event": "UFC 336: Van vs. Kape",
       "date": "January 30, 2027",
       "venue": "Scotiabank Arena, Toronto",
@@ -312,6 +305,27 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: Benoît Saint Denis vs Quillan Salkilld."
+        }
+      ]
+    },
+    {
+      "event": "UFC Fight Night: Pyfer vs. Nickal",
+      "date": "February 13, 2027",
+      "venue": "Rocket Arena, Cleveland",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "Joe Pyfer",
+          "f2": "Bo Nickal",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: Joe Pyfer vs Bo Nickal."
         }
       ]
     }
@@ -1412,6 +1426,34 @@
           "weightClass": "",
           "isMain": false,
           "context": "Upcoming UFC fight: Sean Brady vs Gabriel Bonfim."
+        }
+      ]
+    },
+    {
+      "event": "UFC 334",
+      "date": "November 14, 2026",
+      "venue": "Madison Square Garden, New York",
+      "fights": [
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
+        },
+        {
+          "f1": "TBA",
+          "f2": "Opponent TBA",
+          "weightClass": "",
+          "isMain": false,
+          "context": "Upcoming UFC fight: TBA vs Opponent TBA."
         }
       ]
     }
