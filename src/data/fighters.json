@@ -185,7 +185,7 @@
   },
   "Ciryl Gane": {
     "name": "Ciryl Gane",
-    "record": "14-2",
+    "record": "15-2",
     "rank": "#1 HW",
     "country": "🇫🇷",
     "age": 28,
@@ -229,16 +229,16 @@
     },
     "opponentQuality": 88,
     "stats": {
-      "slpm": 5.4,
-      "stracc": 61.0,
-      "sapm": 2.31,
+      "slpm": 5.9,
+      "stracc": 63.0,
+      "sapm": 2.74,
       "strdef": 55.0,
-      "tdavg": 0.66,
+      "tdavg": 0.58,
       "tdacc": 23.0,
-      "tddef": 47.0,
-      "subavg": 0.6,
+      "tddef": 74.0,
+      "subavg": 0.5,
       "winStreak": 2,
-      "finishRate": 79
+      "finishRate": 73
     },
     "pastMatchups": {
       "Jon Jones": "L"
@@ -784,7 +784,7 @@
   },
   "Josh Hokit": {
     "name": "Josh Hokit",
-    "record": "10-0",
+    "record": "10-1",
     "rank": "Unranked HW",
     "country": "🇺🇸",
     "age": 28,
@@ -826,14 +826,14 @@
     },
     "opponentQuality": 62,
     "stats": {
-      "slpm": 9.29,
-      "stracc": 64.0,
-      "sapm": 5.28,
+      "slpm": 7.88,
+      "stracc": 60.0,
+      "sapm": 7.0,
       "strdef": 55.0,
-      "tdavg": 3.73,
-      "tdacc": 47.0,
+      "tdavg": 2.94,
+      "tdacc": 24.0,
       "tddef": 77.0,
-      "subavg": 0.4,
+      "subavg": 0.2,
       "winStreak": 3,
       "finishRate": 70
     },
@@ -2540,14 +2540,14 @@
     },
     "opponentQuality": 84,
     "stats": {
-      "slpm": 4.24,
+      "slpm": 4.21,
       "stracc": 49.0,
-      "sapm": 3.21,
+      "sapm": 3.17,
       "strdef": 55.0,
-      "tdavg": 0.79,
-      "tdacc": 36.0,
+      "tdavg": 0.84,
+      "tdacc": 34.0,
       "tddef": 57.0,
-      "subavg": 0.6,
+      "subavg": 0.7,
       "winStreak": 1,
       "finishRate": 66
     },
@@ -2974,13 +2974,13 @@
     },
     "opponentQuality": 72,
     "stats": {
-      "slpm": 5.77,
+      "slpm": 4.9,
       "stracc": 60.0,
-      "sapm": 3.4,
+      "sapm": 3.44,
       "strdef": 55.0,
-      "tdavg": 0.34,
+      "tdavg": 0.25,
       "tdacc": 50.0,
-      "tddef": 55.0,
+      "tddef": 62.0,
       "subavg": 0.3,
       "winStreak": 6,
       "finishRate": 100
@@ -5960,7 +5960,7 @@
   },
   "Alatengheili The Mongolian Knight": {
     "name": "Alatengheili The Mongolian Knight",
-    "record": "18-10",
+    "record": "18-11",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -5973,13 +5973,13 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 2.71,
+      "slpm": 2.76,
       "stracc": 31.0,
-      "sapm": 4.96,
+      "sapm": 5.19,
       "strdef": 55.0,
-      "tdavg": 1.88,
-      "tdacc": 42.0,
-      "tddef": 75.0,
+      "tdavg": 1.69,
+      "tdacc": 40.0,
+      "tddef": 76.0,
       "subavg": 0.3,
       "winStreak": 0,
       "finishRate": 22
@@ -7283,7 +7283,7 @@
   },
   "Cesar Almeida": {
     "name": "Cesar Almeida",
-    "record": "7-3",
+    "record": "8-3",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -7296,16 +7296,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.73,
+      "slpm": 3.92,
       "stracc": 60.0,
-      "sapm": 2.23,
+      "sapm": 2.34,
       "strdef": 55.0,
-      "tdavg": 0.2,
-      "tdacc": 33.0,
+      "tdavg": 0.38,
+      "tdacc": 50.0,
       "tddef": 53.0,
       "subavg": 0.2,
       "winStreak": 0,
-      "finishRate": 86
+      "finishRate": 88
     }
   },
   "Mauricio Alonso": {
@@ -13169,7 +13169,7 @@
   },
   "Yousri Belgaroui": {
     "name": "Yousri Belgaroui",
-    "record": "11-3",
+    "record": "11-4",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -13182,14 +13182,14 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 6.44,
-      "stracc": 63.0,
-      "sapm": 2.28,
+      "slpm": 5.48,
+      "stracc": 62.0,
+      "sapm": 2.08,
       "strdef": 55.0,
-      "tdavg": 0.27,
+      "tdavg": 0.21,
       "tdacc": 100.0,
-      "tddef": 66.0,
-      "subavg": 0.3,
+      "tddef": 65.0,
+      "subavg": 0.2,
       "winStreak": 0,
       "finishRate": 64
     }
@@ -15707,7 +15707,7 @@
   },
   "Caio Borralho": {
     "name": "Caio Borralho",
-    "record": "18-2",
+    "record": "19-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -15720,16 +15720,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.47,
+      "slpm": 3.28,
       "stracc": 56.0,
-      "sapm": 2.61,
+      "sapm": 2.54,
       "strdef": 55.0,
-      "tdavg": 1.25,
-      "tdacc": 50.0,
+      "tdavg": 1.58,
+      "tdacc": 46.0,
       "tddef": 76.0,
       "subavg": 0.4,
       "winStreak": 0,
-      "finishRate": 33
+      "finishRate": 32
     }
   },
   "Zachary Borrego": {
@@ -22673,7 +22673,7 @@
   },
   "Macy Chiasson": {
     "name": "Macy Chiasson",
-    "record": "11-6",
+    "record": "11-7",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -22686,16 +22686,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.21,
-      "stracc": 46.0,
-      "sapm": 2.76,
+      "slpm": 3.15,
+      "stracc": 45.0,
+      "sapm": 2.81,
       "strdef": 55.0,
-      "tdavg": 1.87,
+      "tdavg": 1.83,
       "tdacc": 35.0,
-      "tddef": 62.0,
+      "tddef": 61.0,
       "subavg": 0.4,
       "winStreak": 0,
-      "finishRate": 91
+      "finishRate": 100
     }
   },
   "Michael Chiesa": {
@@ -25589,7 +25589,7 @@
   },
   "Melquizael Costa": {
     "name": "Melquizael Costa",
-    "record": "26-8",
+    "record": "27-8",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -25602,16 +25602,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.29,
-      "stracc": 47.0,
-      "sapm": 3.19,
+      "slpm": 4.21,
+      "stracc": 46.0,
+      "sapm": 2.96,
       "strdef": 55.0,
-      "tdavg": 1.53,
+      "tdavg": 1.35,
       "tdacc": 35.0,
-      "tddef": 50.0,
-      "subavg": 0.8,
+      "tddef": 53.0,
+      "subavg": 1.0,
       "winStreak": 0,
-      "finishRate": 35
+      "finishRate": 33
     }
   },
   "Vitor Costa": {
@@ -30179,7 +30179,7 @@
   },
   "Juan Diaz": {
     "name": "Juan Diaz",
-    "record": "16-1",
+    "record": "17-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -30192,16 +30192,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.72,
-      "stracc": 41.0,
-      "sapm": 3.4,
+      "slpm": 5.25,
+      "stracc": 43.0,
+      "sapm": 3.31,
       "strdef": 55.0,
-      "tdavg": 5.5,
-      "tdacc": 50.0,
-      "tddef": 0.0,
-      "subavg": 0.8,
+      "tdavg": 3.08,
+      "tdacc": 46.0,
+      "tddef": 100.0,
+      "subavg": 0.4,
       "winStreak": 0,
-      "finishRate": 31
+      "finishRate": 29
     }
   },
   "Mark Dickman": {
@@ -30638,7 +30638,7 @@
   },
   "Drew Dober": {
     "name": "Drew Dober",
-    "record": "29-15",
+    "record": "29-16",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -30651,13 +30651,13 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.48,
-      "stracc": 41.0,
-      "sapm": 4.33,
+      "slpm": 4.4,
+      "stracc": 40.0,
+      "sapm": 4.31,
       "strdef": 55.0,
-      "tdavg": 0.61,
+      "tdavg": 0.57,
       "tdacc": 16.0,
-      "tddef": 58.0,
+      "tddef": 60.0,
       "subavg": 0.1,
       "winStreak": 0,
       "finishRate": 79
@@ -32312,7 +32312,7 @@
   },
   "Chris Duncan": {
     "name": "Chris Duncan",
-    "record": "15-3",
+    "record": "16-3",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -32325,16 +32325,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.83,
-      "stracc": 45.0,
-      "sapm": 4.57,
+      "slpm": 4.71,
+      "stracc": 46.0,
+      "sapm": 4.36,
       "strdef": 55.0,
-      "tdavg": 2.92,
-      "tdacc": 40.0,
+      "tdavg": 2.61,
+      "tdacc": 37.0,
       "tddef": 55.0,
-      "subavg": 0.6,
+      "subavg": 0.5,
       "winStreak": 0,
-      "finishRate": 67
+      "finishRate": 62
     }
   },
   "Christian Leroy Duncan": {
@@ -33392,7 +33392,7 @@
   },
   "Evan Elder": {
     "name": "Evan Elder",
-    "record": "10-2",
+    "record": "11-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -33405,16 +33405,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 5.66,
-      "stracc": 50.0,
-      "sapm": 4.94,
+      "slpm": 5.92,
+      "stracc": 53.0,
+      "sapm": 4.92,
       "strdef": 55.0,
-      "tdavg": 0.48,
-      "tdacc": 15.0,
+      "tdavg": 1.55,
+      "tdacc": 34.0,
       "tddef": 40.0,
-      "subavg": 0.5,
+      "subavg": 0.4,
       "winStreak": 0,
-      "finishRate": 50
+      "finishRate": 45
     }
   },
   "Billy Elekana": {
@@ -42788,7 +42788,7 @@
   },
   "Jared Gordon": {
     "name": "Jared Gordon",
-    "record": "21-9",
+    "record": "21-10",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -42801,11 +42801,11 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 5.57,
+      "slpm": 5.26,
       "stracc": 53.0,
-      "sapm": 4.11,
+      "sapm": 4.07,
       "strdef": 55.0,
-      "tdavg": 1.91,
+      "tdavg": 2.06,
       "tdacc": 34.0,
       "tddef": 60.0,
       "subavg": 0.3,
@@ -45029,7 +45029,7 @@
   },
   "Luis Gurule": {
     "name": "Luis Gurule",
-    "record": "11-4",
+    "record": "12-4",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -45042,16 +45042,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 5.44,
+      "slpm": 4.94,
       "stracc": 43.0,
-      "sapm": 5.35,
+      "sapm": 5.02,
       "strdef": 55.0,
-      "tdavg": 0.64,
-      "tdacc": 15.0,
-      "tddef": 60.0,
+      "tdavg": 0.88,
+      "tdacc": 20.0,
+      "tddef": 61.0,
       "subavg": 0.2,
       "winStreak": 0,
-      "finishRate": 45
+      "finishRate": 42
     }
   },
   "Bogdan Guskov": {
@@ -46784,7 +46784,7 @@
   },
   "Kayla Harrison": {
     "name": "Kayla Harrison",
-    "record": "19-1",
+    "record": "20-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -46797,16 +46797,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.29,
-      "stracc": 62.0,
-      "sapm": 1.1,
+      "slpm": 3.34,
+      "stracc": 61.0,
+      "sapm": 1.37,
       "strdef": 55.0,
-      "tdavg": 2.84,
-      "tdacc": 37.0,
-      "tddef": 100.0,
-      "subavg": 0.9,
+      "tdavg": 2.8,
+      "tdacc": 36.0,
+      "tddef": 77.0,
+      "subavg": 1.2,
       "winStreak": 0,
-      "finishRate": 26
+      "finishRate": 30
     }
   },
   "Collin Hart": {
@@ -54695,7 +54695,7 @@
   },
   "Donte Johnson": {
     "name": "Donte Johnson",
-    "record": "9-0",
+    "record": "9-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -54708,16 +54708,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 3.36,
-      "stracc": 46.0,
-      "sapm": 2.11,
+      "slpm": 3.53,
+      "stracc": 44.0,
+      "sapm": 2.88,
       "strdef": 55.0,
-      "tdavg": 1.87,
+      "tdavg": 1.64,
       "tdacc": 100.0,
-      "tddef": 76.0,
+      "tddef": 71.0,
       "subavg": 0.6,
       "winStreak": 0,
-      "finishRate": 67
+      "finishRate": 78
     }
   },
   "Brian Johnston": {
@@ -71894,7 +71894,7 @@
   },
   "Terrance McKinney": {
     "name": "Terrance McKinney",
-    "record": "18-9",
+    "record": "19-9",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -71907,14 +71907,14 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 6.83,
-      "stracc": 55.0,
-      "sapm": 4.07,
+      "slpm": 6.98,
+      "stracc": 54.0,
+      "sapm": 4.26,
       "strdef": 55.0,
-      "tdavg": 3.27,
+      "tdavg": 3.13,
       "tdacc": 42.0,
       "tddef": 72.0,
-      "subavg": 1.8,
+      "subavg": 1.7,
       "winStreak": 0,
       "finishRate": 100
     }
@@ -73190,7 +73190,7 @@
   },
   "Bia Mesquita": {
     "name": "Bia Mesquita",
-    "record": "8-0",
+    "record": "9-0",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -73203,16 +73203,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.52,
-      "stracc": 57.0,
-      "sapm": 1.27,
+      "slpm": 4.69,
+      "stracc": 60.0,
+      "sapm": 1.06,
       "strdef": 55.0,
-      "tdavg": 3.57,
-      "tdacc": 75.0,
+      "tdavg": 3.75,
+      "tdacc": 66.0,
       "tddef": 0.0,
-      "subavg": 3.6,
+      "subavg": 3.8,
       "winStreak": 0,
-      "finishRate": 75
+      "finishRate": 78
     }
   },
   "Jeremiah Metcalf": {
@@ -73811,7 +73811,7 @@
   },
   "Jim Miller": {
     "name": "Jim Miller",
-    "record": "39-19",
+    "record": "39-20",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -73824,16 +73824,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 2.92,
+      "slpm": 2.94,
       "stracc": 42.0,
-      "sapm": 3.43,
+      "sapm": 3.46,
       "strdef": 55.0,
-      "tdavg": 1.49,
+      "tdavg": 1.48,
       "tdacc": 45.0,
       "tddef": 47.0,
       "subavg": 1.7,
       "winStreak": 0,
-      "finishRate": 79
+      "finishRate": 82
     }
   },
   "Cole Miller": {
@@ -81074,7 +81074,7 @@
   },
   "Amanda Nunes": {
     "name": "Amanda Nunes",
-    "record": "23-5",
+    "record": "23-6",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -81087,16 +81087,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.55,
+      "slpm": 4.36,
       "stracc": 51.0,
-      "sapm": 2.62,
+      "sapm": 2.55,
       "strdef": 55.0,
-      "tdavg": 2.73,
-      "tdacc": 54.0,
-      "tddef": 82.0,
+      "tdavg": 2.66,
+      "tdacc": 52.0,
+      "tddef": 79.0,
       "subavg": 0.7,
       "winStreak": 0,
-      "finishRate": 74
+      "finishRate": 78
     }
   },
   "Nina Nunes": {
@@ -89957,7 +89957,7 @@
   },
   "Charles Radtke": {
     "name": "Charles Radtke",
-    "record": "12-5",
+    "record": "12-6",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -89970,16 +89970,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 2.5,
-      "stracc": 53.0,
-      "sapm": 2.45,
+      "slpm": 2.21,
+      "stracc": 50.0,
+      "sapm": 2.94,
       "strdef": 55.0,
-      "tdavg": 1.99,
-      "tdacc": 44.0,
+      "tdavg": 2.05,
+      "tdacc": 40.0,
       "tddef": 100.0,
-      "subavg": 0.5,
+      "subavg": 0.4,
       "winStreak": 0,
-      "finishRate": 67
+      "finishRate": 75
     }
   },
   "Loik Radzhabov": {
@@ -97112,7 +97112,7 @@
   },
   "Samuel Sanches": {
     "name": "Samuel Sanches",
-    "record": "11-1",
+    "record": "11-2",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -97125,13 +97125,13 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 5.95,
-      "stracc": 75.0,
-      "sapm": 3.0,
+      "slpm": 5.0,
+      "stracc": 44.0,
+      "sapm": 6.17,
       "strdef": 55.0,
       "tdavg": 1.0,
       "tdacc": 0.0,
-      "tddef": 100.0,
+      "tddef": 53.0,
       "subavg": 0.3,
       "winStreak": 0,
       "finishRate": 36
@@ -110963,7 +110963,7 @@
   },
   "Stephen Thompson": {
     "name": "Stephen Thompson",
-    "record": "17-9",
+    "record": "18-9",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -110976,16 +110976,16 @@
     "speedVsHandsHandling": 5,
     "tendencies": [],
     "stats": {
-      "slpm": 4.05,
+      "slpm": 4.09,
       "stracc": 46.0,
-      "sapm": 3.0,
+      "sapm": 2.92,
       "strdef": 55.0,
       "tdavg": 0.23,
       "tdacc": 35.0,
       "tddef": 63.0,
       "subavg": 0.3,
       "winStreak": 0,
-      "finishRate": 71
+      "finishRate": 72
     }
   },
   "Josh Thomson": {
@@ -123048,7 +123048,7 @@
   },
   "Bilal Hasan": {
     "name": "Bilal Hasan",
-    "record": "10-0",
+    "record": "10-1",
     "rank": "NR",
     "country": "🌍",
     "age": 28,
@@ -123062,13 +123062,13 @@
     "tendencies": [],
     "pastMatchups": {},
     "stats": {
-      "slpm": 9.01,
+      "slpm": 5.43,
       "stracc": 47.0,
-      "sapm": 4.38,
+      "sapm": 3.23,
       "strdef": 55.0,
-      "tdavg": 1.83,
-      "tdacc": 100.0,
-      "tddef": 0.0,
+      "tdavg": 0.65,
+      "tdacc": 50.0,
+      "tddef": 60.0,
       "subavg": 0.3,
       "winStreak": 0,
       "finishRate": 50
